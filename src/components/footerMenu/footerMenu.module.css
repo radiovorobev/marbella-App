@@ -1,0 +1,35 @@
+.footer__menu_container {
+  margin: 32px 0 40px 0;
+  padding: 0;
+}
+
+.footer__menu {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__menu a {
+  color: #fff;
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.11px;
+  text-align: left;
+  text-decoration: none;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+}
+
+.footer__menu a:hover {
+  color: rgba(255, 255, 255, 0.35)
+}
+
+@media (max-width: 1439px) {
+  .footer__menu_container {
+    order: 3;
+    margin: 0 0 40px 0;
+  }
+}

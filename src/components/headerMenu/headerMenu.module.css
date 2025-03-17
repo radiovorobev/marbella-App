@@ -1,0 +1,35 @@
+.header__menu_container {
+  margin: 0;
+  padding: 0;
+}
+
+.header__menu {
+  display: flex;
+  flex-flow: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.header__menu a {
+  color: #fff;
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.11px;
+  text-align: left;
+  text-decoration: none;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+}
+
+.header__menu a:hover {
+  color: #a00d18;
+}
+
+@media screen and (max-width: 1439px) {
+  .header__menu_container {
+    display: none;
+  }
+}

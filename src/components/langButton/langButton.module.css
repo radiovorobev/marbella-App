@@ -1,0 +1,82 @@
+.header__lang {
+  position: relative;
+}
+
+.header__langButton {
+  font-family: 'Cera Pro', sans-serif;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.63px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.header__lang:hover .header__langButton {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #a00d18;
+  color: #a00d18;
+}
+
+.header__langMenu {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 40px;
+  background: #e51b22;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 2px solid #a00d18;
+  border-top: none;
+  margin-top: -2px; /* компенсируем border кнопки */
+  overflow: hidden;
+  display: none;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.header__lang:hover .header__langMenu {
+  display: block;
+}
+
+.header__langOption {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.header__langOption:hover {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+@media screen and (max-width: 1439px) {  
+  .header__langButton {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    line-height: 100%;
+  }
+
+  .header__langMenu {
+    width: 32px;
+  }
+
+  .header__langOption {
+    font-size: 14px;
+    line-height: 100%;
+  }
+}

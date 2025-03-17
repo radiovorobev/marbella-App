@@ -1,0 +1,140 @@
+.section__about {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 90px 124px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+}
+
+.section__about_header {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60.34px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  max-width: 80%;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+.section__about_block {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+.section__about_block img {
+  width: 596px;
+  height: 400px;
+}
+
+.section__about_textBlock {
+  display: flex;
+  flex-flow: column;
+  width: 50%;
+  padding: 0 20px 0 0;
+}
+
+.section__about_textBlock:nth-child(2n) {
+  padding: 0 0 0 20px;
+}
+
+.section__about_textBlock h3 {
+  font-family: Cera Pro;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40.22px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #e51b22;
+  margin: 0;
+  max-width: 370px;
+  text-transform: uppercase;
+}
+
+.section__about_text {
+  font-family: Cera Pro;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 26.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  max-width: 80%;
+}
+
+.section__about_number {
+  font-family: Cera Pro;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80.45px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #e51b22;
+  margin: 0;
+}
+
+@media screen and (max-width: 1439px) {
+
+  .section__about {
+    padding: 0;
+  }
+
+  .section__about_header {
+    font-size: 24px;
+    line-height: 30.17px;
+    max-width: 100%;
+    margin: 0 0 20px 0;
+    padding: 50px 20px 0;
+  }
+
+  .section__about_block {
+    flex-flow: column;
+    justify-content: flex-start;
+  }
+
+  .section__about_block:nth-of-type(odd) {
+    flex-flow: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .section__about_block img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .section__about_textBlock {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    min-height: 324px;
+  }
+
+  .section__about_number {
+    font-size: 48px;
+    line-height: 60.34px;
+    margin-bottom: 10px;
+  }
+
+  .section__about_textBlock h3 {
+    font-size: 20px;
+    line-height: 25.14px;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .section__about_text {
+    font-size: 16px;
+    line-height: 20.11px;
+    max-width: 100%;
+  }
+}

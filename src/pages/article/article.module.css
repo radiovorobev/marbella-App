@@ -1,0 +1,126 @@
+.newsPageContainer {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 150px 124px 100px;
+  box-sizing: border-box;
+}
+
+.newsHeader {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  margin: 0 0 50px 0;
+}
+
+.backButton {
+  font-family: Cera Pro;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20.11px;
+  letter-spacing: 0%;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 0 0 0;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 3px;
+}
+
+.title {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40.22px;
+  letter-spacing: 0%;  
+  margin: 0 0 0 70px;
+  padding: 0;
+  width: 586px;
+  text-transform: uppercase;
+  flex-grow: 1;
+  display: block
+}
+
+.titleMobile {
+  display: none;
+}
+
+.date {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.11px;
+  letter-spacing: 0%;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.headerImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.forwardButton {
+  font-family: Cera Pro;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20.11px;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 30px 0 0 0;
+  padding: 5px 0 0 0;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+}
+
+.forwardButtonIcon {
+  width: 15px;
+  height: 15px;
+  rotate: 180deg;
+}
+
+@media screen and (max-width: 1439px) {
+  .newsPageContainer {
+    padding: 100px 0 50px;
+  }
+
+  .title {
+    display: none;
+  }
+
+
+  .titleMobile {
+    display: block;
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30.17px;
+    color: #000;
+    text-transform: uppercase;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 0 30px 0;
+  }
+
+  .forwardButton {
+    justify-content: flex-start;
+    margin: 0px 20px 0;
+  }
+}

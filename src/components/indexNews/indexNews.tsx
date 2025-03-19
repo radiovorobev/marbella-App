@@ -68,7 +68,7 @@ const IndexNews = () => {
       <div className={styles.section__news_container}>
         {news.length > 0 ? (
           news.map((item) => (
-            <a key={item.id} href={`./news/${item.id}.html`}>
+            <a key={item.id} href={`./news/${item.id}`}>
               <article className={styles.section__news_article}>
                 <img 
                   src={item.preview_image_url || './images/news/default-news.jpg'} 

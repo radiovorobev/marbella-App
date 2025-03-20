@@ -2,31 +2,21 @@ import styles from "./sectionImage.module.css";
 
 import firstScreenVideo from '../../video/background.mp4';
 import backgroundPoster from '../../images/backgroundPoster.jpg';
-import { useLanguage } from "../../context/languageContext";
 
-const SectionImage = () => {
+interface SectionImageProps {
+  title: string;
+}
 
-  const {currentLanguage} = useLanguage();
+const SectionImage = ({ title }: SectionImageProps) => {
 
-  function getLang(lang: string) {
-    switch(lang) {
-      case 'en':
-        return "Passion Growth Excellence";
-      case 'es':
-        return "Pasión Crecimiento Excelencia";
-      case 'ru':
-        return "Страсть Рост Превосходство";
-      default:
-        return "Passion Growth Excellence";
-    }
-  }
+  const formattedTitle = title?.replace(/&nbsp;/g, '\u00A0');
 
   return (
     <section className={styles.section__image}>
       <video autoPlay muted loop playsInline poster={backgroundPoster} className={styles.backgroundVideo}>
         <source src={firstScreenVideo} type="video/mp4" />
       </video>
-      <h2 className={styles.section__image_text}>{getLang(currentLanguage)}</h2>
+      <h2 className={styles.section__image_text}>{formattedTitle}</h2>
     </section>
   );
 };

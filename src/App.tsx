@@ -6,6 +6,7 @@ import Footer from './components/footer/footer';
 import IndexPage from './pages';
 import ArticlePage from './pages/article/article';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AboutPage from './pages/about/about';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<IndexPage />} />
         <Route path="/news/:id" element={<ArticlePage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />
       </LanguageProvider>

@@ -1,4 +1,4 @@
-import styles from './text.module.css';
+import styles from './articleText.module.css';
 
 interface ArticleTextProps {
   articleText: string;

@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "../../context/languageContext";
 
 import fetchArticle from "../../api/fetchArticle";
-import ArticleText from "../../components/text/text";
+import ArticleText from "../../components/articleText/articleText";
 
 import styles from "./article.module.css";
 
 import miniArrowImg from "../../images/icon_mini_arrow.svg";
+import getLocalizedContent from "../../utils/getLocalizedContent";
 
 type PostStatus = 'Draft' | 'Published' | 'Archived';
 
@@ -50,19 +51,6 @@ const ArticlePage = () => {
     getArticle();
   }, [id]);
 
-  const getLocalizedContent = (
-    key: 'text' | 'title', 
-    fallback: string = ''
-  ): string => {
-    if (!article || article.length === 0) return fallback;
-    
-    const item = article[0];
-    const fieldKey = `${key}_${currentLanguage}` as keyof Article;
-    const fallbackKey = `${key}_en` as keyof Article;
-    
-    return (item[fieldKey] as string) || (item[fallbackKey] as string) || fallback;
-  };
-
   const formatPublishDate = (): string => {
     if (!article || !article[0].publish_date) return '';
     
@@ -99,18 +87,18 @@ const ArticlePage = () => {
           <Link className={styles.backButton} to="/news">
             <img src={miniArrowImg} alt="View All News" />View All News
           </Link>
-          <h1 className={styles.title}>{getLocalizedContent('title')}</h1>
+          <h1 className={styles.title}>{getLocalizedContent(article[0], 'title', currentLanguage)}</h1>
           <span className={styles.date}>{formatPublishDate()}</span>
         </section>
-        <h1 className={styles.titleMobile}>{getLocalizedContent('title')}</h1>
+        <h1 className={styles.titleMobile}>{getLocalizedContent(article[0], 'title', currentLanguage)}</h1>
         <section>
           <img 
             className={styles.headerImage}
             src={getImageUrl()} 
-            alt={getLocalizedContent('title')}
+            alt={getLocalizedContent(article[0], 'title', currentLanguage)}
           />
         </section>
-        <ArticleText articleText={getLocalizedContent('text')} />
+        <ArticleText articleText={getLocalizedContent(article[0], 'text', currentLanguage)} />
         <Link className={styles.forwardButton} to="/news">
           Next Article
           <img className={styles.forwardButtonIcon} src={miniArrowImg} alt="Next Article" />

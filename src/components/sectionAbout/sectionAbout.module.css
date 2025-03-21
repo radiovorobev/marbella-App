@@ -56,7 +56,7 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #e51b22;
-  margin: 0 0 20px 0;
+  margin: 0;
   max-width: 370px;
   text-transform: uppercase;
 }
@@ -134,7 +134,7 @@
     font-size: 20px;
     line-height: 25.14px;
     max-width: 100%;
-    margin-bottom: 20px;
+    margin: 0;
   }
 
   .section__about_text {

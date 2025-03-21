@@ -76,12 +76,36 @@ const IndexPage = () => {
     getIndexPage();
   }, []);
 
+  const prepareAboutData = () => {
+    if (!indexPageData || indexPageData.length === 0) return null;
+    
+    return {
+      header: getLocalizedContent(indexPageData[0], 'about_header', currentLanguage),
+      bullets: [
+        {
+          header: getLocalizedContent(indexPageData[0], 'bullit_one_header', currentLanguage),
+          text: getLocalizedContent(indexPageData[0], 'bullit_one_text', currentLanguage)
+        },
+        {
+          header: getLocalizedContent(indexPageData[0], 'bullit_two_header', currentLanguage),
+          text: getLocalizedContent(indexPageData[0], 'bullit_two_text', currentLanguage)
+        },
+        {
+          header: getLocalizedContent(indexPageData[0], 'bullit_three_header', currentLanguage),
+          text: getLocalizedContent(indexPageData[0], 'bullit_three_text', currentLanguage)
+        }
+      ]
+    };
+  };
+
+  const aboutData = prepareAboutData();
+
   return (
     <main>
       {indexPageData && indexPageData.length > 0 ? (
       <>
         <SectionImage title={getLocalizedContent(indexPageData[0], 'page_title', currentLanguage)} />
-        <SectionAbout />
+        <SectionAbout aboutData={aboutData} />
         <IndexNews />
         <Gallery />
       </>

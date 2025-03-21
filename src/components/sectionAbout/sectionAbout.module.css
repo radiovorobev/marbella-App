@@ -36,11 +36,15 @@
   display: flex;
   flex-flow: column;
   width: 50%;
-  padding: 0 20px 0 0;
+  padding: 20px 20px 0 0;
+}
+
+.section__about_textBlock:nth-child(1n) {
+  padding: 20px 0 0 0;
 }
 
 .section__about_textBlock:nth-child(2n) {
-  padding: 0 0 0 20px;
+  padding: 20px 0 0 20px;
 }
 
 .section__about_textBlock h3 {
@@ -52,10 +56,11 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #e51b22;
-  margin: 0;
+  margin: 0 0 20px 0;
   max-width: 370px;
   text-transform: uppercase;
 }
+
 
 .section__about_text {
   font-family: Cera Pro;

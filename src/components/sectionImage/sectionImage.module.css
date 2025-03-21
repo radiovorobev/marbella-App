@@ -24,7 +24,7 @@
 
 .section__image img {
   display: block;
-  height: calc(100vh - 160px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+ /* height: calc(100vh - 160px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); */
   width: 100%;
   object-fit: cover;
 }

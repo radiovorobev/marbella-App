@@ -4,6 +4,7 @@ import SectionImage from "../../components/sectionImage/sectionImage";
 import { useLanguage } from "../../context/languageContext";
 import getLocalizedContent from "../../utils/getLocalizedContent";
 import TextBlock from "../../components/textBlock/textBlock";
+import SectionAbout from "../../components/sectionAbout/sectionAbout";
 
 interface AboutPage {
   id: number;
@@ -59,14 +60,39 @@ const AboutPage = () => {
     getAboutPage();
   }, []);
 
+  const prepareAboutData = () => {
+    if (!aboutPageData || aboutPageData.length === 0) return null;
+    
+    return {
+      header: getLocalizedContent(aboutPageData[0], 'about_header', currentLanguage),
+      bullets: [
+        {
+          header: getLocalizedContent(aboutPageData[0], 'bullit_one_header', currentLanguage),
+          text: getLocalizedContent(aboutPageData[0], 'bullit_one_text', currentLanguage)
+        },
+        {
+          header: getLocalizedContent(aboutPageData[0], 'bullit_two_header', currentLanguage),
+          text: getLocalizedContent(aboutPageData[0], 'bullit_two_text', currentLanguage)
+        },
+        {
+          header: getLocalizedContent(aboutPageData[0], 'bullit_three_header', currentLanguage),
+          text: getLocalizedContent(aboutPageData[0], 'bullit_three_text', currentLanguage)
+        }
+      ]
+    };
+  };
+
+  const aboutData = prepareAboutData();
+
   return (
     <main>
       {aboutPageData && aboutPageData.length > 0 ? (
       <>
         <SectionImage title={getLocalizedContent(aboutPageData[0], 'pageTitle', currentLanguage)} />
+        <SectionAbout aboutData={aboutData} />
         <TextBlock text={getLocalizedContent(aboutPageData[0], 'about_text', currentLanguage)} />
       </>
-      
+
       ) : (
         <div>Loading...</div>
       )}

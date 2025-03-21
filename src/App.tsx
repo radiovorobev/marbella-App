@@ -8,6 +8,7 @@ import ArticlePage from './pages/article/article';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/about/about';
 import CoachesPage from './pages/coaches/coaches';
+import VenuesPage from './pages/venues/venues';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/news/:id" element={<ArticlePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/coaches" element={<CoachesPage />} />
+        <Route path="/venues" element={<VenuesPage /> } />
       </Routes>
       <Footer />
       </LanguageProvider>

@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/about/about';
 import CoachesPage from './pages/coaches/coaches';
 import VenuesPage from './pages/venues/venues';
+import ProgrammesPage from './pages/programmes/programmes';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/coaches" element={<CoachesPage />} />
         <Route path="/venues" element={<VenuesPage /> } />
+        <Route path="/programmes" element={<ProgrammesPage />} />
       </Routes>
       <Footer />
       </LanguageProvider>

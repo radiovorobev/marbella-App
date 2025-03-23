@@ -1,6 +1,10 @@
+main {
+  background-color: #f2f2f7;
+}
+
 .section__programms {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   display: flex;
   flex-flow: column;
   justify-content: center;

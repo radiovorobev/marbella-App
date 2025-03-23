@@ -81,8 +81,8 @@ const IndexNews = () => {
                   </h3>
                   <div className={styles.section__news_lead}>
                     <p className={styles.section__news_news_text}>
-                      {getLocalizedContent(item, 'text').substring(0, 150)}
-                      {getLocalizedContent(item, 'text').length > 150 ? '...' : ''}
+                      {getLocalizedContent(item, 'text').replace(/<[^>]*>/g, '').substring(0, 200)}
+                      {getLocalizedContent(item, 'text').replace(/<[^>]*>/g, '').length > 200 ? '...' : ''}
                     </p>
                     <p className={styles.section__news_news_date}>
                       {formatDate(item.publish_date || item.created_at)}

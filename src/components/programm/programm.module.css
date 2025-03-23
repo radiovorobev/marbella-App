@@ -1,0 +1,122 @@
+.section__programms_programm {
+  width: 100%;
+}
+
+.section__programms_programm_container {
+  max-width: 1440px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: align-start;
+  gap: 0;
+  min-height: 642px;
+  margin: 0 auto;
+}
+
+.section__programms_programm:nth-child(even) {
+  background-color: #fff;
+}
+
+.section__programms_programm_description {
+  padding: 120px 0 0 125px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.section__programms_programm_title {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60.34px;
+  letter-spacing: 0%;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section__programms_programm_specs {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.section__programms_programm_specs_level {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60.34px;
+  letter-spacing: 0%;
+  color: rgba(229, 27, 34, 1);
+  text-transform: uppercase;
+}
+
+.section__programms_programm_specs_age {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40.22px;
+  letter-spacing: 0%;
+  text-align: right;  
+  color: rgba(229, 27, 34, 1);
+}
+
+.section__programms_programm_text {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  letter-spacing: 0%;
+  margin: 40px 0 0 0;
+  padding: 40px 0 0 0;
+  border-top: 2px solid #000;
+}
+
+.section__programms_programm ul {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  letter-spacing: 0%;
+}
+
+.section__programms_programm_image {
+  width: 550px;
+  height: 600px;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 1439px) {
+  .section__programms_programm_container {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .section__programms_programm_description {
+    padding: 50px 20px 0;
+  }
+
+  .section__programms_programm_title, .section__programms_programm_specs_level {
+    font-size: 24px;
+    line-height: 30.17px;
+  }
+
+  .section__programms_programm_specs_age {
+    font-size: 16px;
+    line-height: 20.11px;
+  }
+
+  .section__programms_programm_text {
+    margin: 20px 0 0 0;
+    padding: 30px 0 0 0;
+  }
+
+  .section__programms_programm_image {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,8 @@
+.section__programms {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}

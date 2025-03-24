@@ -11,6 +11,7 @@ import CoachesPage from './pages/coaches/coaches';
 import VenuesPage from './pages/venues/venues';
 import ProgrammesPage from './pages/programmes/programmes';
 import NewsPage from './pages/news/news';
+import ContactsPage from './pages/contacts/contacts';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/coaches" element={<CoachesPage />} />
         <Route path="/venues" element={<VenuesPage /> } />
         <Route path="/programmes" element={<ProgrammesPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
       </Routes>
       <Footer />
       </LanguageProvider>

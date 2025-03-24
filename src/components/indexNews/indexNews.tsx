@@ -96,7 +96,7 @@ const IndexNews = () => {
           <p>No news available at the moment.</p>
         )}
       </div>
-      <a href="./news.html" className={styles.section__news_button}>
+      <a href="/news" className={styles.section__news_button}>
         <span>More news</span>
         <img src={arrowWhiteIcon} alt="Arrow" />
       </a>

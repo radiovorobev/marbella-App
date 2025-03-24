@@ -10,6 +10,7 @@ import AboutPage from './pages/about/about';
 import CoachesPage from './pages/coaches/coaches';
 import VenuesPage from './pages/venues/venues';
 import ProgrammesPage from './pages/programmes/programmes';
+import NewsPage from './pages/news/news';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<IndexPage />} />
+        <Route path="/news" element={<NewsPage />} />
         <Route path="/news/:id" element={<ArticlePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/coaches" element={<CoachesPage />} />

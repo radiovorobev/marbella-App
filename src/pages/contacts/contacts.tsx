@@ -3,7 +3,7 @@ import fetchContactsPage from "../../api/fetchContactsPage";
 import getLocalizedContent from "../../utils/getLocalizedContent";
 import { useLanguage } from "../../context/languageContext";
 import SectionImage from "../../components/sectionImage/sectionImage";
-import TextBlock from "../../components/textBlock/textBlock";
+import SectionContacts from "../../components/sectionCotacts/sectionContacts";
 
 interface ContactsPage {
   id: number;
@@ -26,14 +26,14 @@ const ContactsPage = () => {
   const { currentLanguage } = useLanguage();
 
   useEffect (() => {
-    const getProgrammesPage = async () => {
+    const getContactsPage = async () => {
       const result = await fetchContactsPage();
       if (result) {
         setContactsPageData(result);
       }
     }
 
-    getProgrammesPage();
+    getContactsPage();
   }, []);
 
   return (
@@ -41,7 +41,7 @@ const ContactsPage = () => {
         {contactsPageData && contactsPageData.length > 0 ? (
         <>
           <SectionImage title={getLocalizedContent(contactsPageData[0], 'title', currentLanguage)} />
-          <TextBlock text={getLocalizedContent(contactsPageData[0], 'text', currentLanguage)} />
+          <SectionContacts text={getLocalizedContent(contactsPageData[0], 'text', currentLanguage)} />
         </>
         ) : (
         <></>

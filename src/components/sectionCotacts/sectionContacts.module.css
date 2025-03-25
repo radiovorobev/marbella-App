@@ -1,0 +1,117 @@
+.section__contacts {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__contacts_container {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1440px;
+  padding: 140px 125px;
+  box-sizing: border-box;
+  gap: 114px;
+}
+
+.section__contacts_column {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 491px;
+  height: 100%;
+  gap: 20px;
+}
+
+.section__contacts_column h3 {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30.17px;
+  letter-spacing: 0%;  
+  margin: 0;
+}
+
+.section__contacts_column p {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  letter-spacing: 0%;
+  color: #000;
+  margin: 0;
+}
+
+.section__contacts_adress {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30.17px;
+  letter-spacing: 0%;
+  color: #000;
+  text-decoration: none;
+}
+
+.section__contacts_adress:hover {
+  color: rgba(000, 000, 000, 0.35);
+}
+
+.section__contacts_tel {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60.34px;
+  letter-spacing: 0%;
+  color: #000;
+  border-top: 2px solid #000;
+  width: 100%;
+  padding-top: 40px;
+  margin: 40px 0 0 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.section__contacts_tel:hover {
+  color: rgba(000, 000, 000, 0.35);
+}
+
+@media screen and (max-width: 1439px) {
+  .section__contacts_container {
+    flex-flow: column;
+    padding: 50px 20px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .section__contacts_column {
+    width: 100%;
+  }
+
+  .section__contacts_tel {
+    padding-top: 30px;
+    margin: 20px 0 0 0;
+    font-size: 36px;
+    line-height: 45.25px;
+  }
+
+  .section__contacts_column h3 {
+    font-size: 20px;
+    line-height: 25.14px;
+  }
+
+  .section__contacts_adress {
+    font-size: 16px;
+    line-height: 20.11px;
+  }
+
+  .section__contacts_column p {
+    font-size: 16px;
+    line-height: 20.11px;
+  }
+}

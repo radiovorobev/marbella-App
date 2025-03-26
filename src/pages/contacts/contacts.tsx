@@ -4,6 +4,7 @@ import getLocalizedContent from "../../utils/getLocalizedContent";
 import { useLanguage } from "../../context/languageContext";
 import SectionImage from "../../components/sectionImage/sectionImage";
 import SectionContacts from "../../components/sectionCotacts/sectionContacts";
+import MapSection from "../../components/map/map";
 
 interface ContactsPage {
   id: number;
@@ -41,7 +42,10 @@ const ContactsPage = () => {
         {contactsPageData && contactsPageData.length > 0 ? (
         <>
           <SectionImage title={getLocalizedContent(contactsPageData[0], 'title', currentLanguage)} />
-          <SectionContacts text={getLocalizedContent(contactsPageData[0], 'text', currentLanguage)} />
+          <SectionContacts 
+            text={getLocalizedContent(contactsPageData[0], 'text', currentLanguage)}
+            />
+          <MapSection />
         </>
         ) : (
         <></>

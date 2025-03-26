@@ -48,7 +48,7 @@
   margin: 0;
 }
 
-.section__contacts_adress {
+.section__contacts_address {
   font-family: Cera Pro;
   font-weight: 400;
   font-size: 24px;
@@ -58,7 +58,7 @@
   text-decoration: none;
 }
 
-.section__contacts_adress:hover {
+.section__contacts_address:hover {
   color: rgba(000, 000, 000, 0.35);
 }
 
@@ -105,7 +105,7 @@
     line-height: 25.14px;
   }
 
-  .section__contacts_adress {
+  .section__contacts_address {
     font-size: 16px;
     line-height: 20.11px;
   }

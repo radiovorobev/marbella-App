@@ -1,0 +1,19 @@
+.section__map {
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section__map iframe {
+  width: 100%; 
+  height: 750px;
+}
+
+@media screen and (max-width: 1439px) {
+  .section__map iframe {
+    height: 265px;
+  }
+}

@@ -1,6 +1,5 @@
 import styles from './gallery.module.css';
 
-import Gallery_1 from '../../images/gallery/gallery-1.jpg';
 import Gallery_2 from '../../images/gallery/gallery-2.jpg';
 import Gallery_3 from '../../images/gallery/gallery-3.jpg';
 import Gallery_4 from '../../images/gallery/gallery-4.jpg';
@@ -41,7 +40,6 @@ const Gallery = () => {
         
         <div className={styles.section__instagram_container}>
           <ul className={styles.section__instagram_block}>
-            <img className={styles.section__instagram_image} src={Gallery_1} alt="Play with us" />
             <img className={styles.section__instagram_image} src={Gallery_2} alt="Play with us" />
             <img className={styles.section__instagram_image} src={Gallery_3} alt="Play with us" />
             <img className={styles.section__instagram_image} src={Gallery_4} alt="Play with us" />

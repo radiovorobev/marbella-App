@@ -4,6 +4,7 @@ import { useLanguage } from "../../context/languageContext";
 import getLocalizedContent from "../../utils/getLocalizedContent";
 import TextBlock from "../../components/textBlock/textBlock";
 import fetchCoachesPage from "../../api/fetchCoachesPage";
+import CoachesCards from "../../components/coachesCards/coachesCards";
 
 interface CoachesPage {
   id: number;
@@ -43,6 +44,7 @@ const CoachesPage = () => {
       <>
         <SectionImage title={getLocalizedContent(coachesPageData[0], 'title', currentLanguage)} />
         <TextBlock text={getLocalizedContent(coachesPageData[0], 'text', currentLanguage)} />
+        <CoachesCards />
       </>
       
       ) : (

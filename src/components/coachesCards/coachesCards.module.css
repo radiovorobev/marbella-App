@@ -1,0 +1,130 @@
+
+.section__coaches {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 124px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+}
+
+.section__coaches_header {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60.34px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  max-width: 605px;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+.section__coaches_cards {
+  display: flex;
+  flex-flow: row;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.section__coaches_card {
+  width: 384px;
+  height: 800px;
+  background-color: #fff;
+}
+
+.section__coach_card_textBlock {
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.section__coach_card_name {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30.17px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section__coach_card_role {
+  font-family: Cera Pro;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17.6px;
+  letter-spacing: 0%;
+  color: rgba(160, 13, 24, 1);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section__coach_card_license {
+  font-family: Cera Pro;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17.6px;
+  letter-spacing: 0%;
+  color: rgba(160, 13, 24, 1);
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  margin: 0 0 20px 0;
+  padding: 0 0 14px 0;
+}
+
+.section__coach_card_text p {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.11px;
+  letter-spacing: 0%;
+}
+
+@media screen and (max-width: 1439px) {
+  .section__coaches {
+    padding: 50px 20px 0;
+  }
+
+  .section__coaches_header {
+    font-size: 24px;
+    line-height: 30.17px;
+    margin: 50px 0 20px 20px;
+  }
+}
+
+@media screen and (max-width: 829px) {
+  .section__coaches {
+    padding: 0;
+  }
+
+  .section__coaches_cards {
+    flex-flow: column;
+  }
+
+  .section__coaches_card {
+    width: 100%;
+    height: auto;
+    display: flex;
+  }
+
+  .section__coach_card_textBlock {
+    min-width: 384px;
+  }
+
+  .section__coaches_image {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section__coaches_card {
+    flex-flow: column;
+  }
+}

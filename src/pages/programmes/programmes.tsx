@@ -9,6 +9,7 @@ import fetchProgrammes from "../../api/fetchProgrammes";
 import SectionImage from "../../components/sectionImage/sectionImage";
 import Subscriptions from "../../components/subscriptions/subscriptions";
 import TextAndImage from "../../components/textAndImage/textAndImage";
+import FourCards from "../../components/fourCards/fourCards";
 
 interface ProgrammesPage {
   id: number;
@@ -29,6 +30,25 @@ interface ProgrammesPage {
   text_two_es: string;
   text_two_ru: string;
   text_two_image: string;
+  card_one_text_en: string;
+  card_one_text_es: string;
+  card_one_text_ru: string;
+  card_two_text_en: string;
+  card_two_text_es: string;
+  card_two_text_ru: string;
+  card_three_text_en: string;
+  card_three_text_es: string;
+  card_three_text_ru: string;
+  card_four_text_en: string;
+  card_four_text_es: string;
+  card_four_text_ru: string;
+  card_one_img: string;
+  card_two_img: string;
+  card_three_img: string;
+  card_four_img: string;
+  fourCards_title_en: string;
+  fourCards_title_es: string;
+  fourCards_title_ru: string;
 
   [key: string]: string | number | null | undefined;
 }
@@ -70,41 +90,79 @@ interface Programme {
   
   // Add index signature for getLocalizedContent compatibility
   [key: string]: string | number | boolean | string[] | null | undefined;
- }
+}
+
+// Интерфейс для карточек
+interface Card {
+  id: number;
+  text: string;
+  image: string;
+}
 
 const ProgrammesPage = () => {
-
   const [programmesPageData, setProgrammesPageData] = useState<ProgrammesPage[] | null>(null);
   const [programmesData, setProgrammesData] = useState<Programme[] | null>(null);
+  const [cards, setCards] = useState<Card[]>([]);
 
   const { currentLanguage } = useLanguage();
 
-  useEffect (() => {
+  useEffect(() => {
     const getProgrammesPage = async () => {
       const result = await fetchProgrammesPage();
       if (result) {
         setProgrammesPageData(result);
+        
+        // Создаем массив карточек с учетом локализации
+        if (result.length > 0) {
+          const pageData = result[0];
+          const cardsData: Card[] = [
+            {
+              id: 1,
+              text: getLocalizedContent(pageData, 'card_one_text', currentLanguage),
+              image: pageData.card_one_img || ''
+            },
+            {
+              id: 2,
+              text: getLocalizedContent(pageData, 'card_two_text', currentLanguage),
+              image: pageData.card_two_img || ''
+            },
+            {
+              id: 3,
+              text: getLocalizedContent(pageData, 'card_three_text', currentLanguage),
+              image: pageData.card_three_img || ''
+            },
+            {
+              id: 4,
+              text: getLocalizedContent(pageData, 'card_four_text', currentLanguage),
+              image: pageData.card_four_img || ''
+            }
+          ];
+          setCards(cardsData);
+        }
       }
-    }
+    };
+    
     const getProgrammes = async () => {
       const result = await fetchProgrammes();
       if (result) {
         setProgrammesData(result);
       }
-    }
+    };
 
     getProgrammesPage();
     getProgrammes();
-
-  }, []);
+  }, [currentLanguage]); // Добавляем currentLanguage в зависимости для обновления при смене языка
 
   return (
     <main>
       {programmesPageData && programmesPageData.length > 0 ? (
         <>
-         <SectionImage title={getLocalizedContent(programmesPageData[0], 'title', currentLanguage)} />
+          <SectionImage title={getLocalizedContent(programmesPageData[0], 'title', currentLanguage)} />
           <TextBlock text={getLocalizedContent(programmesPageData[0], 'text', currentLanguage)} />
-          <TextAndImage text={getLocalizedContent(programmesPageData[0], 'text_two', currentLanguage)} image={programmesPageData[0].text_two_image} />
+          <TextAndImage 
+            text={getLocalizedContent(programmesPageData[0], 'text_two', currentLanguage)} 
+            image={programmesPageData[0].text_two_image} 
+          />
           {/*
           <section className={styles.section__programms}>
             { programmesData && programmesData.length > 0 ? (
@@ -116,14 +174,17 @@ const ProgrammesPage = () => {
           )}
           </section> 
           */}
-          <Subscriptions title={getLocalizedContent(programmesPageData[0], 'subs_title', currentLanguage)} text={getLocalizedContent(programmesPageData[0], 'subs_text', currentLanguage)} /> 
+          <Subscriptions 
+            title={getLocalizedContent(programmesPageData[0], 'subs_title', currentLanguage)} 
+            text={getLocalizedContent(programmesPageData[0], 'subs_text', currentLanguage)} 
+          /> 
+          <FourCards cards={cards} title={getLocalizedContent(programmesPageData[0], 'fourCards_title', currentLanguage)} />
         </>
-        ) : (
+      ) : (
         <></>
-        )
-      } 
+      )} 
     </main>
-  )
-}
+  );
+};
 
 export default ProgrammesPage;

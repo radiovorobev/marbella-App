@@ -148,7 +148,7 @@ const Gallery = () => {
     <section className={styles.section__instagram}>
       <div className={styles.section__instagram_container}>
         <div className={styles.section__header}>
-          <h2>{getLang(currentLanguage)}:</h2>
+          <h2>{getLang(currentLanguage)}</h2>
           <a href="https://www.instagram.com/academymarbella" target="_blank" rel="noopener noreferrer">
             <img src={instagramIcon} alt="Instagram" className={styles.section__header_social_icon} />
           </a>

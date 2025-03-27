@@ -51,6 +51,10 @@
   height: 280px;
 }
 
+.image {
+  max-width: 280px;;  
+}
+
 .text {
   font-family: Cera Pro;
   font-weight: 400;

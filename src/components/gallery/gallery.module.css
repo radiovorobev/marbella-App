@@ -267,3 +267,75 @@
     height: 40px;
   }
 }
+
+/* Добавьте эти стили в ваш gallery.module.css */
+
+/* Обеспечиваем горизонтальную прокрутку галереи */
+.section__instagram_block {
+  overflow-x: auto !important; /* Принудительно включаем горизонтальную прокрутку */
+  overflow-y: hidden; /* Отключаем вертикальную прокрутку */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE и Edge */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* Для прилипания к изображениям */
+  -webkit-overflow-scrolling: touch; /* Для плавной прокрутки на iOS */
+  padding-bottom: 20px; /* Для скрытой полосы прокрутки */
+}
+
+/* Скрываем полосу прокрутки в Chrome, Safari и Opera */
+.section__instagram_block::-webkit-scrollbar {
+  display: none;
+}
+
+/* Стили для эффекта свайпа */
+.section__instagram_block img {
+  scroll-snap-align: start; /* Изображения будут "прилипать" к началу */
+  user-select: none; /* Запрещаем выделение текста */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/* Стили для кнопок прокрутки на маленьких экранах */
+@media screen and (max-width: 1439px) {
+  /* Переопределяем стили для кнопок, чтобы они были видны */
+  .section__instagram_more_button,
+  .section__instagram_more_button.left {
+    display: flex !important; /* Принудительно отображаем кнопки */
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+  }
+  
+  .section__instagram_more_button.hidden {
+    display: none !important;
+  }
+}
+
+/* Стили для обеспечения прокрутки всего блока галереи */
+.gallery_wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1192px;
+}
+
+/* Добавьте эти стили в ваш CSS файл */
+
+.section__instagram_more_button {
+  border: none;           /* Убираем границу */
+  outline: none;          /* Убираем контур при фокусе */
+  box-shadow: none;       /* Убираем тень */
+  padding: 0;             /* Убираем внутренние отступы */
+  background-color: #c8e51f; /* Ваш существующий цвет фона */
+  color: inherit;         /* Наследуем цвет текста */
+}
+
+.section__instagram_more_button:focus {
+  outline: none;          /* Убираем контур при фокусе */
+  border: none;           /* Убираем границу при фокусе */
+  box-shadow: none;       /* Убираем тень при фокусе */
+}
+
+/* Стиль для состояния hover может оставаться прежним */
+.section__instagram_more_button:hover {
+  color: #fff;
+}

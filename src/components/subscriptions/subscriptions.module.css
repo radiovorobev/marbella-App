@@ -1,0 +1,12 @@
+.subscriptionsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  gap: 20px;
+  width: 100%;
+  max-width: 1192px;
+  margin: 0 auto 120px;
+}

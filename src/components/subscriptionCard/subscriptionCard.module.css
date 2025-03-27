@@ -1,0 +1,72 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 586px;
+  background-color: rgba(242, 242, 247, 1);
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 10px;
+  height: 290px;
+}
+
+.descriptionSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 14px;
+
+}
+
+.card h3 {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+.card p { 
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 100%;
+  margin: 0;
+}
+
+.priceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+.priceTag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  background-color: rgba(200, 229, 31, 1);
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.pricePerSession {
+  width: 100%;
+  text-align: center;
+}

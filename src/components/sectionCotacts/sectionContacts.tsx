@@ -32,8 +32,12 @@ const SectionContacts: React.FC<ContactsTextProps> =  ({text}) => {
   useEffect (() => {
     const getContactsData = async () => {
       const result = await fetchContactsData();
+
       if (result) {
         setContactsData(result);
+        console.log(result)
+      } else {
+        console.log(result)
       }
     }
 

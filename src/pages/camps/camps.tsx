@@ -40,8 +40,8 @@ const CampsPage = () => {
       { camps && camps.length > 0 && 
       <>
         <SectionImage title={getLocalizedContent(camps[0], 'title', currentLanguage)} />
+        <TextBlock text={getLocalizedContent(camps[0], 'intro', currentLanguage)} />
         <section className={styles.page__container}>
-          <TextBlock text={getLocalizedContent(camps[0], 'intro', currentLanguage)} />
           <ArticleText articleText={getLocalizedContent(camps[0], 'text', currentLanguage)} />
         </section>
       </>

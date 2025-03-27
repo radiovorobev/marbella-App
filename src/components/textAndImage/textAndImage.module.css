@@ -29,3 +29,20 @@
   line-height: 100%;
   max-width: 590px;
 }
+
+@media screen and (max-width: 1439px) {
+
+  .section {
+    margin: 0 auto 50px;
+  }
+
+  .sectionContainer {
+    flex-direction: column-reverse;
+    padding: 50px 20px 0;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 503px;
+  }
+}

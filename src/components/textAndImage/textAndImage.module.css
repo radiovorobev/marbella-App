@@ -1,0 +1,31 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto 120px;
+  background-color: rgba(242, 242, 247, 1);
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 124px;
+  margin: 0 auto;
+}
+
+.image {
+  width: 503px;
+}
+
+.text {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 100%;
+  max-width: 590px;
+}

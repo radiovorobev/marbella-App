@@ -8,6 +8,7 @@ import styles from './programmes.module.css';
 import fetchProgrammes from "../../api/fetchProgrammes";
 import SectionImage from "../../components/sectionImage/sectionImage";
 import Subscriptions from "../../components/subscriptions/subscriptions";
+import TextAndImage from "../../components/textAndImage/textAndImage";
 
 interface ProgrammesPage {
   id: number;
@@ -24,6 +25,10 @@ interface ProgrammesPage {
   subs_text_en: string;
   subs_text_es: string;
   subs_text_ru: string;
+  text_two_en: string;
+  text_two_es: string;
+  text_two_ru: string;
+  text_two_image: string;
 
   [key: string]: string | number | null | undefined;
 }
@@ -99,6 +104,7 @@ const ProgrammesPage = () => {
         <>
          <SectionImage title={getLocalizedContent(programmesPageData[0], 'title', currentLanguage)} />
           <TextBlock text={getLocalizedContent(programmesPageData[0], 'text', currentLanguage)} />
+          <TextAndImage text={getLocalizedContent(programmesPageData[0], 'text_two', currentLanguage)} image={programmesPageData[0].text_two_image} />
           {/*
           <section className={styles.section__programms}>
             { programmesData && programmesData.length > 0 ? (

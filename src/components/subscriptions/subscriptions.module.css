@@ -1,3 +1,37 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1192px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 100%;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+
+.text {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 100%;
+  margin: 0 0 40px;
+  padding: 0 0 24px 0;
+  border-bottom: 2px solid #000;
+  width: 100%;
+}
+
+.text p {
+  max-width: 800px;
+  margin: 0;
+}
+
 .subscriptionsContainer {
   display: flex;
   flex-direction: row;
@@ -9,4 +43,11 @@
   width: 100%;
   max-width: 1192px;
   margin: 0 auto 120px;
+}
+
+@media screen and (max-width: 1439px) {
+  .subscriptionsContainer {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
 }

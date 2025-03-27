@@ -22,7 +22,12 @@ interface Subscription {
   [key: string]: string | number | boolean | string[] | null | undefined;
 }
 
-const Subscriptions = () => {
+interface SubscriptionsProps {
+  title: string;
+  text: string;
+}
+
+const Subscriptions = ({ title, text }: SubscriptionsProps) => {
   const [subscriptions, setSubscriptions] = useState<Subscription[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -52,11 +57,16 @@ const Subscriptions = () => {
   }
 
   return (
-    <div className={styles.subscriptionsContainer}>
-      {subscriptions.map((subscription) => (
-        <SubscriptionCard key={subscription.id} subscription={subscription} />
-      ))}
-    </div>
+    <section className={styles.section}>
+      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.text} dangerouslySetInnerHTML={{ __html: text }} />
+      
+      <div className={styles.subscriptionsContainer}>
+        {subscriptions.map((subscription) => (
+          <SubscriptionCard key={subscription.id} subscription={subscription} />
+        ))}
+      </div>
+    </section>
   );
 };
 

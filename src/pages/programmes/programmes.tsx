@@ -3,7 +3,6 @@ import fetchProgrammesPage from "../../api/fetchProgrammesPage";
 import { useLanguage } from "../../context/languageContext";
 import TextBlock from "../../components/textBlock/textBlock";
 import getLocalizedContent from "../../utils/getLocalizedContent";
-import Programm from "../../components/programm/programm";
 
 import styles from './programmes.module.css';
 import fetchProgrammes from "../../api/fetchProgrammes";
@@ -19,6 +18,12 @@ interface ProgrammesPage {
   title_en: string;
   title_es: string;
   title_ru: string;
+  subs_title_en: string;
+  subs_title_es: string;
+  subs_title_ru: string;
+  subs_text_en: string;
+  subs_text_es: string;
+  subs_text_ru: string;
 
   [key: string]: string | number | null | undefined;
 }
@@ -105,7 +110,7 @@ const ProgrammesPage = () => {
           )}
           </section> 
           */}
-          <Subscriptions /> 
+          <Subscriptions title={getLocalizedContent(programmesPageData[0], 'subs_title', currentLanguage)} text={getLocalizedContent(programmesPageData[0], 'subs_text', currentLanguage)} /> 
         </>
         ) : (
         <></>

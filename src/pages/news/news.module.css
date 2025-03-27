@@ -219,6 +219,11 @@ a:nth-child(4n+3) .section__news_article {
     display: none;
   }
 
+  .section__news_article:nth-child(3),
+  .section__news_article:nth-child(4) {
+    margin-bottom: 20px;
+  }
+
   .section__news_button {
     width: 100%;
     max-width: 360px;

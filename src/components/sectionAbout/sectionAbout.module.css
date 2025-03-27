@@ -119,9 +119,14 @@
     display: flex;
     flex-flow: column;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 20px 50px;
     box-sizing: border-box;
-    min-height: 324px;
+    min-height: 0;
+
+  }
+
+  .section__about_textBlock:nth-of-type(1n) {
+    padding: 0 20px 50px;
   }
 
   .section__about_number {

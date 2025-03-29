@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import fetchMenu from "../../api/fetchMenu";
 
 import styles from "./headerMenu.module.css";
@@ -30,13 +31,13 @@ const HeaderMenu = () => {
     getMenu();
   }, []);
 
-    // Функция для получения заголовка на текущем языке
-    const getMenuItemTitle = (item: MenuItem) => {
-      // Используем индексированный доступ для получения поля `title_${currentLanguage}`
-      const titleField = `title_${currentLanguage}` as keyof MenuItem;
-      // Возвращаем перевод или английскую версию, если перевод отсутствует
-      return (item[titleField] as string) || item.title_en;
-    };
+  // Функция для получения заголовка на текущем языке
+  const getMenuItemTitle = (item: MenuItem) => {
+    // Используем индексированный доступ для получения поля `title_${currentLanguage}`
+    const titleField = `title_${currentLanguage}` as keyof MenuItem;
+    // Возвращаем перевод или английскую версию, если перевод отсутствует
+    return (item[titleField] as string) || item.title_en;
+  };
 
   return (
     <nav className={styles.header__menu_container}>
@@ -44,7 +45,7 @@ const HeaderMenu = () => {
         {menuItems.map((item) => (
           item.is_active && (
             <li key={item.id}>
-              <a href={item.url}>{getMenuItemTitle(item)}</a>
+              <Link to={`/${item.url}`}>{getMenuItemTitle(item)}</Link>
             </li>
           )
         ))}

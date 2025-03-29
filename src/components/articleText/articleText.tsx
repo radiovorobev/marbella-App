@@ -6,9 +6,7 @@ interface ArticleTextProps {
 
 const ArticleText: React.FC<ArticleTextProps> = ({ articleText }) => {
   return (
-    <section className={styles.news__text}>
       <div dangerouslySetInnerHTML={{ __html: articleText }} />
-    </section>
   );
 }
 

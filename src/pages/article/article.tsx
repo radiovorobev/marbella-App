@@ -98,7 +98,9 @@ const ArticlePage = () => {
             alt={getLocalizedContent(article[0], 'title', currentLanguage)}
           />
         </section>
+        <section className={styles.news__text}>
         <ArticleText articleText={getLocalizedContent(article[0], 'text', currentLanguage)} />
+        </section>
         <Link className={styles.forwardButton} to="/news">
           Next Article
           <img className={styles.forwardButtonIcon} src={miniArrowImg} alt="Next Article" />

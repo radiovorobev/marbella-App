@@ -1,0 +1,110 @@
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 650px;
+  position: relative;
+  margin: 20px 0;
+  background-color: #ffffff; /* Белый фон */
+  border-radius: 8px;
+  /* Супер тонкая серая рамка для обозначения границ */
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  margin: 0 auto;
+}
+
+/* Темный вариант */
+.darkVariant {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Размеры контейнера */
+.small {
+  min-height: 580px;
+}
+
+.medium {
+  min-height: 520px;
+}
+
+.large {
+  min-height: 580px;
+}
+
+.logoLoader {
+  width: 70px;
+  height: 70px;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* Размеры логотипа для разных размеров контейнера */
+.small .logoLoader {
+  width: 40px;
+  height: 40px;
+}
+
+.medium .logoLoader {
+  width: 70px;
+  height: 70px;
+}
+
+.large .logoLoader {
+  width: 100px;
+  height: 100px;
+}
+
+/* Анимация пульсации/мерцания */
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.98);
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.12)); /* Очень легкая тень */
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.98);
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+  }
+}
+
+.mainLogo {
+  fill: rgba(0, 0, 0, 0.35); /* Очень светлый серый для логотипа */
+  animation: logoFade 2.5s ease-in-out infinite;
+}
+
+.darkVariant .mainLogo {
+  fill: rgba(0, 0, 0, 0.45);
+}
+
+@keyframes logoFade {
+  0% {
+    fill-opacity: 0.4;
+  }
+  50% {
+    fill-opacity: 0.7;
+  }
+  100% {
+    fill-opacity: 0.4;
+  }
+}
+
+/* Плавное появление лоадера */
+.loaderContainer {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

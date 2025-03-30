@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 1439px) {
   .page__container {
-    padding: 0;
+    padding: 0 20px;
     font-size: 16px;
     line-height: 20.11px;
   }

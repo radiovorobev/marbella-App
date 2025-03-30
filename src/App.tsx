@@ -15,6 +15,7 @@ import ContactsPage from './pages/contacts/contacts';
 import CampsPage from './pages/camps/camps';
 import withLoader from './hoc/withLoader';
 import CookiesPage from './pages/cookies/cookies';
+import PrivacyPolicy from './pages/privacyPolicy/privacyPolicy';
 
 const IndexPageWithLoader = withLoader(IndexPage);
 const NewsPageWithLoader = withLoader(NewsPage);
@@ -26,6 +27,7 @@ const ProgrammesPageWithLoader = withLoader(ProgrammesPage);
 const CampsPageWithLoader = withLoader(CampsPage);
 const ContactsPageWithLoader = withLoader(ContactsPage);
 const CookiesPageWithLoader = withLoader(CookiesPage);
+const PrivacyPolicyWithLoader = withLoader(PrivacyPolicy);
 
 function App() {
 
@@ -44,6 +46,7 @@ function App() {
         <Route path="/camps" element={<CampsPageWithLoader />} />
         <Route path="/contacts" element={<ContactsPageWithLoader />} />
         <Route path="/cookies" element={<CookiesPageWithLoader />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyWithLoader />} />
       </Routes>
       <Footer />
       </LanguageProvider>

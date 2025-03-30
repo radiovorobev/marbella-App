@@ -14,6 +14,7 @@ import NewsPage from './pages/news/news';
 import ContactsPage from './pages/contacts/contacts';
 import CampsPage from './pages/camps/camps';
 import withLoader from './hoc/withLoader';
+import CookiesPage from './pages/cookies/cookies';
 
 const IndexPageWithLoader = withLoader(IndexPage);
 const NewsPageWithLoader = withLoader(NewsPage);
@@ -24,6 +25,7 @@ const VenuesPageWithLoader = withLoader(VenuesPage);
 const ProgrammesPageWithLoader = withLoader(ProgrammesPage);
 const CampsPageWithLoader = withLoader(CampsPage);
 const ContactsPageWithLoader = withLoader(ContactsPage);
+const CookiesPageWithLoader = withLoader(CookiesPage);
 
 function App() {
 
@@ -41,6 +43,7 @@ function App() {
         <Route path="/programmes" element={<ProgrammesPageWithLoader />} />
         <Route path="/camps" element={<CampsPageWithLoader />} />
         <Route path="/contacts" element={<ContactsPageWithLoader />} />
+        <Route path="/cookies" element={<CookiesPageWithLoader />} />
       </Routes>
       <Footer />
       </LanguageProvider>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { News, PostStatus, NewsFilter } from '../newsTypes';
-import newsApi from '../api/newsApi';  // Импортируем реальное API
+import newsApi from '../api/newsApi';
 
 const NewsList: React.FC = () => {
   const [news, setNews] = useState<News[]>([]);
@@ -11,7 +11,7 @@ const NewsList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   
-  // Состояние для фильтров
+  // State for filters
   const [filter, setFilter] = useState<NewsFilter>({
     searchTerm: '',
     status: undefined
@@ -19,7 +19,7 @@ const NewsList: React.FC = () => {
   
   const pageSize = 10;
   
-  // Загрузка новостей
+  // Load news
   const fetchNews = async () => {
     try {
       setLoading(true);
@@ -28,80 +28,80 @@ const NewsList: React.FC = () => {
       setTotalPages(Math.ceil(totalCount / pageSize));
       setError(null);
     } catch (err) {
-      console.error('Ошибка при загрузке новостей:', err);
-      setError('Не удалось загрузить список новостей');
+      console.error('Error loading news:', err);
+      setError('Failed to load news list');
     } finally {
       setLoading(false);
     }
   };
   
-  // Загружаем новости при монтировании компонента
-  // или при изменении страницы или фильтров
+  // Load news when component mounts
+  // or when page or filters change
   useEffect(() => {
     fetchNews();
   }, [currentPage, filter]);
   
-  // Обработчик изменения поискового запроса
+  // Search input change handler
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value;
-    // Используем debounce для предотвращения слишком частых запросов
+    // Use debounce to prevent too frequent requests
     const timerId = setTimeout(() => {
       setFilter(prev => ({ ...prev, searchTerm }));
-      setCurrentPage(1); // Сбрасываем на первую страницу при поиске
+      setCurrentPage(1); // Reset to first page when searching
     }, 300);
     
     return () => clearTimeout(timerId);
   };
   
-  // Обработчик изменения фильтра по статусу
+  // Status filter change handler
   const handleStatusFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const status = e.target.value as PostStatus | undefined;
     setFilter(prev => ({ 
       ...prev, 
       status: e.target.value === 'all' ? undefined : status as PostStatus 
     }));
-    setCurrentPage(1); // Сбрасываем на первую страницу при изменении фильтра
+    setCurrentPage(1); // Reset to first page when changing filter
   };
   
-  // Обработчик опубликования новости
+  // Publish news handler
   const handlePublishNews = async (id: number) => {
     try {
       await newsApi.publishNews(id);
-      fetchNews(); // Обновляем список после изменения
+      fetchNews(); // Update list after change
       
     } catch (err) {
-      console.error('Ошибка при публикации новости:', err);
-      setError('Не удалось опубликовать новость');
+      console.error('Error publishing news:', err);
+      setError('Failed to publish news');
     }
   };
   
-  // Обработчик архивирования новости
+  // Archive news handler
   const handleArchiveNews = async (id: number) => {
     try {
       await newsApi.archiveNews(id);
-      fetchNews(); // Обновляем список после изменения
+      fetchNews(); // Update list after change
       
     } catch (err) {
-      console.error('Ошибка при архивации новости:', err);
-      setError('Не удалось заархивировать новость');
+      console.error('Error archiving news:', err);
+      setError('Failed to archive news');
     }
   };
   
-  // Обработчик удаления новости
+  // Delete news handler
   const handleDeleteNews = async (id: number) => {
-    if (window.confirm('Вы уверены, что хотите удалить эту новость?')) {
+    if (window.confirm('Are you sure you want to delete this news item?')) {
       try {
         await newsApi.deleteNews(id);
-        fetchNews(); // Обновляем список после удаления
+        fetchNews(); // Update list after deletion
         
       } catch (err) {
-        console.error('Ошибка при удалении новости:', err);
-        setError('Не удалось удалить новость');
+        console.error('Error deleting news:', err);
+        setError('Failed to delete news');
       }
     }
   };
   
-  // Функция для отображения статуса новости
+  // Function to render status
   const renderStatus = (status: PostStatus) => {
     const statusStyles = {
       'Draft': 'bg-yellow-100 text-yellow-800',
@@ -110,9 +110,9 @@ const NewsList: React.FC = () => {
     };
     
     const statusLabels = {
-      'Draft': 'Черновик',
-      'Published': 'Опубликовано',
-      'Archived': 'В архиве'
+      'Draft': 'Draft',
+      'Published': 'Published',
+      'Archived': 'Archived'
     };
     
     return (
@@ -125,25 +125,25 @@ const NewsList: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Управление новостями</h1>
+        <h1 className="text-2xl font-bold">News Management</h1>
         <Link
           to="/admin/news/create"
           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
-          Создать новость
+          Create News
         </Link>
       </div>
       
-      {/* Фильтры */}
+      {/* Filters */}
       <div className="mb-6 p-4 bg-white rounded shadow">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Поиск
+              Search
             </label>
             <input
               type="text"
-              placeholder="Поиск по заголовку..."
+              placeholder="Search by title..."
               onChange={handleSearchChange}
               className="w-full p-2 border rounded"
             />
@@ -151,53 +151,53 @@ const NewsList: React.FC = () => {
           
           <div className="w-full md:w-48">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Статус
+              Status
             </label>
             <select
               onChange={handleStatusFilterChange}
               className="w-full p-2 border rounded"
               defaultValue="all"
             >
-              <option value="all">Все</option>
-              <option value="Draft">Черновики</option>
-              <option value="Published">Опубликованные</option>
-              <option value="Archived">В архиве</option>
+              <option value="all">All</option>
+              <option value="Draft">Drafts</option>
+              <option value="Published">Published</option>
+              <option value="Archived">Archived</option>
             </select>
           </div>
         </div>
       </div>
       
-      {/* Сообщение об ошибке */}
+      {/* Error message */}
       {error && (
         <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
           {error}
         </div>
       )}
       
-      {/* Таблица новостей */}
+      {/* News table */}
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border rounded shadow">
           <thead>
             <tr className="bg-gray-50">
               <th className="p-3 text-left">ID</th>
-              <th className="p-3 text-left">Заголовок</th>
-              <th className="p-3 text-left">Статус</th>
-              <th className="p-3 text-left">Дата публикации</th>
-              <th className="p-3 text-left">Последнее обновление</th>
-              <th className="p-3 text-left">Действия</th>
+              <th className="p-3 text-left">Title</th>
+              <th className="p-3 text-left">Status</th>
+              <th className="p-3 text-left">Publication Date</th>
+              <th className="p-3 text-left">Last Updated</th>
+              <th className="p-3 text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
             {loading ? (
               <tr>
                 <td colSpan={6} className="p-3 text-center">
-                  Загрузка...
+                  Loading...
                 </td>
               </tr>
             ) : news.length === 0 ? (
               <tr>
                 <td colSpan={6} className="p-3 text-center">
-                  Новости не найдены
+                  No news found
                 </td>
               </tr>
             ) : (
@@ -227,7 +227,7 @@ const NewsList: React.FC = () => {
                         to={`/admin/news/${item.id}/edit`}
                         className="p-1 bg-blue-600 text-white rounded hover:bg-blue-700"
                       >
-                        Редактировать
+                        Edit
                       </Link>
                       
                       {item.status === 'Draft' && (
@@ -235,7 +235,7 @@ const NewsList: React.FC = () => {
                           onClick={() => handlePublishNews(item.id)}
                           className="p-1 bg-green-600 text-white rounded hover:bg-green-700"
                         >
-                          Опубликовать
+                          Publish
                         </button>
                       )}
                       
@@ -244,7 +244,7 @@ const NewsList: React.FC = () => {
                           onClick={() => handleArchiveNews(item.id)}
                           className="p-1 bg-gray-600 text-white rounded hover:bg-gray-700"
                         >
-                          В архив
+                          Archive
                         </button>
                       )}
                       
@@ -252,7 +252,7 @@ const NewsList: React.FC = () => {
                         onClick={() => handleDeleteNews(item.id)}
                         className="p-1 bg-red-600 text-white rounded hover:bg-red-700"
                       >
-                        Удалить
+                        Delete
                       </button>
                     </div>
                   </td>
@@ -263,7 +263,7 @@ const NewsList: React.FC = () => {
         </table>
       </div>
       
-      {/* Пагинация */}
+      {/* Pagination */}
       {!loading && totalPages > 1 && (
         <div className="flex justify-center mt-4">
           <nav className="flex items-center space-x-1">
@@ -272,17 +272,17 @@ const NewsList: React.FC = () => {
               disabled={currentPage === 1}
               className="px-4 py-2 border rounded disabled:opacity-50"
             >
-              Назад
+              Previous
             </button>
             <span className="px-4 py-2">
-              Страница {currentPage} из {totalPages}
+              Page {currentPage} of {totalPages}
             </span>
             <button
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
               className="px-4 py-2 border rounded disabled:opacity-50"
             >
-              Вперед
+              Next
             </button>
           </nav>
         </div>

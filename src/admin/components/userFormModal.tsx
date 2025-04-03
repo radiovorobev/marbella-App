@@ -4,7 +4,7 @@ import { User, UserRole, UserFormData, UserUpdateData } from '../types';
 import { userApi } from '../api/userApi';
 
 interface UserFormModalProps {
-  user: User | null; // null, если создаем нового пользователя
+  user: User | null; // null if creating a new user
   onClose: () => void;
   onSuccess: () => void;
 }
@@ -23,27 +23,27 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   
-  // Инициализируем форму данными пользователя, если режим редактирования
+  // Initialize form with user data in edit mode
   useEffect(() => {
     if (user) {
       setFormData({
         email: user.email,
         name: user.name,
         last_name: user.last_name,
-        password: '', // Не заполняем пароль при редактировании
+        password: '', // Do not pre-fill password when editing
         role: user.role,
         is_active: user.is_active
       });
     }
   }, [user]);
   
-  // Обработчик изменения полей формы
+  // Form field change handler
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
     
-    // Для чекбоксов обрабатываем особым образом
+    // Special handling for checkboxes
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData((prev) => ({ ...prev, [name]: checked }));
@@ -51,39 +51,39 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
     
-    // Очищаем ошибки при изменении поля
+    // Clear errors when field changes
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
   
-  // Валидация формы
+  // Form validation
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
     
-    // Проверка email
+    // Email validation
     if (!formData.email) {
-      newErrors.email = 'Email обязателен';
+      newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Неверный формат email';
+      newErrors.email = 'Invalid email format';
     }
     
-    // Проверка имени
+    // Name validation
     if (!formData.name) {
-      newErrors.name = 'Имя обязательно';
+      newErrors.name = 'First name is required';
     }
     
-    // Проверка фамилии
+    // Last name validation
     if (!formData.last_name) {
-      newErrors.last_name = 'Фамилия обязательна';
+      newErrors.last_name = 'Last name is required';
     }
     
-    // Проверка пароля (только при создании или изменении пароля)
+    // Password validation (only when creating or changing password)
     if (!user || formData.password) {
       if (!user && !formData.password) {
-        newErrors.password = 'Пароль обязателен';
+        newErrors.password = 'Password is required';
       } else if (formData.password && formData.password.length < 6) {
-        newErrors.password = 'Пароль должен содержать не менее 6 символов';
+        newErrors.password = 'Password must be at least 6 characters long';
       }
     }
     
@@ -91,11 +91,11 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
     return Object.keys(newErrors).length === 0;
   };
   
-  // Отправка формы
+  // Form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Проверяем валидность формы
+    // Validate form
     if (!validateForm()) {
       return;
     }
@@ -105,7 +105,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
     
     try {
       if (user) {
-        // Обновление существующего пользователя
+        // Update existing user
         const updateData: UserUpdateData = {
           name: formData.name,
           last_name: formData.last_name,
@@ -113,25 +113,25 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
           is_active: formData.is_active
         };
         
-        // Добавляем пароль только если он был изменен
+        // Add password only if it was changed
         if (formData.password) {
           updateData.password = formData.password;
         }
         
         await userApi.updateUser(user.id, updateData);
       } else {
-        // Создание нового пользователя
+        // Create new user
         await userApi.createUser(formData);
       }
       
       onSuccess();
     } catch (err: any) {
       console.error(err);
-      setSubmitError(err.message || 'Произошла ошибка. Пожалуйста, попробуйте снова.');
+      setSubmitError(err.message || 'An error occurred. Please try again.');
       
-      // Обработка ошибок Supabase, если нужно
+      // Handle Supabase errors, if needed
       if (err.code === '23505') {
-        setErrors((prev) => ({ ...prev, email: 'Пользователь с таким email уже существует' }));
+        setErrors((prev) => ({ ...prev, email: 'A user with this email already exists' }));
       }
     } finally {
       setLoading(false);
@@ -143,7 +143,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
       <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md max-h-90vh overflow-y-auto">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">
-            {user ? 'Редактирование пользователя' : 'Создание пользователя'}
+            {user ? 'Edit User' : 'Create User'}
           </h2>
           <button
             onClick={onClose}
@@ -171,7 +171,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
               name="email"
               value={formData.email}
               onChange={handleChange}
-              disabled={!!user} // Запрещаем изменение email при редактировании
+              disabled={!!user} // Disable email change in edit mode
               className={`w-full p-2 border rounded ${
                 errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
@@ -181,10 +181,10 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
             )}
           </div>
           
-          {/* Имя */}
+          {/* First Name */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-1" htmlFor="name">
-              Имя <span className="text-red-500">*</span>
+              First Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -201,10 +201,10 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
             )}
           </div>
           
-          {/* Фамилия */}
+          {/* Last Name */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-1" htmlFor="last_name">
-              Фамилия <span className="text-red-500">*</span>
+              Last Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -221,11 +221,11 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
             )}
           </div>
           
-          {/* Пароль */}
+          {/* Password */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-1" htmlFor="password">
-              Пароль {!user && <span className="text-red-500">*</span>}
-              {user && <span className="text-xs text-gray-500">(оставьте пустым, чтобы не менять)</span>}
+              Password {!user && <span className="text-red-500">*</span>}
+              {user && <span className="text-xs text-gray-500">(leave blank to keep current)</span>}
             </label>
             <input
               type="password"
@@ -242,10 +242,10 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
             )}
           </div>
           
-          {/* Роль */}
+          {/* Role */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-1" htmlFor="role">
-              Роль
+              Role
             </label>
             <select
               id="role"
@@ -254,13 +254,13 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             >
-              <option value="Manager">Менеджер</option>
-              <option value="Admin">Администратор</option>
-              <option value="User">Пользователь</option>
+              <option value="Manager">Manager</option>
+              <option value="Admin">Administrator</option>
+              <option value="User">User</option>
             </select>
           </div>
           
-          {/* Статус активности */}
+          {/* Active Status */}
           <div className="mb-4 flex items-center">
             <input
               type="checkbox"
@@ -273,11 +273,11 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
               className="mr-2"
             />
             <label htmlFor="is_active" className="text-gray-700">
-              Активный пользователь
+              Active User
             </label>
           </div>
           
-          {/* Кнопки */}
+          {/* Buttons */}
           <div className="flex justify-end space-x-2 mt-6">
             <button
               type="button"
@@ -285,7 +285,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
               className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100"
               disabled={loading}
             >
-              Отмена
+              Cancel
             </button>
             <button
               type="submit"
@@ -293,10 +293,10 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ user, onClose, onSuccess 
               disabled={loading}
             >
               {loading
-                ? 'Сохранение...'
+                ? 'Saving...'
                 : user
-                ? 'Сохранить изменения'
-                : 'Создать пользователя'}
+                ? 'Save Changes'
+                : 'Create User'}
             </button>
           </div>
         </form>

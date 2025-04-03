@@ -16,7 +16,7 @@ const UserDetails: React.FC = () => {
   useEffect(() => {
     const fetchUser = async () => {
       if (!id) {
-        setError('ID пользователя не указан');
+        setError('User ID is not specified');
         setLoading(false);
         return;
       }
@@ -28,7 +28,7 @@ const UserDetails: React.FC = () => {
         setError(null);
       } catch (err) {
         console.error(err);
-        setError('Ошибка при загрузке информации о пользователе');
+        setError('Error loading user information');
       } finally {
         setLoading(false);
       }
@@ -45,20 +45,20 @@ const UserDetails: React.FC = () => {
       setUser(updatedUser);
     } catch (err) {
       console.error(err);
-      setError('Ошибка при изменении статуса пользователя');
+      setError('Error changing user status');
     }
   };
   
   const handleDelete = async () => {
     if (!user) return;
     
-    if (window.confirm('Вы уверены, что хотите удалить этого пользователя?')) {
+    if (window.confirm('Are you sure you want to delete this user?')) {
       try {
         await userApi.deleteUser(user.id);
         navigate('/users');
       } catch (err) {
         console.error(err);
-        setError('Ошибка при удалении пользователя');
+        setError('Error deleting user');
       }
     }
   };
@@ -66,7 +66,7 @@ const UserDetails: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="text-lg">Загрузка...</div>
+        <div className="text-lg">Loading...</div>
       </div>
     );
   }
@@ -75,13 +75,13 @@ const UserDetails: React.FC = () => {
     return (
       <div className="container mx-auto p-4">
         <div className="bg-red-100 text-red-700 p-4 rounded mb-4">
-          {error || 'Пользователь не найден'}
+          {error || 'User not found'}
         </div>
         <button
           onClick={() => navigate('/users')}
           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
-          Вернуться к списку
+          Back to List
         </button>
       </div>
     );
@@ -103,19 +103,19 @@ const UserDetails: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Информация о пользователе</h1>
+        <h1 className="text-2xl font-bold">User Information</h1>
         <div className="flex space-x-2">
           <button
             onClick={() => setIsModalOpen(true)}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
-            Редактировать
+            Edit
           </button>
           <button
             onClick={() => navigate('/users')}
             className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100"
           >
-            Назад к списку
+            Back to List
           </button>
         </div>
       </div>
@@ -143,13 +143,13 @@ const UserDetails: React.FC = () => {
                     : 'bg-gray-100 text-gray-800'
                 }`}
               >
-                {user.is_active ? 'Активен' : 'Неактивен'}
+                {user.is_active ? 'Active' : 'Inactive'}
               </button>
             </div>
           </div>
           
           <div className="mt-6 border-t pt-6">
-            <h3 className="text-lg font-semibold mb-4">Детальная информация</h3>
+            <h3 className="text-lg font-semibold mb-4">Detailed Information</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -161,41 +161,41 @@ const UserDetails: React.FC = () => {
                 <p>{user.email}</p>
               </div>
               <div>
-                <p className="text-gray-500 text-sm">Имя</p>
+                <p className="text-gray-500 text-sm">First Name</p>
                 <p>{user.name}</p>
               </div>
               <div>
-                <p className="text-gray-500 text-sm">Фамилия</p>
+                <p className="text-gray-500 text-sm">Last Name</p>
                 <p>{user.last_name}</p>
               </div>
               <div>
-                <p className="text-gray-500 text-sm">Роль</p>
+                <p className="text-gray-500 text-sm">Role</p>
                 <p>{user.role}</p>
               </div>
               <div>
-                <p className="text-gray-500 text-sm">Статус</p>
-                <p>{user.is_active ? 'Активен' : 'Неактивен'}</p>
+                <p className="text-gray-500 text-sm">Status</p>
+                <p>{user.is_active ? 'Active' : 'Inactive'}</p>
               </div>
               <div>
-                <p className="text-gray-500 text-sm">Дата создания</p>
+                <p className="text-gray-500 text-sm">Creation Date</p>
                 <p>{new Date(user.created_at).toLocaleString()}</p>
               </div>
               <div>
-                <p className="text-gray-500 text-sm">Последнее обновление</p>
+                <p className="text-gray-500 text-sm">Last Updated</p>
                 <p>{new Date(user.updated_at).toLocaleString()}</p>
               </div>
             </div>
           </div>
           
           <div className="mt-6 border-t pt-6">
-            <h3 className="text-lg font-semibold mb-4">Действия</h3>
+            <h3 className="text-lg font-semibold mb-4">Actions</h3>
             
             <div className="flex space-x-2">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
               >
-                Редактировать
+                Edit
               </button>
               <button
                 onClick={handleToggleActive}
@@ -205,13 +205,13 @@ const UserDetails: React.FC = () => {
                     : 'bg-green-600 text-white hover:bg-green-700'
                 }`}
               >
-                {user.is_active ? 'Деактивировать' : 'Активировать'}
+                {user.is_active ? 'Deactivate' : 'Activate'}
               </button>
               <button
                 onClick={handleDelete}
                 className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
               >
-                Удалить
+                Delete
               </button>
             </div>
           </div>
@@ -224,7 +224,7 @@ const UserDetails: React.FC = () => {
           onClose={() => setIsModalOpen(false)}
           onSuccess={() => {
             setIsModalOpen(false);
-            // Перезагружаем данные пользователя
+            // Reload user data
             const fetchUser = async () => {
               try {
                 const userData = await userApi.getUserById(user.id);

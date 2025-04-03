@@ -21,7 +21,7 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
     const [quillInstance, setQuillInstance] = useState<Quill | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Конфигурация модулей Quill
+    // Quill modules configuration
     const modules = {
       toolbar: [
         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -35,32 +35,32 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
     };
 
     useEffect(() => {
-      // Если контейнер существует и Quill еще не инициализирован
+      // If container exists and Quill is not initialized
       if (containerRef.current && !quillInstance) {
         const quill = new Quill(containerRef.current, {
           theme: 'snow',
           modules: modules,
         });
 
-        // Установка начального значения
+        // Set initial value
         if (value) {
           quill.root.innerHTML = value;
         }
 
-        // Обработчик изменений
+        // Change handler
         quill.on('text-change', () => {
           if (onChange) {
             onChange(quill.root.innerHTML);
           }
         });
 
-        // Управление режимом редактирования
+        // Manage editing mode
         quill.enable(!readOnly);
 
-        // Сохраняем экземпляр Quill
+        // Save Quill instance
         setQuillInstance(quill);
 
-        // Если передан ref, устанавливаем экземпляр
+        // Set ref if provided
         if (typeof ref === 'function') {
           ref(quill);
         } else if (ref && 'current' in ref) {
@@ -68,7 +68,7 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
         }
       }
 
-      // Очистка при размонтировании
+      // Cleanup on unmount
       return () => {
         if (quillInstance) {
           if (typeof ref === 'function') {
@@ -81,14 +81,14 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
       };
     }, []);
 
-    // Обновление значения при изменении пропса value
+    // Update value when value prop changes
     useEffect(() => {
       if (quillInstance && value !== quillInstance.root.innerHTML) {
         quillInstance.root.innerHTML = value || '';
       }
     }, [value, quillInstance]);
 
-    // Обновление режима редактирования
+    // Update editing mode
     useEffect(() => {
       if (quillInstance) {
         quillInstance.enable(!readOnly);
@@ -104,7 +104,7 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
         )}
         <div ref={containerRef} className="bg-white"></div>
         {required && (!value || value === '<p><br></p>') && (
-          <p className="text-red-500 text-xs mt-1">Это поле обязательно к заполнению</p>
+          <p className="text-red-500 text-xs mt-1">This field is required</p>
         )}
       </div>
     );

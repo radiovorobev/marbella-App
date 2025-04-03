@@ -5,18 +5,16 @@ export const coachesApi = {
   // Получить всех тренеров
   async getAllCoaches(): Promise<Coach[]> {
     try {
-      console.log('Начинаем запрос к Supabase...');
       const { data, error } = await supabase
         .from('coaches')
         .select('*')
         .order('sort_order', { ascending: true });
   
       if (error) {
-        console.error('Ошибка Supabase:', error);
+        console.error('Supabase error:', error);
         throw error;
       }
       
-      console.log('Получены данные:', data);
       return data || [];
     } catch (e) {
       console.error('Необработанная ошибка в getAllCoaches:', e);

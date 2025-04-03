@@ -5,12 +5,12 @@ import { Subscription, SubscriptionFormData } from '../subscriptionTypes';
 import { subscriptionsApi } from '../api/subscriptionsApi';
 
 const SubscriptionForm: React.FC = () => {
-  console.log('SubscriptionForm рендерится');
+  console.log('SubscriptionForm is rendering');
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const isEditMode = !!id;
 
-  // Состояния
+  // States
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +29,7 @@ const SubscriptionForm: React.FC = () => {
     is_active: true
   });
 
-  // Загрузка данных для редактирования
+  // Load data for editing
   useEffect(() => {
     if (isEditMode) {
       const fetchSubscription = async () => {
@@ -51,8 +51,8 @@ const SubscriptionForm: React.FC = () => {
             is_active: subscription.is_active
           });
         } catch (err) {
-          console.error('Ошибка при загрузке программы:', err);
-          setError('Не удалось загрузить данные программы');
+          console.error('Error loading program:', err);
+          setError('Failed to load program data');
         } finally {
           setLoading(false);
         }
@@ -62,7 +62,7 @@ const SubscriptionForm: React.FC = () => {
     }
   }, [id, isEditMode]);
 
-  // Обработка изменения полей формы
+  // Handle form field changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     
@@ -70,7 +70,7 @@ const SubscriptionForm: React.FC = () => {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData(prev => ({ ...prev, [name]: checked }));
     } else if (name === 'price' || name === 'sort_order') {
-      // Преобразование строки в число или null, если пусто
+      // Convert string to number or null if empty
       const numValue = value === '' ? null : Number(value);
       setFormData(prev => ({ ...prev, [name]: numValue }));
     } else {
@@ -78,7 +78,7 @@ const SubscriptionForm: React.FC = () => {
     }
   };
 
-  // Отправка формы
+  // Submit form
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -93,10 +93,10 @@ const SubscriptionForm: React.FC = () => {
       
       navigate('/admin/subscriptions');
     } catch (err) {
-      console.error('Ошибка при сохранении программы:', err);
-      setError('Не удалось сохранить программу. Пожалуйста, проверьте введенные данные.');
+      console.error('Error saving program:', err);
+      setError('Failed to save program. Please check the entered data.');
       
-      // Автоматически скрыть ошибку через 5 секунд
+      // Automatically hide error after 5 seconds
       setTimeout(() => {
         setError(null);
       }, 5000);
@@ -105,13 +105,13 @@ const SubscriptionForm: React.FC = () => {
     }
   };
 
-  // Состояние загрузки при редактировании
+  // Loading state when editing
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-[60vh]">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-700 font-medium">Загрузка данных программы...</p>
+          <p className="text-gray-700 font-medium">Loading program data...</p>
         </div>
       </div>
     );
@@ -121,7 +121,7 @@ const SubscriptionForm: React.FC = () => {
     <div className="container mx-auto p-4">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-gray-900">
-          {isEditMode ? 'Редактирование программы' : 'Создание новой программы'}
+          {isEditMode ? 'Edit Program' : 'Create New Program'}
         </h1>
         <button
           onClick={() => navigate('/admin/subscriptions')}
@@ -130,18 +130,18 @@ const SubscriptionForm: React.FC = () => {
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          Назад к списку
+          Back to List
         </button>
       </div>
 
-      {/* Уведомление об ошибке */}
+      {/* Error Notification */}
       {error && (
         <div className="mb-6 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 flex items-start rounded-r">
           <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <div className="flex-1">
-            <p className="font-medium">Ошибка</p>
+            <p className="font-medium">Error</p>
             <p>{error}</p>
           </div>
           <button 
@@ -157,7 +157,7 @@ const SubscriptionForm: React.FC = () => {
 
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
         <form onSubmit={handleSubmit} className="p-6">
-          {/* Вкладки для языков */}
+          {/* Language Tabs */}
           <div className="mb-8">
             <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200">
               <li className="mr-2">
@@ -165,7 +165,7 @@ const SubscriptionForm: React.FC = () => {
                   type="button"
                   className="inline-block p-4 rounded-t-lg border-b-2 border-blue-600 text-blue-600 active"
                 >
-                  Английский (EN)
+                  English (EN)
                 </button>
               </li>
               <li className="mr-2">
@@ -173,7 +173,7 @@ const SubscriptionForm: React.FC = () => {
                   type="button"
                   className="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300"
                 >
-                  Испанский (ES)
+                  Spanish (ES)
                 </button>
               </li>
               <li className="mr-2">
@@ -181,18 +181,18 @@ const SubscriptionForm: React.FC = () => {
                   type="button"
                   className="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300"
                 >
-                  Русский (RU)
+                  Russian (RU)
                 </button>
               </li>
             </ul>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Группа полей для EN */}
+            {/* EN Fields Group */}
             <div className="space-y-4">
               <div>
                 <label htmlFor="title_en" className="block text-sm font-medium text-gray-700 mb-1">
-                  Название программы (EN) <span className="text-red-500">*</span>
+                  Program Title (EN) <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -207,7 +207,7 @@ const SubscriptionForm: React.FC = () => {
               
               <div>
                 <label htmlFor="description_en" className="block text-sm font-medium text-gray-700 mb-1">
-                  Описание программы (EN)
+                  Program Description (EN)
                 </label>
                 <textarea
                   id="description_en"
@@ -220,11 +220,11 @@ const SubscriptionForm: React.FC = () => {
               </div>
             </div>
             
-            {/* Группа полей для ES */}
+            {/* ES Fields Group */}
             <div className="space-y-4">
               <div>
                 <label htmlFor="title_es" className="block text-sm font-medium text-gray-700 mb-1">
-                  Название программы (ES)
+                  Program Title (ES)
                 </label>
                 <input
                   type="text"
@@ -238,7 +238,7 @@ const SubscriptionForm: React.FC = () => {
               
               <div>
                 <label htmlFor="description_es" className="block text-sm font-medium text-gray-700 mb-1">
-                  Описание программы (ES)
+                  Program Description (ES)
                 </label>
                 <textarea
                   id="description_es"
@@ -251,11 +251,11 @@ const SubscriptionForm: React.FC = () => {
               </div>
             </div>
             
-            {/* Группа полей для RU */}
+            {/* RU Fields Group */}
             <div className="space-y-4">
               <div>
                 <label htmlFor="title_ru" className="block text-sm font-medium text-gray-700 mb-1">
-                  Название программы (RU)
+                  Program Title (RU)
                 </label>
                 <input
                   type="text"
@@ -269,7 +269,7 @@ const SubscriptionForm: React.FC = () => {
               
               <div>
                 <label htmlFor="description_ru" className="block text-sm font-medium text-gray-700 mb-1">
-                  Описание программы (RU)
+                  Program Description (RU)
                 </label>
                 <textarea
                   id="description_ru"
@@ -282,11 +282,11 @@ const SubscriptionForm: React.FC = () => {
               </div>
             </div>
             
-            {/* Цена и настройки */}
+            {/* Price and Settings */}
             <div className="space-y-4">
               <div>
                 <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-1">
-                  Цена (€)
+                  Price (€)
                 </label>
                 <input
                   type="number"
@@ -301,7 +301,7 @@ const SubscriptionForm: React.FC = () => {
               
               <div>
                 <label htmlFor="price_per_session" className="block text-sm font-medium text-gray-700 mb-1">
-                  Цена за сессию (если применимо)
+                  Price per Session (if applicable)
                 </label>
                 <input
                   type="text"
@@ -315,7 +315,7 @@ const SubscriptionForm: React.FC = () => {
               
               <div>
                 <label htmlFor="sort_order" className="block text-sm font-medium text-gray-700 mb-1">
-                  Порядок сортировки
+                  Sort Order
                 </label>
                 <input
                   type="number"
@@ -339,7 +339,7 @@ const SubscriptionForm: React.FC = () => {
                     className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   <label htmlFor="is_mountly" className="ml-2 block text-sm text-gray-700">
-                    Месячная программа
+                    Monthly Program
                   </label>
                 </div>
                 
@@ -353,7 +353,7 @@ const SubscriptionForm: React.FC = () => {
                     className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   <label htmlFor="is_hourly" className="ml-2 block text-sm text-gray-700">
-                    Почасовая программа
+                    Hourly Program
                   </label>
                 </div>
                 
@@ -367,7 +367,7 @@ const SubscriptionForm: React.FC = () => {
                     className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   <label htmlFor="is_active" className="ml-2 block text-sm text-gray-700">
-                    Активна
+                    Active
                   </label>
                 </div>
               </div>
@@ -380,7 +380,7 @@ const SubscriptionForm: React.FC = () => {
               onClick={() => navigate('/admin/subscriptions')}
               className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              Отмена
+              Cancel
             </button>
             <button
               type="submit"
@@ -393,7 +393,7 @@ const SubscriptionForm: React.FC = () => {
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
               )}
-              {isEditMode ? 'Сохранить изменения' : 'Создать программу'}
+              {isEditMode ? 'Save Changes' : 'Create Program'}
             </button>
           </div>
         </form>

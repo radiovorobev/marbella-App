@@ -15,7 +15,7 @@ const NewsDetails: React.FC = () => {
   useEffect(() => {
     const fetchNews = async () => {
       if (!id) {
-        setError('ID новости не указан');
+        setError('News ID is not specified');
         setLoading(false);
         return;
       }
@@ -27,7 +27,7 @@ const NewsDetails: React.FC = () => {
         setError(null);
       } catch (err) {
         console.error(err);
-        setError('Ошибка при загрузке информации о новости');
+        setError('Error loading news information');
       } finally {
         setLoading(false);
       }
@@ -36,7 +36,7 @@ const NewsDetails: React.FC = () => {
     fetchNews();
   }, [id]);
   
-  // Обработчик публикации новости
+  // Publish news handler
   const handlePublish = async () => {
     if (!news) return;
     
@@ -47,13 +47,13 @@ const NewsDetails: React.FC = () => {
       setError(null);
     } catch (err) {
       console.error(err);
-      setError('Ошибка при публикации новости');
+      setError('Error publishing news');
     } finally {
       setLoading(false);
     }
   };
   
-  // Обработчик архивирования новости
+  // Archive news handler
   const handleArchive = async () => {
     if (!news) return;
     
@@ -64,35 +64,35 @@ const NewsDetails: React.FC = () => {
       setError(null);
     } catch (err) {
       console.error(err);
-      setError('Ошибка при архивировании новости');
+      setError('Error archiving news');
     } finally {
       setLoading(false);
     }
   };
   
-  // Обработчик удаления новости
+  // Delete news handler
   const handleDelete = async () => {
     if (!news) return;
     
-    if (window.confirm('Вы уверены, что хотите удалить эту новость?')) {
+    if (window.confirm('Are you sure you want to delete this news item?')) {
       try {
         setLoading(true);
         await newsApi.deleteNews(news.id);
         navigate('/admin/news');
       } catch (err) {
         console.error(err);
-        setError('Ошибка при удалении новости');
+        setError('Error deleting news');
         setLoading(false);
       }
     }
   };
   
-  // Функция для форматирования статуса
+  // Function to format status
   const getStatusBadge = (status: PostStatus) => {
     const statusConfig = {
-      'Draft': { color: 'bg-yellow-100 text-yellow-800', label: 'Черновик' },
-      'Published': { color: 'bg-green-100 text-green-800', label: 'Опубликовано' },
-      'Archived': { color: 'bg-gray-100 text-gray-800', label: 'В архиве' }
+      'Draft': { color: 'bg-yellow-100 text-yellow-800', label: 'Draft' },
+      'Published': { color: 'bg-green-100 text-green-800', label: 'Published' },
+      'Archived': { color: 'bg-gray-100 text-gray-800', label: 'Archived' }
     };
     
     return (
@@ -107,7 +107,7 @@ const NewsDetails: React.FC = () => {
       <div className="flex justify-center items-center min-h-screen">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-700">Загрузка...</p>
+          <p className="text-gray-700">Loading...</p>
         </div>
       </div>
     );
@@ -117,13 +117,13 @@ const NewsDetails: React.FC = () => {
     return (
       <div className="container mx-auto p-4">
         <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
-          {error || 'Новость не найдена'}
+          {error || 'News not found'}
         </div>
         <button
           onClick={() => navigate('/admin/news')}
           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
-          Вернуться к списку
+          Back to List
         </button>
       </div>
     );
@@ -132,24 +132,24 @@ const NewsDetails: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Информация о новости</h1>
+        <h1 className="text-2xl font-bold">News Information</h1>
         <div className="flex space-x-2">
           <Link
             to={`/admin/news/${news.id}/edit`}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
-            Редактировать
+            Edit
           </Link>
           <button
             onClick={() => navigate('/admin/news')}
             className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100"
           >
-            Назад к списку
+            Back to List
           </button>
         </div>
       </div>
       
-      {/* Основная информация */}
+      {/* Main Information */}
       <div className="bg-white shadow rounded-lg overflow-hidden mb-6">
         <div className="p-6">
           <div className="flex justify-between items-start mb-4">
@@ -157,7 +157,7 @@ const NewsDetails: React.FC = () => {
               <h2 className="text-xl font-semibold">{news.title_en}</h2>
               <p className="text-gray-500 text-sm mt-1">
                 ID: {news.id} | 
-                Последнее обновление: {new Date(news.updated_at).toLocaleString()}
+                Last Updated: {new Date(news.updated_at).toLocaleString()}
               </p>
             </div>
             <div className="flex items-center space-x-2">
@@ -165,13 +165,13 @@ const NewsDetails: React.FC = () => {
               
               {news.publish_date && (
                 <span className="text-sm text-gray-600">
-                  Опубликовано: {new Date(news.publish_date).toLocaleString()}
+                  Published: {new Date(news.publish_date).toLocaleString()}
                 </span>
               )}
             </div>
           </div>
           
-          {/* Превью изображение */}
+          {/* Preview Image */}
           {news.preview_image_url && (
             <div className="mb-4">
               <img 
@@ -182,7 +182,7 @@ const NewsDetails: React.FC = () => {
             </div>
           )}
           
-          {/* Вкладки для переключения между языками */}
+          {/* Language Tabs */}
           <div className="mb-4 border-b">
             <ul className="flex flex-wrap -mb-px">
               <li className="mr-2">
@@ -207,7 +207,7 @@ const NewsDetails: React.FC = () => {
                         : 'border-transparent text-gray-500 hover:text-gray-600 hover:border-gray-300'
                     }`}
                   >
-                    Русский
+                    Russian
                   </button>
                 </li>
               )}
@@ -221,14 +221,14 @@ const NewsDetails: React.FC = () => {
                         : 'border-transparent text-gray-500 hover:text-gray-600 hover:border-gray-300'
                     }`}
                   >
-                    Español
+                    Spanish
                   </button>
                 </li>
               )}
             </ul>
           </div>
           
-          {/* Содержимое новости по вкладкам */}
+          {/* News Content by Tabs */}
           <div className="mb-6">
             {activeTab === 'en' && (
               <div className="prose max-w-none">
@@ -269,17 +269,17 @@ const NewsDetails: React.FC = () => {
         </div>
       </div>
       
-      {/* Метаданные и действия */}
+      {/* Metadata and Actions */}
       <div className="bg-white shadow rounded-lg overflow-hidden mb-6">
         <div className="p-6">
-          <h3 className="text-lg font-semibold mb-4">Действия</h3>
+          <h3 className="text-lg font-semibold mb-4">Actions</h3>
           
           <div className="flex space-x-2">
             <Link
               to={`/admin/news/${news.id}/edit`}
               className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
             >
-              Редактировать
+              Edit
             </Link>
             
             {news.status === 'Draft' && (
@@ -287,7 +287,7 @@ const NewsDetails: React.FC = () => {
                 onClick={handlePublish}
                 className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
               >
-                Опубликовать
+                Publish
               </button>
             )}
             
@@ -296,7 +296,7 @@ const NewsDetails: React.FC = () => {
                 onClick={handleArchive}
                 className="px-4 py-2 bg-yellow-600 text-white rounded hover:bg-yellow-700"
               >
-                В архив
+                Archive
               </button>
             )}
             
@@ -304,7 +304,7 @@ const NewsDetails: React.FC = () => {
               onClick={handleDelete}
               className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
             >
-              Удалить
+              Delete
             </button>
           </div>
         </div>

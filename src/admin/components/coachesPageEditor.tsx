@@ -328,8 +328,8 @@ const CoachesPageEditor: React.FC = () => {
           
           {activeTab === 'ru' && (
             <div>
-              <h1 className="text-3xl font-bold mb-4">{formData.title_ru || 'Нет заголовка'}</h1>
-              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: formData.text_ru || 'Нет содержимого' }} />
+              <h1 className="text-3xl font-bold mb-4">{formData.title_ru || 'No title'}</h1>
+              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: formData.text_ru || 'No content' }} />
             </div>
           )}
         </div>

@@ -9,7 +9,7 @@ const CoachForm: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const isEditMode = !!id;
 
-  // Состояние формы
+  // Form state
   const [formData, setFormData] = useState<CoachFormData>({
     name_en: '',
     name_es: null,
@@ -26,17 +26,17 @@ const CoachForm: React.FC = () => {
     is_active: true
   });
 
-  // Состояние для загрузки и ошибок
+  // State for loading and errors
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [previewPhotoUrl, setPreviewPhotoUrl] = useState<string | null>(null);
 
-  // Дополнительные состояния для языков
+  // Additional states for languages
   const [showRussian, setShowRussian] = useState(false);
   const [showSpanish, setShowSpanish] = useState(false);
 
-  // Загрузка данных тренера при редактировании
+  // Load coach data when editing
   useEffect(() => {
     const fetchCoachData = async () => {
       if (isEditMode && id) {
@@ -60,7 +60,7 @@ const CoachForm: React.FC = () => {
             is_active: coachData.is_active
           });
 
-          // Показываем дополнительные языки, если они заполнены
+          // Show additional languages if they are filled
           if (coachData.name_ru || coachData.bio_ru) {
             setShowRussian(true);
           }
@@ -69,15 +69,15 @@ const CoachForm: React.FC = () => {
             setShowSpanish(true);
           }
 
-          // Устанавливаем preview фото
+          // Set photo preview
           if (coachData.photo_url) {
             setPreviewPhotoUrl(coachData.photo_url);
           }
           
           setError(null);
         } catch (err) {
-          console.error('Ошибка при загрузке данных тренера:', err);
-          setError('Не удалось загрузить данные тренера');
+          console.error('Error loading coach data:', err);
+          setError('Failed to load coach data');
         } finally {
           setLoading(false);
         }
@@ -87,13 +87,13 @@ const CoachForm: React.FC = () => {
     fetchCoachData();
   }, [id, isEditMode]);
 
-  // Обработчик изменения полей формы
+  // Handle form field changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value, type } = e.target;
     
-    // Для checkbox обрабатываем значение особо
+    // For checkbox, handle value specially
     const newValue = type === 'checkbox' 
       ? (e.target as HTMLInputElement).checked 
       : value;
@@ -101,19 +101,19 @@ const CoachForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: newValue }));
   };
 
-  // Обработчик изменения полей редактора текста
+  // Handle text editor changes
   const handleEditorChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  // Обработчик изменения фото
+  // Handle photo change
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
       const file = files[0];
       setPhotoFile(file);
       
-      // Создаем preview
+      // Create preview
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreviewPhotoUrl(reader.result as string);
@@ -122,7 +122,7 @@ const CoachForm: React.FC = () => {
     }
   };
 
-  // Обработчик отправки формы
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -130,17 +130,17 @@ const CoachForm: React.FC = () => {
       setLoading(true);
       setError(null);
       
-      // Загружаем фото, если оно выбрано
+      // Upload photo if selected
       let photoUrl = formData.photo_url;
       if (photoFile) {
         photoUrl = await coachesApi.uploadCoachPhoto(photoFile);
       }
       
-      // Подготавливаем данные для сохранения
+      // Prepare data for saving
       const coachData: CoachFormData = {
         ...formData,
         photo_url: photoUrl,
-        // Устанавливаем пустые значения для неиспользуемых языков
+        // Set empty values for unused languages
         name_ru: showRussian ? formData.name_ru : null,
         bio_ru: showRussian ? formData.bio_ru : null,
         role_ru: showRussian ? formData.role_ru : null,
@@ -149,19 +149,19 @@ const CoachForm: React.FC = () => {
         role_es: showSpanish ? formData.role_es : null,
       };
       
-      // Сохраняем данные
+      // Save data
       if (isEditMode && id) {
         await coachesApi.updateCoach(parseInt(id, 10), coachData);
       } else {
         await coachesApi.createCoach(coachData);
       }
       
-      // Перенаправляем на список тренеров
+      // Redirect to coaches list
       navigate('/admin/coaches');
       
     } catch (err) {
-      console.error('Ошибка при сохранении тренера:', err);
-      setError('Не удалось сохранить данные тренера. Пожалуйста, попробуйте снова.');
+      console.error('Error saving coach:', err);
+      setError('Failed to save coach data. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -172,7 +172,7 @@ const CoachForm: React.FC = () => {
       <div className="flex justify-center items-center min-h-screen">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-700">Загрузка...</p>
+          <p className="text-gray-700">Loading...</p>
         </div>
       </div>
     );
@@ -182,13 +182,13 @@ const CoachForm: React.FC = () => {
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">
-          {isEditMode ? 'Редактирование тренера' : 'Создание тренера'}
+          {isEditMode ? 'Edit Coach' : 'Create Coach'}
         </h1>
         <button
           onClick={() => navigate('/admin/coaches')}
           className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
         >
-          Назад к списку
+          Back to List
         </button>
       </div>
       
@@ -199,13 +199,13 @@ const CoachForm: React.FC = () => {
       )}
       
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        {/* Английская версия */}
+        {/* English version */}
         <div className="mb-6">
-          <h2 className="text-lg font-semibold border-b pb-2 mb-4">Английская версия</h2>
+          <h2 className="text-lg font-semibold border-b pb-2 mb-4">English Version</h2>
           
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Имя <span className="text-red-500">*</span>
+              Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -219,7 +219,7 @@ const CoachForm: React.FC = () => {
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Роль <span className="text-red-500">*</span>
+              Role <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -232,23 +232,23 @@ const CoachForm: React.FC = () => {
           </div>
           
           <QuillEditor
-            label="Биография"
+            label="Biography"
             value={formData.bio_en}
             onChange={(value) => handleEditorChange('bio_en', value)}
             required
           />
         </div>
         
-        {/* Русская версия */}
+        {/* Russian version */}
         <div className="mb-6">
           <div className="flex justify-between items-center border-b pb-2 mb-4">
-            <h2 className="text-lg font-semibold">Русская версия</h2>
+            <h2 className="text-lg font-semibold">Russian Version</h2>
             <button 
               type="button"
               onClick={() => setShowRussian(!showRussian)}
               className="text-blue-600 hover:text-blue-800"
             >
-              {showRussian ? 'Скрыть' : 'Показать'}
+              {showRussian ? 'Hide' : 'Show'}
             </button>
           </div>
           
@@ -256,7 +256,7 @@ const CoachForm: React.FC = () => {
             <>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Имя (RU)
+                  Name (RU)
                 </label>
                 <input
                   type="text"
@@ -269,7 +269,7 @@ const CoachForm: React.FC = () => {
 
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Роль (RU)
+                  Role (RU)
                 </label>
                 <input
                   type="text"
@@ -281,7 +281,7 @@ const CoachForm: React.FC = () => {
               </div>
               
               <QuillEditor
-                label="Биография (RU)"
+                label="Biography (RU)"
                 value={formData.bio_ru || ''}
                 onChange={(value) => handleEditorChange('bio_ru', value)}
               />
@@ -289,16 +289,16 @@ const CoachForm: React.FC = () => {
           )}
         </div>
         
-        {/* Испанская версия */}
+        {/* Spanish version */}
         <div className="mb-6">
           <div className="flex justify-between items-center border-b pb-2 mb-4">
-            <h2 className="text-lg font-semibold">Испанская версия</h2>
+            <h2 className="text-lg font-semibold">Spanish Version</h2>
             <button 
               type="button"
               onClick={() => setShowSpanish(!showSpanish)}
               className="text-blue-600 hover:text-blue-800"
             >
-              {showSpanish ? 'Скрыть' : 'Показать'}
+              {showSpanish ? 'Hide' : 'Show'}
             </button>
           </div>
           
@@ -306,7 +306,7 @@ const CoachForm: React.FC = () => {
             <>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Имя (ES)
+                  Name (ES)
                 </label>
                 <input
                   type="text"
@@ -319,7 +319,7 @@ const CoachForm: React.FC = () => {
 
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Роль (ES)
+                  Role (ES)
                 </label>
                 <input
                   type="text"
@@ -331,7 +331,7 @@ const CoachForm: React.FC = () => {
               </div>
               
               <QuillEditor
-                label="Биография (ES)"
+                label="Biography (ES)"
                 value={formData.bio_es || ''}
                 onChange={(value) => handleEditorChange('bio_es', value)}
               />
@@ -339,13 +339,13 @@ const CoachForm: React.FC = () => {
           )}
         </div>
         
-        {/* Дополнительная информация */}
+        {/* Additional information */}
         <div className="mb-6">
-          <h2 className="text-lg font-semibold border-b pb-2 mb-4">Дополнительная информация</h2>
+          <h2 className="text-lg font-semibold border-b pb-2 mb-4">Additional Information</h2>
           
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Лицензия
+              License
             </label>
             <input
               type="text"
@@ -358,7 +358,7 @@ const CoachForm: React.FC = () => {
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Порядок сортировки
+              Sort Order
             </label>
             <input
               type="number"
@@ -378,18 +378,18 @@ const CoachForm: React.FC = () => {
               className="mr-2"
             />
             <label className="text-sm font-medium text-gray-700">
-              Активен
+              Active
             </label>
           </div>
         </div>
 
-        {/* Фото тренера */}
+        {/* Coach photo */}
         <div className="mb-6">
-          <h2 className="text-lg font-semibold border-b pb-2 mb-4">Фото тренера</h2>
+          <h2 className="text-lg font-semibold border-b pb-2 mb-4">Coach Photo</h2>
           
           {previewPhotoUrl && (
             <div className="mb-4">
-              <p className="text-sm text-gray-600 mb-2">Текущее фото:</p>
+              <p className="text-sm text-gray-600 mb-2">Current photo:</p>
               <img 
                 src={previewPhotoUrl} 
                 alt="Coach Preview" 
@@ -400,7 +400,7 @@ const CoachForm: React.FC = () => {
           
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Загрузить новое фото
+              Upload new photo
             </label>
             <input
               type="file"
@@ -409,12 +409,12 @@ const CoachForm: React.FC = () => {
               className="w-full p-2"
             />
             <p className="text-xs text-gray-500 mt-1">
-              Рекомендуемый размер: 300x400 пикселей
+              Recommended size: 300x400 pixels
             </p>
           </div>
         </div>
         
-        {/* Кнопки действий */}
+        {/* Action buttons */}
         <div className="flex justify-end space-x-2">
           <button
             type="button"
@@ -422,7 +422,7 @@ const CoachForm: React.FC = () => {
             className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100"
             disabled={loading}
           >
-            Отмена
+            Cancel
           </button>
           
           <button
@@ -430,7 +430,7 @@ const CoachForm: React.FC = () => {
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
             disabled={loading}
           >
-            {loading ? 'Сохранение...' : 'Сохранить'}
+            {loading ? 'Saving...' : 'Save'}
           </button>
         </div>
       </form>

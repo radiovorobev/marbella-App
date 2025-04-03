@@ -50,12 +50,12 @@ const AdminHome: React.FC = () => {
         // Get users data
         const usersResponse = await userApi.getUsers();
         setUsersCount(usersResponse.totalCount || usersResponse.users.length);
-      } catch (err) {
-        console.error('Ошибка при загрузке статистики:', err);
-        setError('Не удалось загрузить данные статистики. Пожалуйста, попробуйте позже.');
-      } finally {
-        setIsLoading(false);
-      }
+        } catch (err) {
+          console.error('Error loading statistics:', err);
+          setError('Failed to load statistics data. Please try again later.');
+        } finally {
+          setIsLoading(false);
+        }
     };
 
     fetchCounts();
@@ -134,8 +134,8 @@ const AdminHome: React.FC = () => {
   const adminModules = [
     {
       id: 'users',
-      title: 'Пользователи',
-      description: 'Управление пользователями системы, их ролями и разрешениями.',
+      title: 'Users',
+      description: 'Manage system users, their roles, and permissions.',
       icon: <UserIcon />,
       iconBg: 'bg-blue-100',
       iconColor: 'text-blue-600',
@@ -146,8 +146,8 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'news',
-      title: 'Новости',
-      description: 'Создание, редактирование и удаление новостей и статей на сайте.',
+      title: 'News',
+      description: 'Create, edit, and delete news and articles on the website.',
       icon: <NewsIcon />,
       iconBg: 'bg-green-100',
       iconColor: 'text-green-600',
@@ -158,15 +158,15 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'programs',
-      title: 'Программы',
-      description: 'Управление программами и курсами академии.',
+      title: 'Programs',
+      description: 'Manage academy programs and courses.',
       icon: <ProgramIcon />,
       iconBg: 'bg-purple-100',
       iconColor: 'text-purple-600',
       buttonBg: 'bg-purple-600',
       buttonHoverBg: 'hover:bg-purple-700',
       link: '/admin/subscriptions',
-      isAvailable: true // Изменено на true, так как модуль теперь доступен
+      isAvailable: true
     },
     {
       id: 'programmes-page',
@@ -182,8 +182,8 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'coaches',
-      title: 'Тренеры',
-      description: 'Управление информацией о тренерах академии.',
+      title: 'Coaches',
+      description: 'Manage information about academy coaches.',
       icon: <CoachIcon />,
       iconBg: 'bg-yellow-100',
       iconColor: 'text-yellow-600',
@@ -191,7 +191,8 @@ const AdminHome: React.FC = () => {
       buttonHoverBg: 'hover:bg-yellow-700',
       link: '/admin/coaches',
       isAvailable: true
-    },{
+    },
+    {
       id: 'coaches-page',
       title: 'Coaches Page',
       description: 'Edit the main content of the coaches page.',
@@ -205,20 +206,20 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'camps',
-      title: 'Лагеря',
-      description: 'Управление информацией о лагерях и сборах.',
+      title: 'Camps',
+      description: 'Manage information about camps and training sessions.',
       icon: <CampIcon />,
       iconBg: 'bg-red-100',
       iconColor: 'text-red-600',
       buttonBg: 'bg-red-600',
       buttonHoverBg: 'hover:bg-red-700',
-      link: '/admin/camps-page',  // Новая ссылка
-      isAvailable: true           // Теперь доступно
+      link: '/admin/camps-page',
+      isAvailable: true
     },
     {
       id: 'locations',
-      title: 'Площадки',
-      description: 'Управление информацией о тренировочных площадках и локациях.',
+      title: 'Locations',
+      description: 'Manage information about training locations and venues.',
       icon: <LocationIcon />,
       iconBg: 'bg-indigo-100',
       iconColor: 'text-indigo-600',
@@ -229,8 +230,8 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'gallery',
-      title: 'Галерея',
-      description: 'Управление фотографиями и видео в галерее сайта.',
+      title: 'Gallery',
+      description: 'Manage photos and videos in the website gallery.',
       icon: <GalleryIcon />,
       iconBg: 'bg-pink-100',
       iconColor: 'text-pink-600',
@@ -241,8 +242,8 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'contacts',
-      title: 'Контакты',
-      description: 'Управление контактной информацией и формой обратной связи.',
+      title: 'Contacts',
+      description: 'Manage contact information and the feedback form.',
       icon: <ContactIcon />,
       iconBg: 'bg-orange-100',
       iconColor: 'text-orange-600',
@@ -253,8 +254,8 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'settings',
-      title: 'Настройки',
-      description: 'Общие настройки сайта, SEO и управление конфигурацией.',
+      title: 'Settings',
+      description: 'General website settings, SEO, and configuration management.',
       icon: <SettingsIcon />,
       iconBg: 'bg-gray-100',
       iconColor: 'text-gray-600',
@@ -264,12 +265,13 @@ const AdminHome: React.FC = () => {
       isAvailable: false
     }
   ];
+  
 
   // Build metrics data
   const metricsData: MetricItem[] = [
     {
       id: 'users-metric',
-      title: 'Пользователи',
+      title: 'Users',
       count: usersCount,
       icon: <UserIcon />,
       color: 'text-blue-600',
@@ -277,7 +279,7 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'news-metric',
-      title: 'Новости',
+      title: 'News',
       count: newsCount,
       icon: <NewsIcon />,
       color: 'text-green-600',
@@ -285,55 +287,11 @@ const AdminHome: React.FC = () => {
     },
     {
       id: 'coaches-metric',
-      title: 'Тренеры',
+      title: 'Coaches',
       count: coachesCount,
       icon: <CoachIcon />,
       color: 'text-yellow-600',
       link: '/admin/coaches'
-    }
-  ];
-
-  // Recent activities data
-  const recentActivities: ActionItem[] = [
-    {
-      id: 'activity-1',
-      title: 'Создан новый пользователь: Admin1',
-      timestamp: '1 апреля 2025, 12:30',
-      icon: <UserIcon />,
-      iconBg: 'bg-blue-100',
-      iconColor: 'text-blue-600'
-    },
-    {
-      id: 'activity-2',
-      title: 'Опубликована новость: Новая программа тренировок',
-      timestamp: '1 апреля 2025, 10:15',
-      icon: <NewsIcon />,
-      iconBg: 'bg-green-100',
-      iconColor: 'text-green-600'
-    },
-    {
-      id: 'activity-3',
-      title: 'Изменены настройки сайта',
-      timestamp: '31 марта 2025, 16:45',
-      icon: <SettingsIcon />,
-      iconBg: 'bg-yellow-100',
-      iconColor: 'text-yellow-600'
-    },
-    {
-      id: 'activity-4',
-      title: 'Добавлен новый тренер: Иван Петров',
-      timestamp: '31 марта 2025, 14:20',
-      icon: <CoachIcon />,
-      iconBg: 'bg-yellow-100',
-      iconColor: 'text-yellow-600'
-    },
-    {
-      id: 'activity-5',
-      title: 'Обновлена информация о летнем лагере',
-      timestamp: '30 марта 2025, 11:05',
-      icon: <CampIcon />,
-      iconBg: 'bg-red-100',
-      iconColor: 'text-red-600'
     }
   ];
 
@@ -351,9 +309,9 @@ const AdminHome: React.FC = () => {
       <header className="mb-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Административная панель</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Admin Panel</h1>
             <p className="mt-1 text-sm text-gray-600">
-              Управление контентом и настройками сайта Marbella International Football Academy
+              Manage content and settings of the Marbella International Football Academy website
             </p>
           </div>
           <div className="mt-4 md:mt-0">
@@ -364,7 +322,7 @@ const AdminHome: React.FC = () => {
               <svg className="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
-              Создать
+              Create
             </button>
           </div>
         </div>
@@ -380,7 +338,7 @@ const AdminHome: React.FC = () => {
               </svg>
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-red-800">Ошибка</h3>
+              <h3 className="text-sm font-medium text-red-800">Error</h3>
               <div className="mt-2 text-sm text-red-700">
                 <p>{error}</p>
               </div>
@@ -399,14 +357,14 @@ const AdminHome: React.FC = () => {
               </div>
             </div>
             <div className="ml-4">
-              <h3 className="text-lg font-medium text-gray-900">Добро пожаловать в админ-панель</h3>
+              <h3 className="text-lg font-medium text-gray-900">Welcome to the Admin Panel</h3>
               <p className="mt-1 text-sm text-gray-600">
-                Здесь вы можете управлять всем контентом сайта Marbella International Football Academy.
-                Используйте карточки ниже для навигации по разделам. Текущая статистика доступна в разделе ниже.
+                Here you can manage all content of the Marbella International Football Academy website.
+                Use the cards below to navigate through sections. Current statistics are available in the section below.
               </p>
               <div className="mt-3">
                 <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">
-                  Посмотреть руководство <span aria-hidden="true">&rarr;</span>
+                  View Guide <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
             </div>
@@ -436,7 +394,7 @@ const AdminHome: React.FC = () => {
                           to={metric.link}
                           className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 hover:bg-blue-200"
                         >
-                          Подробнее
+                          More details
                         </Link>
                       </div>
                     )}
@@ -447,9 +405,9 @@ const AdminHome: React.FC = () => {
           </div>
         ))}
       </div>
-
+  
       {/* Admin modules */}
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Управление разделами</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Manage Sections</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {adminModules.map(module => (
           <div 
@@ -471,132 +429,21 @@ const AdminHome: React.FC = () => {
                   to={module.link}
                   className={`inline-flex items-center px-4 py-2 ${module.buttonBg} text-white rounded ${module.buttonHoverBg} transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
                 >
-                  Управление
+                  Manage
                 </Link>
               ) : (
                 <span 
                   className="inline-flex items-center px-4 py-2 bg-gray-300 text-gray-700 rounded cursor-not-allowed"
-                  title="Этот раздел находится в разработке"
+                  title="This section is under development"
                 >
-                  В разработке
+                  Under Development
                 </span>
               )}
             </div>
           </div>
         ))}
       </div>
-
-      {/* Activity Section and Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Recent Activities */}
-        <div className="lg:col-span-2">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Последние действия</h2>
-          <div className="bg-white shadow overflow-hidden sm:rounded-md">
-            <ul className="divide-y divide-gray-200">
-              {recentActivities.map(activity => (
-                <li key={activity.id}>
-                  <div className="px-4 py-4 sm:px-6 hover:bg-gray-50 transition-colors duration-200">
-                    <div className="flex items-center">
-                      <div className="flex-shrink-0">
-                        <div className={`${activity.iconBg} p-2 rounded-full`}>
-                          <div className={activity.iconColor}>{activity.icon}</div>
-                        </div>
-                      </div>
-                      <div className="ml-4 flex-1">
-                        <div className="text-sm font-medium text-gray-900">{activity.title}</div>
-                        <div className="text-sm text-gray-500">{activity.timestamp}</div>
-                      </div>
-                      <div className="ml-2">
-                        <button 
-                          type="button"
-                          className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                        >
-                          <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <div className="bg-gray-50 px-4 py-4 sm:px-6">
-              <div className="flex items-center justify-center">
-                <button
-                  type="button"
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                  Показать больше
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* System Status */}
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Состояние системы</h2>
-          <div className="bg-white shadow overflow-hidden rounded-lg">
-            <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">Мониторинг</h3>
-            </div>
-            <div className="px-4 py-5 sm:p-6">
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium text-gray-700">Загрузка сервера</span>
-                    <span className="text-sm font-medium text-green-600">Нормальная (23%)</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div className="bg-green-600 h-2.5 rounded-full" style={{ width: '45%' }}></div>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium text-gray-700">Диск</span>
-                    <span className="text-sm font-medium text-yellow-600">Среднее (72%)</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div className="bg-yellow-500 h-2.5 rounded-full" style={{ width: '72%' }}></div>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium text-gray-700">База данных</span>
-                    <span className="text-sm font-medium text-green-600">Нормальная (34%)</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div className="bg-green-600 h-2.5 rounded-full" style={{ width: '34%' }}></div>
-                  </div>
-                </div>
-                
-                <div className="pt-4 border-t border-gray-200">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                      <svg className="h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-700">Все системы работают нормально</p>
-                      <p className="text-xs text-gray-500">Последнее обновление: 2 апреля 2025, 10:25</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-gray-50 px-4 py-4 sm:px-6 border-t border-gray-200">
-              <button type="button" className="text-sm font-medium text-blue-600 hover:text-blue-500">
-                Просмотреть полный отчет
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+  
       {/* Footer */}
       <footer className="mt-12 py-6 border-t border-gray-200">
         <div className="flex justify-between items-center">
@@ -604,12 +451,13 @@ const AdminHome: React.FC = () => {
             &copy; 2025 Marbella International Football Academy
           </div>
           <div className="text-sm text-gray-500">
-            Версия 1.0.2
+            Version 1.0.2
           </div>
         </div>
       </footer>
     </div>
   );
+  
 };
 
 export default AdminHome; 

@@ -169,6 +169,18 @@ const AdminHome: React.FC = () => {
       isAvailable: true // Изменено на true, так как модуль теперь доступен
     },
     {
+      id: 'programmes-page',
+      title: 'Programs Page',
+      description: 'Edit the main content of the programs page and card sections.',
+      icon: <ProgramIcon />,
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      buttonBg: 'bg-purple-600',
+      buttonHoverBg: 'hover:bg-purple-700',
+      link: '/admin/programmes-page',
+      isAvailable: true
+    },
+    {
       id: 'coaches',
       title: 'Тренеры',
       description: 'Управление информацией о тренерах академии.',

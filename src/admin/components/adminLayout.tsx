@@ -3,11 +3,13 @@ import React from 'react';
 import { Link, useNavigate, useLocation, Outlet } from 'react-router-dom';
 import '../../index.css'; // Глобальные стили
 import '../adminStyles.css'; // Специфичные стили для админки
+import { useAuth } from '../../auth/context/authContext'; // Import the auth context
 
 const AdminLayout: React.FC = () => {
   console.log('AdminLayout рендерится'); // Отладочный вывод
   const navigate = useNavigate();
   const location = useLocation();
+  const { user, logout } = useAuth(); // Get user and logout function from auth context
 
   // Функция для определения активности ссылки
   const isActiveLink = (path: string) => {
@@ -16,10 +18,10 @@ const AdminLayout: React.FC = () => {
 
   // Обработчик выхода из админки
   const handleLogout = () => {
-    // Удаляем токен авторизации
-    localStorage.removeItem('admin_token');
-    // Перенаправляем на главную страницу сайта
-    navigate('/');
+    // Используем функцию logout из контекста аутентификации
+    logout();
+    // Перенаправляем на страницу логина
+    navigate('/login');
   };
 
   return (
@@ -69,6 +71,12 @@ const AdminLayout: React.FC = () => {
               </nav>
             </div>
             <div className="flex items-center">
+              {/* Display current user info */}
+              {user && (
+                <span className="mr-4 text-sm text-gray-700">
+                  {user.name} {user.last_name} ({user.role})
+                </span>
+              )}
               <Link 
                 to="/" 
                 target="_blank" 

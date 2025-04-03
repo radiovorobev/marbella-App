@@ -175,6 +175,30 @@ const AdminHome: React.FC = () => {
       isAvailable: true
     },
     {
+      id: 'index-page',
+      title: 'Homepage',
+      description: 'Edit the main content of the homepage, including headings, features, and section titles.',
+      icon: <DocumentIcon />, // Можно использовать существующую иконку, например DocumentIcon
+      iconBg: 'bg-teal-100',
+      iconColor: 'text-teal-600',
+      buttonBg: 'bg-teal-600',
+      buttonHoverBg: 'hover:bg-teal-700',
+      link: '/admin/index-page',
+      isAvailable: true
+    },
+    {
+      id: 'venues-page',
+      title: 'Venues Page',
+      description: 'Edit the main content of the venues page, including text sections and featured image.',
+      icon: <LocationIcon />, // Можно использовать существующую иконку LocationIcon
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-600',
+      buttonBg: 'bg-amber-600',
+      buttonHoverBg: 'hover:bg-amber-700',
+      link: '/admin/venues-page',
+      isAvailable: true
+    },
+    {
       id: 'programmes-page',
       title: 'Programs Page',
       description: 'Edit the main content of the programs page and card sections.',
@@ -223,18 +247,6 @@ const AdminHome: React.FC = () => {
       isAvailable: true
     },
     {
-      id: 'locations',
-      title: 'Locations',
-      description: 'Manage information about training locations and venues.',
-      icon: <LocationIcon />,
-      iconBg: 'bg-indigo-100',
-      iconColor: 'text-indigo-600',
-      buttonBg: 'bg-indigo-600',
-      buttonHoverBg: 'hover:bg-indigo-700',
-      link: '/admin/locations',
-      isAvailable: false
-    },
-    {
       id: 'gallery',
       title: 'Gallery',
       description: 'Manage photos and videos in the website gallery.',
@@ -247,28 +259,28 @@ const AdminHome: React.FC = () => {
       isAvailable: false
     },
     {
-      id: 'contacts',
-      title: 'Contacts',
-      description: 'Manage contact information and the feedback form.',
-      icon: <ContactIcon />,
-      iconBg: 'bg-orange-100',
-      iconColor: 'text-orange-600',
-      buttonBg: 'bg-orange-600',
-      buttonHoverBg: 'hover:bg-orange-700',
-      link: '/admin/contacts',
-      isAvailable: false
+      id: 'contacts-page',
+      title: 'Contacts Page',
+      description: 'Edit contact information, texts, and Google Maps embed for the contacts page.',
+      icon: <ContactIcon />, // Используем существующую иконку ContactIcon
+      iconBg: 'bg-pink-100',
+      iconColor: 'text-pink-600',
+      buttonBg: 'bg-pink-600',
+      buttonHoverBg: 'hover:bg-pink-700',
+      link: '/admin/contacts-page',
+      isAvailable: true
     },
     {
-      id: 'settings',
-      title: 'Settings',
-      description: 'General website settings, SEO, and configuration management.',
-      icon: <SettingsIcon />,
+      id: 'site-settings',
+      title: 'Site Settings',
+      description: 'Manage global site settings, contact information, social media links and more.',
+      icon: <SettingsIcon />, // Используем существующую иконку SettingsIcon
       iconBg: 'bg-gray-100',
       iconColor: 'text-gray-600',
       buttonBg: 'bg-gray-600',
       buttonHoverBg: 'hover:bg-gray-700',
-      link: '/admin/settings',
-      isAvailable: false
+      link: '/admin/site-settings',
+      isAvailable: true
     },
     {
       id: 'menu',

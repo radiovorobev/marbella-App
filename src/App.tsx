@@ -60,6 +60,15 @@ const ProgrammesPageEditor = lazy(() => import('./admin/components/programmesPag
 const MenuItemsList = lazy(() => import('./admin/components/menuItemsList'));
 const MenuItemForm = lazy(() => import('./admin/components/menuItemForm'));
 
+const IndexPageEditor = lazy(() => import('./admin/components/indexPageEditor'));
+
+const VenuesPageEditor = lazy(() => import('./admin/components/venuesPageEditor'));
+
+const ContactsPageEditor = lazy(() => import('./admin/components/contactsPageEditor'));
+
+const SiteSettingsEditor = lazy(() => import('./admin/components/siteSettingsEditor'));
+
+
 
 // Применяем HOC к страницам основного сайта
 const IndexPageWithLoader = withLoader(IndexPage);
@@ -136,6 +145,15 @@ function App() {
             <Route path="menu" element={<MenuItemsList />} />
             <Route path="menu/new" element={<MenuItemForm />} />
             <Route path="menu/edit/:id" element={<MenuItemForm />} />
+
+            <Route path="index-page" element={<IndexPageEditor />} />
+
+            <Route path="venues-page" element={<VenuesPageEditor />} />
+
+            <Route path="contacts-page" element={<ContactsPageEditor />} />
+
+            <Route path="site-settings" element={<SiteSettingsEditor />} />
+
           </Route>
           
           {/* Маршруты основного сайта */}

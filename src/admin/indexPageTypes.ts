@@ -1,0 +1,67 @@
+export interface IndexPageData {
+  id: number;
+  created_at: string;
+  page_title_en: string | null;
+  page_title_es: string | null;
+  page_title_ru: string | null;
+  about_header_en: string | null;
+  about_header_es: string | null;
+  about_header_ru: string | null;
+  bullit_one_header_en: string | null;
+  bullit_one_header_es: string | null;
+  bullit_one_header_ru: string | null;
+  bullit_one_text_en: string | null;
+  bullit_one_text_es: string | null;
+  bullit_one_text_ru: string | null;
+  news_header_en: string | null;
+  news_header_es: string | null;
+  news_header_ru: string | null;
+  gallery_header_en: string | null;
+  gallery_header_es: string | null;
+  gallery_header_ru: string | null;
+  bullit_two_header_en: string | null;
+  bullit_two_header_es: string | null;
+  bullit_two_header_ru: string | null;
+  bullit_two_text_en: string | null;
+  bullit_two_text_es: string | null;
+  bullit_two_text_ru: string | null;
+  bullit_three_header_en: string | null;
+  bullit_three_header_es: string | null;
+  bullit_three_header_ru: string | null;
+  bullit_three_text_en: string | null;
+  bullit_three_text_es: string | null;
+  bullit_three_text_ru: string | null;
+}
+
+export interface IndexPageFormData {
+  page_title_en: string | null;
+  page_title_es: string | null;
+  page_title_ru: string | null;
+  about_header_en: string | null;
+  about_header_es: string | null;
+  about_header_ru: string | null;
+  bullit_one_header_en: string | null;
+  bullit_one_header_es: string | null;
+  bullit_one_header_ru: string | null;
+  bullit_one_text_en: string | null;
+  bullit_one_text_es: string | null;
+  bullit_one_text_ru: string | null;
+  news_header_en: string | null;
+  news_header_es: string | null;
+  news_header_ru: string | null;
+  gallery_header_en: string | null;
+  gallery_header_es: string | null;
+  gallery_header_ru: string | null;
+  bullit_two_header_en: string | null;
+  bullit_two_header_es: string | null;
+  bullit_two_header_ru: string | null;
+  bullit_two_text_en: string | null;
+  bullit_two_text_es: string | null;
+  bullit_two_text_ru: string | null;
+  bullit_three_header_en: string | null;
+  bullit_three_header_es: string | null;
+  bullit_three_header_ru: string | null;
+  bullit_three_text_en: string | null;
+  bullit_three_text_es: string | null;
+  bullit_three_text_ru: string | null;
+}

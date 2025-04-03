@@ -20,6 +20,7 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
   }, ref) => {
     const [quillInstance, setQuillInstance] = useState<Quill | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const editorRef = useRef<HTMLDivElement>(null);
 
     // Quill modules configuration
     const modules = {
@@ -36,8 +37,9 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
 
     useEffect(() => {
       // If container exists and Quill is not initialized
-      if (containerRef.current && !quillInstance) {
-        const quill = new Quill(containerRef.current, {
+      if (containerRef.current && editorRef.current && !quillInstance) {
+        // Create a new div for the editor
+        const quill = new Quill(editorRef.current, {
           theme: 'snow',
           modules: modules,
         });
@@ -102,7 +104,9 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
             {label} {required && <span className="text-red-500">*</span>}
           </label>
         )}
-        <div ref={containerRef} className="bg-white"></div>
+        <div ref={containerRef} className="quill-container">
+          <div ref={editorRef} className="bg-white"></div>
+        </div>
         {required && (!value || value === '<p><br></p>') && (
           <p className="text-red-500 text-xs mt-1">This field is required</p>
         )}

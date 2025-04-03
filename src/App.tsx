@@ -57,6 +57,9 @@ const CoachesPageEditor = lazy(() => import('./admin/components/coachesPageEdito
 
 const ProgrammesPageEditor = lazy(() => import('./admin/components/programmesPageEditor'));
 
+const MenuItemsList = lazy(() => import('./admin/components/menuItemsList'));
+const MenuItemForm = lazy(() => import('./admin/components/menuItemForm'));
+
 
 // Применяем HOC к страницам основного сайта
 const IndexPageWithLoader = withLoader(IndexPage);
@@ -129,6 +132,10 @@ function App() {
 
             <Route path="coaches-page" element={<CoachesPageEditor />} />
             <Route path="programmes-page" element={<ProgrammesPageEditor />} />
+
+            <Route path="menu" element={<MenuItemsList />} />
+            <Route path="menu/new" element={<MenuItemForm />} />
+            <Route path="menu/edit/:id" element={<MenuItemForm />} />
           </Route>
           
           {/* Маршруты основного сайта */}

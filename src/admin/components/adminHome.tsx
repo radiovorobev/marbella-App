@@ -130,6 +130,12 @@ const AdminHome: React.FC = () => {
     </svg>
   );
   
+  const MenuIcon = () => (
+    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+    </svg>
+  );
+
   // Admin modules data
   const adminModules = [
     {
@@ -263,9 +269,20 @@ const AdminHome: React.FC = () => {
       buttonHoverBg: 'hover:bg-gray-700',
       link: '/admin/settings',
       isAvailable: false
+    },
+    {
+      id: 'menu',
+      title: 'Menu',
+      description: 'Manage website navigation menu items for header and footer.',
+      icon: <MenuIcon />,
+      iconBg: 'bg-cyan-100',
+      iconColor: 'text-cyan-600',
+      buttonBg: 'bg-cyan-600',
+      buttonHoverBg: 'hover:bg-cyan-700',
+      link: '/admin/menu',
+      isAvailable: true
     }
   ];
-  
 
   // Build metrics data
   const metricsData: MetricItem[] = [

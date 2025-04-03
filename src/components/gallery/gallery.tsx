@@ -53,9 +53,9 @@ const Gallery = () => {
       case 'en':
         return "Play with us";
       case 'es':
-        return "Juega con nosotros";
+        return "Galería";
       case 'ru':
-        return "Играй вместе с нами";
+        return "Играй с нами";
       default:
         return "Play with us";
     }

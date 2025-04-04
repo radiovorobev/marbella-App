@@ -69,26 +69,34 @@ export const coachesApi = {
     if (error) throw error;
   },
 
-  // Загрузка фото тренера
+// Загрузка фото тренера
   async uploadCoachPhoto(file: File): Promise<string> {
-    if (!file) throw new Error('No file provided');
+  if (!file) throw new Error('No file provided');
+
+  // Генерируем уникальное имя файла с сохранением расширения
+  const fileExt = file.name.split('.').pop();
+  const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
   
-    const fileExt = file.name.split('.').pop();
-    const fileName = `${Math.random()}.${fileExt}`;
-    const filePath = `coaches/${fileName}`;
+  // Загружаем файл НАПРЯМУЮ В КОРЕНЬ БАКЕТА
+  const { data, error: uploadError } = await supabase.storage
+    .from('coaches')
+    .upload(fileName, file, {
+      cacheControl: '3600',
+      upsert: false // Не перезаписывать если файл существует
+    });
+
+  if (uploadError) {
+    console.error('Upload error:', uploadError);
+    throw uploadError;
+  }
   
-    const { error: uploadError } = await supabase.storage
-      .from('coaches')
-      .upload(filePath, file);
-  
-    if (uploadError) throw uploadError;
-  
-    const { data } = supabase.storage
-      .from('coaches')
-      .getPublicUrl(filePath);
-  
-    return data.publicUrl;
-  },
+  // Получаем публичный URL
+  const { data: urlData } = supabase.storage
+    .from('coaches')
+    .getPublicUrl(fileName);
+
+  return urlData.publicUrl;
+},
 
   // Получить активных тренеров
   async getActiveCoaches(): Promise<Coach[]> {

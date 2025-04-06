@@ -10,6 +10,48 @@ interface EditorProps {
   required?: boolean;
 }
 
+/**
+ * Функция для очистки HTML от лишних элементов Quill
+ * Имитирует поведение getSemanticHTML()
+ */
+const getCleanHTML = (html: string): string => {
+  if (!html) return '';
+  
+  // Создаем временный DOM-элемент для обработки HTML
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = html;
+  
+  // Удаляем элементы редактора и служебные атрибуты
+  const toolbars = tempDiv.querySelectorAll('.ql-toolbar');
+  toolbars.forEach(toolbar => toolbar.remove());
+  
+  // Удаляем атрибуты, начинающиеся с 'data-' и 'ql-'
+  const allElements = tempDiv.querySelectorAll('*');
+  allElements.forEach(el => {
+    Array.from(el.attributes).forEach(attr => {
+      if (attr.name.startsWith('data-') || attr.name.startsWith('ql-')) {
+        el.removeAttribute(attr.name);
+      }
+    });
+    
+    // Удаляем классы Quill
+    if (el.classList) {
+      Array.from(el.classList).forEach(className => {
+        if (className.startsWith('ql-')) {
+          el.classList.remove(className);
+        }
+      });
+      
+      // Если после очистки не осталось классов, удаляем атрибут class
+      if (el.classList.length === 0) {
+        el.removeAttribute('class');
+      }
+    }
+  });
+  
+  return tempDiv.innerHTML;
+};
+
 const QuillEditor = forwardRef<Quill | null, EditorProps>(
   ({ 
     readOnly = false, 
@@ -52,7 +94,9 @@ const QuillEditor = forwardRef<Quill | null, EditorProps>(
         // Change handler
         quill.on('text-change', () => {
           if (onChange) {
-            onChange(quill.root.innerHTML);
+            // Используем нашу функцию очистки HTML
+            const cleanHTML = getCleanHTML(quill.root.innerHTML);
+            onChange(cleanHTML);
           }
         });
 

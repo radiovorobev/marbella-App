@@ -101,7 +101,7 @@ function App() {
           {/* Auth routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/unauthorized" element={<UnauthorizedPage />} />
-        
+          
           {/* Маршруты административной панели - защищены ProtectedRoute */}
           <Route 
             path="/admin" 
@@ -155,6 +155,8 @@ function App() {
             <Route path="site-settings" element={<SiteSettingsEditor />} />
 
           </Route>
+        
+
           
           {/* Маршруты основного сайта */}
           <Route 

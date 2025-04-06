@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { CampsPageData, CampsPageFormData } from '../campsPageTypes';
 import { campsPageApi } from '../api/campsPageApi';
-import QuillEditor from '../components/quillEditor';
+import TipTapEditor from '../components/TipTapEditor';
 
 const CampsPageEditor: React.FC = () => {
   console.log('CampsPageEditor is rendering');
@@ -68,8 +68,8 @@ const CampsPageEditor: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Handle Quill editor changes
-  const handleQuillChange = (fieldName: string, value: string) => {
+  // Handle Editor changes
+  const handleEditorChange = (fieldName: string, value: string) => {
     setFormData(prev => ({ ...prev, [fieldName]: value }));
   };
 
@@ -207,18 +207,22 @@ const CampsPageEditor: React.FC = () => {
               </div>
               
               <div>
-                <QuillEditor
+                <TipTapEditor
                   label="Introduction (EN)"
                   value={formData.intro_en || ''}
-                  onChange={(value) => handleQuillChange('intro_en', value)}
+                  onChange={(value) => handleEditorChange('intro_en', value)}
+                  placeholder="Enter introduction text..."
+                  required={false}
                 />
               </div>
               
               <div>
-                <QuillEditor
+                <TipTapEditor
                   label="Main Text (EN)"
                   value={formData.text_en || ''}
-                  onChange={(value) => handleQuillChange('text_en', value)}
+                  onChange={(value) => handleEditorChange('text_en', value)}
+                  placeholder="Enter main content..."
+                  required={false}
                 />
               </div>
             </div>
@@ -242,18 +246,22 @@ const CampsPageEditor: React.FC = () => {
               </div>
               
               <div>
-                <QuillEditor
+                <TipTapEditor
                   label="Introduction (ES)"
                   value={formData.intro_es || ''}
-                  onChange={(value) => handleQuillChange('intro_es', value)}
+                  onChange={(value) => handleEditorChange('intro_es', value)}
+                  placeholder="Introduzca el texto de introducción..."
+                  required={false}
                 />
               </div>
               
               <div>
-                <QuillEditor
+                <TipTapEditor
                   label="Main Text (ES)"
                   value={formData.text_es || ''}
-                  onChange={(value) => handleQuillChange('text_es', value)}
+                  onChange={(value) => handleEditorChange('text_es', value)}
+                  placeholder="Introduzca el contenido principal..."
+                  required={false}
                 />
               </div>
             </div>
@@ -277,18 +285,22 @@ const CampsPageEditor: React.FC = () => {
               </div>
               
               <div>
-                <QuillEditor
+                <TipTapEditor
                   label="Introduction (RU)"
                   value={formData.intro_ru || ''}
-                  onChange={(value) => handleQuillChange('intro_ru', value)}
+                  onChange={(value) => handleEditorChange('intro_ru', value)}
+                  placeholder="Введите текст введения..."
+                  required={false}
                 />
               </div>
               
               <div>
-                <QuillEditor
+                <TipTapEditor
                   label="Main Text (RU)"
                   value={formData.text_ru || ''}
-                  onChange={(value) => handleQuillChange('text_ru', value)}
+                  onChange={(value) => handleEditorChange('text_ru', value)}
+                  placeholder="Введите основной текст..."
+                  required={false}
                 />
               </div>
             </div>
@@ -318,26 +330,26 @@ const CampsPageEditor: React.FC = () => {
         <h2 className="text-xl font-bold text-gray-900 mb-4">Preview ({activeTab.toUpperCase()})</h2>
         <div className="bg-white shadow-md rounded-lg overflow-hidden p-6">
           {activeTab === 'en' && (
-            <div>
+            <div className="prose prose-lg max-w-none">
               <h1 className="text-3xl font-bold mb-4">{formData.title_en || 'No Title'}</h1>
               {formData.intro_en && <div className="text-lg text-gray-700 mb-6" dangerouslySetInnerHTML={{ __html: formData.intro_en }} />}
-              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: formData.text_en || 'No Content' }} />
+              <div dangerouslySetInnerHTML={{ __html: formData.text_en || 'No Content' }} />
             </div>
           )}
           
           {activeTab === 'es' && (
-            <div>
+            <div className="prose prose-lg max-w-none">
               <h1 className="text-3xl font-bold mb-4">{formData.title_es || 'Sin título'}</h1>
               {formData.intro_es && <div className="text-lg text-gray-700 mb-6" dangerouslySetInnerHTML={{ __html: formData.intro_es }} />}
-              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: formData.text_es || 'Sin contenido' }} />
+              <div dangerouslySetInnerHTML={{ __html: formData.text_es || 'Sin contenido' }} />
             </div>
           )}
           
           {activeTab === 'ru' && (
-            <div>
-              <h1 className="text-3xl font-bold mb-4">{formData.title_ru || 'No Title'}</h1>
+            <div className="prose prose-lg max-w-none">
+              <h1 className="text-3xl font-bold mb-4">{formData.title_ru || 'Без заголовка'}</h1>
               {formData.intro_ru && <div className="text-lg text-gray-700 mb-6" dangerouslySetInnerHTML={{ __html: formData.intro_ru }} />}
-              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: formData.text_ru || 'No Content' }} />
+              <div dangerouslySetInnerHTML={{ __html: formData.text_ru || 'Нет содержимого' }} />
             </div>
           )}
         </div>

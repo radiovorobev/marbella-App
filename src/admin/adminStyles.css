@@ -1,13 +1,138 @@
-/* adminStyles.css */
-@import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Дополнительные стили для админки */
 .admin-panel {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.87);
+  color: #000000de;
+}
+
+/* Базовый сброс для всех элементов */
+.admin-panel *, 
+.admin-panel ::before, 
+.admin-panel ::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+/* Базовые настройки HTML и body внутри admin-panel */
+.admin-panel html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.admin-panel body {
+  margin: 0;
+  line-height: inherit;
+}
+
+/* Заголовки */
+.admin-panel h1, 
+.admin-panel h2, 
+.admin-panel h3, 
+.admin-panel h4, 
+.admin-panel h5, 
+.admin-panel h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Ссылки */
+.admin-panel a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* Сброс для абзацев */
+.admin-panel p {
+  margin: 0;
+}
+
+/* Списки */
+.admin-panel ol, 
+.admin-panel ul, 
+.admin-panel menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Формы и элементы ввода */
+.admin-panel button, 
+.admin-panel input, 
+.admin-panel optgroup, 
+.admin-panel select, 
+.admin-panel textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-panel button, 
+.admin-panel select {
+  text-transform: none;
+}
+
+.admin-panel button,
+.admin-panel [type='button'],
+.admin-panel [type='reset'],
+.admin-panel [type='submit'] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+
+.admin-panel :-moz-focusring {
+  outline: auto;
+}
+
+.admin-panel :-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/* Таблицы */
+.admin-panel table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Различные сбросы */
+.admin-panel hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+
+.admin-panel img, 
+.admin-panel svg, 
+.admin-panel video, 
+.admin-panel canvas, 
+.admin-panel audio, 
+.admin-panel iframe, 
+.admin-panel embed, 
+.admin-panel object {
+  display: block;
+  vertical-align: middle;
+}
+
+.admin-panel img, 
+.admin-panel video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Скрытые элементы */
+.admin-panel [hidden] {
+  display: none;
 }
 
 /* Стили для таблиц */

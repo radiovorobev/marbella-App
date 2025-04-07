@@ -6,6 +6,7 @@ const fetchAllNews = async (page = 0, pageSize = 4) => {
   const { data, error, count } = await supabase
     .from('news')
     .select('*', { count: 'exact' })
+    .eq('status', 'Published')
     .range(from, from + pageSize - 1)
     .order('created_at', { ascending: false });
 

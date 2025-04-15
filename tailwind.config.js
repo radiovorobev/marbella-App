@@ -1,14 +1,14 @@
-// tailwind.config.js
 export default {
   important: '.admin-panel',
   content: [
     "./src/admin/**/*.{js,ts,jsx,tsx}",
   ],
   corePlugins: {
-    preflight: false, 
+    preflight: true,
   },
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }

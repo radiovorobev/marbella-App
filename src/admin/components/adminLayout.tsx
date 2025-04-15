@@ -1,31 +1,25 @@
-// adminLayout.tsx
 import React from 'react';
 import { Link, useNavigate, useLocation, Outlet } from 'react-router-dom';
-import '../adminStyles.css'; // Specific styles for admin panel
-import { useAuth } from '../../auth/context/authContext'; // Import the auth context
+import { useAuth } from '../context/authContext';
+import AdminContainer from '../components/adminContainer';
 
 const AdminLayout: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, logout } = useAuth(); // Get user and logout function from auth context
+  const { user, logout } = useAuth();
 
-  // Function to determine active link
   const isActiveLink = (path: string) => {
     return location.pathname.startsWith(`/admin${path}`);
   };
 
-  // Logout handler for the admin panel
   const handleLogout = () => {
-    // Use the logout function from the auth context
     logout();
-    // Redirect to login page
     navigate('/login');
   };
 
   return (
-    <div className="admin-panel">
+    <AdminContainer>
       <div className="min-h-screen bg-gray-100">
-        {/* Admin panel header */}
         <header className="bg-white shadow">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
@@ -93,15 +87,11 @@ const AdminLayout: React.FC = () => {
             </div>
           </div>
         </header>
-
-        {/* Main content of the admin panel */}
         <main className="py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Outlet /> {/* This is where child route components will be rendered */}
           </div>
         </main>
-        
-        {/* Admin panel footer */}
         <footer className="bg-white shadow-inner mt-auto py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-center text-sm text-gray-500">
@@ -110,7 +100,7 @@ const AdminLayout: React.FC = () => {
           </div>
         </footer>
       </div>
-    </div>
+    </AdminContainer>
   );
 };
 

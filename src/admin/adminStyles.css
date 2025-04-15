@@ -1,209 +1,131 @@
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind components;
+@tailwind utilities;
 
-.admin-panel {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+.admin-panel,
+.admin-login {
+  /* Сбрасываем стили для админ-компонентов */
+  @apply font-[Inter,system-ui,Avenir,Helvetica,Arial,sans-serif];
   line-height: 1.5;
   color: #000000de;
 }
 
-/* Базовый сброс для всех элементов */
-.admin-panel *, 
-.admin-panel ::before, 
-.admin-panel ::after {
+/* Определяем базовые стили только для админ-компонентов */
+.admin-panel h1,
+.admin-login h1 {
+  @apply text-2xl font-bold mb-4;
+}
+
+.admin-panel h2,
+.admin-login h2 {
+  @apply text-xl font-bold mb-3;
+}
+
+.admin-panel h3,
+.admin-login h3 {
+  @apply text-lg font-bold mb-2;
+}
+
+.admin-panel a,
+.admin-login a {
+  @apply text-blue-600 hover:text-blue-800;
+}
+
+.admin-panel p,
+.admin-login p {
+  @apply mb-4;
+}
+
+.admin-panel ul,
+.admin-login ul {
+  @apply list-none p-0;
+}
+
+/* Предотвращение наследования стилей от основного сайта */
+.admin-panel *,
+.admin-login * {
   box-sizing: border-box;
-  border-width: 0;
-  border-style: solid;
-  border-color: #e5e7eb;
 }
 
-/* Базовые настройки HTML и body внутри admin-panel */
-.admin-panel html {
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  tab-size: 4;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* Кастомные компоненты для админ-панели */
+@layer components {
+  /* Стили для таблиц */
+  .admin-table {
+    @apply w-full border-collapse;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    @apply p-3 border-b border-gray-200;
+  }
+  
+  .admin-table th {
+    @apply bg-gray-50 font-semibold text-left;
+  }
+  
+  .admin-table tr:hover {
+    @apply bg-gray-50;
+  }
+  
+  /* Стили для кнопок */
+  .admin-btn {
+    @apply px-4 py-2 rounded font-medium cursor-pointer transition-colors;
+  }
+  
+  .admin-btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+  
+  .admin-btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+  }
+  
+  .admin-btn-danger {
+    @apply bg-red-500 text-white hover:bg-red-600;
+  }
+  
+  /* Стили для форм */
+  .admin-form-group {
+    @apply mb-4;
+  }
+  
+  .admin-form-label {
+    @apply block mb-2 font-medium text-gray-700;
+  }
+  
+  .admin-form-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  }
+  
+  /* Стили для карточек */
+  .admin-card {
+    @apply bg-white rounded-lg shadow p-6;
+  }
+  
+  /* Стили для оповещений */
+  .admin-alert {
+    @apply p-4 rounded-md mb-4;
+  }
+  
+  .admin-alert-success {
+    @apply bg-green-50 text-green-800 border border-green-200;
+  }
+  
+  .admin-alert-error {
+    @apply bg-red-50 text-red-800 border border-red-200;
+  }
+  
+  .admin-alert-warning {
+    @apply bg-yellow-50 text-yellow-800 border border-yellow-200;
+  }
+  
+  .admin-alert-info {
+    @apply bg-blue-50 text-blue-800 border border-blue-200;
+  }
 }
 
-.admin-panel body {
-  margin: 0;
-  line-height: inherit;
-}
-
-/* Заголовки */
-.admin-panel h1, 
-.admin-panel h2, 
-.admin-panel h3, 
-.admin-panel h4, 
-.admin-panel h5, 
-.admin-panel h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-/* Ссылки */
-.admin-panel a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-/* Сброс для абзацев */
-.admin-panel p {
-  margin: 0;
-}
-
-/* Списки */
-.admin-panel ol, 
-.admin-panel ul, 
-.admin-panel menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Формы и элементы ввода */
-.admin-panel button, 
-.admin-panel input, 
-.admin-panel optgroup, 
-.admin-panel select, 
-.admin-panel textarea {
-  font-family: inherit;
-  font-size: 100%;
-  font-weight: inherit;
-  line-height: inherit;
-  color: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-.admin-panel button, 
-.admin-panel select {
-  text-transform: none;
-}
-
-.admin-panel button,
-.admin-panel [type='button'],
-.admin-panel [type='reset'],
-.admin-panel [type='submit'] {
-  -webkit-appearance: button;
-  background-color: transparent;
-  background-image: none;
-}
-
-.admin-panel :-moz-focusring {
-  outline: auto;
-}
-
-.admin-panel :-moz-ui-invalid {
-  box-shadow: none;
-}
-
-/* Таблицы */
-.admin-panel table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* Различные сбросы */
-.admin-panel hr {
-  height: 0;
-  color: inherit;
-  border-top-width: 1px;
-}
-
-.admin-panel img, 
-.admin-panel svg, 
-.admin-panel video, 
-.admin-panel canvas, 
-.admin-panel audio, 
-.admin-panel iframe, 
-.admin-panel embed, 
-.admin-panel object {
-  display: block;
-  vertical-align: middle;
-}
-
-.admin-panel img, 
-.admin-panel video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Скрытые элементы */
-.admin-panel [hidden] {
-  display: none;
-}
-
-/* Стили для таблиц */
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.admin-table th,
-.admin-table td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.admin-table th {
-  background-color: #f8fafc;
-  font-weight: 600;
-  text-align: left;
-}
-
-.admin-table tr:hover {
-  background-color: #f1f5f9;
-}
-
-/* Стили для кнопок */
-.admin-btn {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.admin-btn-primary {
-  background-color: #3b82f6;
-  color: white;
-}
-
-.admin-btn-primary:hover {
-  background-color: #2563eb;
-}
-
-.admin-btn-danger {
-  background-color: #ef4444;
-  color: white;
-}
-
-.admin-btn-danger:hover {
-  background-color: #dc2626;
-}
-
-/* Стили для форм */
-.admin-form-group {
-  margin-bottom: 1rem;
-}
-
-.admin-form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.admin-form-input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 0.25rem;
-}
-
-.admin-form-input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+/* Дополнительные утилиты */
+@layer utilities {
+  .admin-scrollbar {
+    @apply scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent;
+  }
 }

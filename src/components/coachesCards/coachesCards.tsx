@@ -41,9 +41,11 @@ const CoachesCards = () => {
       <div key={coach.id} className={styles.section__coaches_card}>
         <img src={coach.photo_url} alt={coach.name} className={styles.section__coaches_image} />
         <div className={styles.section__coach_card_textBlock}>
-          <h3 className={styles.section__coach_card_name}>{getLocalizedContent(coach, 'name', currentLanguage)}</h3>
-          <p className={styles.section__coach_card_role}>{getLocalizedContent(coach, 'role', currentLanguage)}</p>
-          <p className={styles.section__coach_card_license}>{coach.license}</p>
+          <div className={styles.section__card_header}>
+            <h3 className={styles.section__coach_card_name}>{getLocalizedContent(coach, 'name', currentLanguage)}</h3>
+            <p className={styles.section__coach_card_role}>{getLocalizedContent(coach, 'role', currentLanguage)}</p>
+            <p className={styles.section__coach_card_license}>{coach.license}</p>
+          </div>
           <div className={styles.section__coach_card_text} dangerouslySetInnerHTML={{ __html: getLocalizedContent(coach, 'bio', currentLanguage) }} />
         </div>
       </div>

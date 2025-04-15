@@ -1,14 +1,12 @@
-// App.tsx с реализованной авторизацией
 import './App.css';
-import './admin/adminStyles.css'; // Импортируем стили для админки
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 // Auth components and context
-import { AuthProvider } from './auth/context/authContext';
-import ProtectedRoute from './auth/components/protectedRoute';
-import LoginPage from './auth/pages/loginPage';
-import UnauthorizedPage from './auth/pages/unauthorizedPage';
+import { AuthProvider } from './admin/context/authContext';
+import ProtectedRoute from './admin/components/protectedRoute';
+import LoginPage from './admin/pages/loginPage';
+import UnauthorizedPage from './admin/pages/unauthorizedPage';
 
 // Основные компоненты
 import Header from './components/header/header';

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 // Auth components and context
@@ -8,7 +8,7 @@ import ProtectedRoute from './admin/components/protectedRoute';
 import LoginPage from './admin/pages/loginPage';
 import UnauthorizedPage from './admin/pages/unauthorizedPage';
 
-// Основные компоненты
+// Common components
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import { LanguageProvider } from './context/languageContext';
@@ -16,7 +16,7 @@ import { LanguageProvider } from './context/languageContext';
 // HOC
 import withLoader from './hoc/withLoader';
 
-// Страницы основного сайта
+// Main pages
 import IndexPage from './pages';
 import ArticlePage from './pages/article/article';
 import AboutPage from './pages/about/about';
@@ -169,7 +169,7 @@ function App() {
                   <Route path="/about" element={<AboutPageWithLoader />} />
                   <Route path="/coaches" element={<CoachesPageWithLoader />} />
                   <Route path="/venues" element={<VenuesPageWithLoader />} />
-                  <Route path="/programmes" element={<ProgrammesPageWithLoader />} />
+                  <Route path="/subscpriptions" element={<ProgrammesPageWithLoader />} />
                   <Route path="/camps" element={<CampsPageWithLoader />} />
                   <Route path="/contacts" element={<ContactsPageWithLoader />} />
                   <Route path="/cookies" element={<CookiesPageWithLoader />} />

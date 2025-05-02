@@ -74,7 +74,8 @@
   padding: 0 18px;
 }
 
-.header__cta_ton:hover {
+
+.header__cta_button:hover {
   color: rgba(229, 27, 34, 1);
 }
 

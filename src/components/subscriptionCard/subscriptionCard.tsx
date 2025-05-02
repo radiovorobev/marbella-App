@@ -55,6 +55,14 @@ const { currentLanguage } = useLanguage();
               &nbsp;
             </p>
           )}
+
+          <button className={styles.joinButton} onClick={() => {
+            window.open('https://wa.me/message/474IL7PF6E25O1', '_blank');
+          }}>
+            {currentLanguage == 'en' && 'Register'}
+            {currentLanguage == 'es' && 'Registrarse'}
+            {currentLanguage == 'ru' && 'Записаться'}
+          </button>
         
       </section>
 

@@ -1,0 +1,122 @@
+.title {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  margin: 0 auto;
+  max-width: 780px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 120px 0 90px;
+  width: 100%;
+  max-width: 1192px;
+  margin: 0 auto;
+}
+
+.group {
+  width: 100%;
+}
+
+.label {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.option {
+  background-color: #f7f7fb;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  height: 80px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option.active {
+  color: #d62828;
+}
+
+.registerButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 538px;
+  margin: 20px 0 0 0;
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  height: 80px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #c8e51f;
+}
+
+.registerButton:hover {
+  color: #e51b22;
+}
+
+@media screen and (max-width: 1439px) {
+
+  .wrapper {
+    padding: 0 20px 90px;
+    box-sizing: border-box;
+  }
+
+  .title {
+    font-size: 24px;
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .option, 
+  .registerButton {
+    font-size: 24px;
+    height: 60px;
+  }
+
+  .label{
+    font-size: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+  }
+}

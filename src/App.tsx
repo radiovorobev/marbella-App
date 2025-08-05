@@ -13,6 +13,11 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import { LanguageProvider } from './context/languageContext';
 
+// Dynamic menu
+import { useMenuItems } from './hooks/useMenuItems';
+import { routeComponentMap } from './utils/routeComponentMap';
+import ClientRoutes from './clientRoutes';
+
 // HOC
 import withLoader from './hoc/withLoader';
 
@@ -30,6 +35,10 @@ import CookiesPage from './pages/cookies/cookies';
 import PrivacyPolicy from './pages/privacyPolicy/privacyPolicy';
 import CoachesList from './admin/components/coachesList';
 import CoachForm from './admin/components/coachForm';
+import CampusPage from './pages/campus/campus';
+
+
+import NewCampsPage from './pages/new/CampsPage';
 
 // Ленивая загрузка компонентов административной панели
 const AdminLayout = lazy(() => import('./admin/components/adminLayout'));
@@ -80,6 +89,7 @@ const CampsPageWithLoader = withLoader(CampsPage);
 const ContactsPageWithLoader = withLoader(ContactsPage);
 const CookiesPageWithLoader = withLoader(CookiesPage);
 const PrivacyPolicyWithLoader = withLoader(PrivacyPolicy);
+const CampusPageWithLoader = withLoader(CampusPage);
 
 // Простой компонент для загрузки административной части
 const AdminLoader = () => (
@@ -92,6 +102,7 @@ const AdminLoader = () => (
 );
 
 function App() {
+
   return (
     <AuthProvider>
       <Router>
@@ -154,31 +165,10 @@ function App() {
 
           </Route>
         
-
-          
           {/* Маршруты основного сайта */}
-          <Route 
-            path="/*" 
-            element={
-              <LanguageProvider>
-                <Header />
-                <Routes>
-                  <Route path="/" element={<IndexPageWithLoader />} />
-                  <Route path="/news" element={<NewsPageWithLoader />} />
-                  <Route path="/news/:id" element={<ArticlePageWithLoader />} />
-                  <Route path="/about" element={<AboutPageWithLoader />} />
-                  <Route path="/coaches" element={<CoachesPageWithLoader />} />
-                  <Route path="/venues" element={<VenuesPageWithLoader />} />
-                  <Route path="/subscpriptions" element={<ProgrammesPageWithLoader />} />
-                  <Route path="/camps" element={<CampsPageWithLoader />} />
-                  <Route path="/contacts" element={<ContactsPageWithLoader />} />
-                  <Route path="/cookies" element={<CookiesPageWithLoader />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicyWithLoader />} />
-                </Routes>
-                <Footer />
-              </LanguageProvider>
-            } 
-          />
+          <Route path="/*" element={<ClientRoutes />} />
+
+
         </Routes>
       </Router>
     </AuthProvider>

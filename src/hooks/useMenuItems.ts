@@ -9,6 +9,7 @@ export interface MenuItem {
   sort_order: number;
   default_language: string;
   type: string;
+  component_key: string;
 }
 
 export function useMenuItems() {

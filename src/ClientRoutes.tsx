@@ -26,19 +26,39 @@ const ClientRoutes = () => {
     <Route index element={<IndexPageWithLoader />} />
   )}
 
-  <Route path="news/:id" element={<ArticlePageWithLoader />} />
+{menuItems.map((item) => {
+  if (item.component_key === 'news') {
+    const base = item.url.startsWith('/') ? item.url.slice(1) : item.url;
+    return (
+      <Route
+        key={`${item.id}-detail`}
+        path={`${base}/:id`}
+        element={<ArticlePageWithLoader />}
+      />
+    );
+  }
+  return null;
+})}
 
-        {menuItems.map((item) => {
+{menuItems.map((item) => {
+  const path = item.url.startsWith('/') ? item.url : `/${item.url}`;
+  const key = item.component_key;
+  const Component = routeComponentMap[key];
 
-          const key = item.url.startsWith('/') ? item.url : `/${item.url}`;
-          const Component = routeComponentMap[key];
-          if (!Component) {
-            console.warn(`⚠️ No component mapped for: ${key}`);
-            return null;
-          }
-          const Wrapped = withLoader(Component);
-          return <Route key={item.id} path={key.slice(1)} element={<Wrapped />} />;
-        })}
+  if (!Component) {
+    console.warn(`⚠️ No component for key: ${key}`);
+    return null;
+  }
+
+  const Wrapped = withLoader(Component);
+
+  return item.url === '/' || item.url === '' ? (
+    <Route key={item.id} index element={<Wrapped />} />
+  ) : (
+    <Route key={item.id} path={path.slice(1)} element={<Wrapped />} />
+  );
+})}
+
         <Route path="*" element={<div className="p-10 text-center">404 Not Found</div>} />
       </Routes>
       <Footer />

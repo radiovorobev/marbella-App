@@ -9,6 +9,9 @@ import withLoader from './hoc/withLoader';
 import IndexPage from './pages/index'; 
 const IndexPageWithLoader = withLoader(IndexPage);
 
+import ArticlePage from './pages/article/article';
+const ArticlePageWithLoader = withLoader(ArticlePage);
+
 const ClientRoutes = () => {
   const { menuItems, loading } = useMenuItems();
 
@@ -22,6 +25,8 @@ const ClientRoutes = () => {
   {!menuItems.some(item => item.url === '/' || item.url === '') && (
     <Route index element={<IndexPageWithLoader />} />
   )}
+
+  <Route path="news/:id" element={<ArticlePageWithLoader />} />
 
         {menuItems.map((item) => {
 

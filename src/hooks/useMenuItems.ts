@@ -20,7 +20,6 @@ export function useMenuItems() {
       const { data, error } = await supabase
         .from('menu_items')
         .select('*')
-        .eq('is_active', true)
         .order('sort_order');
 
       if (!error && data) {

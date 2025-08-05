@@ -8,34 +8,15 @@ import ProtectedRoute from './admin/components/protectedRoute';
 import LoginPage from './admin/pages/loginPage';
 import UnauthorizedPage from './admin/pages/unauthorizedPage';
 
-// Common components
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
-import { LanguageProvider } from './context/languageContext';
-
 // Dynamic menu
-import { useMenuItems } from './hooks/useMenuItems';
-import { routeComponentMap } from './utils/routeComponentMap';
 import ClientRoutes from './clientRoutes';
 
 // HOC
 import withLoader from './hoc/withLoader';
 
 // Main pages
-import IndexPage from './pages';
-import ArticlePage from './pages/article/article';
-import AboutPage from './pages/about/about';
-import CoachesPage from './pages/coaches/coaches';
-import VenuesPage from './pages/venues/venues';
-import ProgrammesPage from './pages/programmes/programmes';
-import NewsPage from './pages/news/news';
-import ContactsPage from './pages/contacts/contacts';
-import CampsPage from './pages/camps/camps';
-import CookiesPage from './pages/cookies/cookies';
-import PrivacyPolicy from './pages/privacyPolicy/privacyPolicy';
 import CoachesList from './admin/components/coachesList';
 import CoachForm from './admin/components/coachForm';
-import CampusPage from './pages/campus/campus';
 
 
 import NewCampsPage from './pages/new/CampsPage';
@@ -74,22 +55,6 @@ const VenuesPageEditor = lazy(() => import('./admin/components/venuesPageEditor'
 const ContactsPageEditor = lazy(() => import('./admin/components/contactsPageEditor'));
 
 const SiteSettingsEditor = lazy(() => import('./admin/components/siteSettingsEditor'));
-
-
-
-// Применяем HOC к страницам основного сайта
-const IndexPageWithLoader = withLoader(IndexPage);
-const NewsPageWithLoader = withLoader(NewsPage);
-const ArticlePageWithLoader = withLoader(ArticlePage);
-const AboutPageWithLoader = withLoader(AboutPage);
-const CoachesPageWithLoader = withLoader(CoachesPage);
-const VenuesPageWithLoader = withLoader(VenuesPage);
-const ProgrammesPageWithLoader = withLoader(ProgrammesPage);
-const CampsPageWithLoader = withLoader(CampsPage);
-const ContactsPageWithLoader = withLoader(ContactsPage);
-const CookiesPageWithLoader = withLoader(CookiesPage);
-const PrivacyPolicyWithLoader = withLoader(PrivacyPolicy);
-const CampusPageWithLoader = withLoader(CampusPage);
 
 // Простой компонент для загрузки административной части
 const AdminLoader = () => (

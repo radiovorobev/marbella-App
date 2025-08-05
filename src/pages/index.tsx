@@ -6,6 +6,7 @@ import SectionImage from "../components/sectionImage/sectionImage";
 import { useLanguage } from "../context/languageContext";
 import fetchIndexPage from "../api/fetchIndexPage";
 import getLocalizedContent from "../utils/getLocalizedContent";
+import Partners from "../components/partners/partners"; 
 
 interface IndexPage {
   id: number;
@@ -107,6 +108,7 @@ const IndexPage = () => {
         <SectionImage title={getLocalizedContent(indexPageData[0], 'page_title', currentLanguage)} />
         <SectionAbout aboutData={aboutData} />
         <IndexNews />
+        <Partners />
         <Gallery />
       </>
       

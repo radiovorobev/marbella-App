@@ -1,20 +1,33 @@
 .page__container {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 124px 100px;
-  box-sizing: border-box;
-  background-color: #fff;
-  font-family: Cera Pro;
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 26.4px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 124px 100px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-family: Cera Pro;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 26.4px;
+}
+
+.section__header {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60.34px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 80%;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
 }
 
 @media screen and (max-width: 1439px) {
-  .page__container {
-    padding: 0 20px;
-    font-size: 16px;
-    line-height: 20.11px;
-  }
+    .page__container {
+        padding: 0 20px;
+        font-size: 16px;
+        line-height: 20.11px;
+    }
 }

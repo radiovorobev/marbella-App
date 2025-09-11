@@ -1,0 +1,129 @@
+.section__about {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 90px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+}
+
+.section__about_header {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60.34px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 80%;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+}
+
+.section__about_block {
+    display: flex;
+    flex-direction: row; /* базово: текст слева, картинка справа */
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.section__about_block.reversed {
+    flex-direction: row-reverse; /* для чётных карточек: картинка слева */
+}
+
+.section__about_block img {
+    width: 596px;
+    height: 400px;
+    object-fit: cover;
+    flex: 0 0 auto;
+}
+
+.section__about_textBlock {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding-right: 20px; /* когда текст слева */
+    padding-top: 20px;
+}
+
+.section__about_block.reversed .section__about_textBlock {
+    padding-right: 0; /* когда текст справа — меняем отступы */
+    padding-left: 20px;
+}
+
+.section__about_block:first-of-type {
+    padding-top: 0px;
+}
+
+.section__about_textBlock h3 {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40.22px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #e51b22;
+    margin: 0 0 12px 0;
+    max-width: 450px;
+    text-transform: uppercase;
+}
+
+.section__about_text {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 26.4px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 80%;
+}
+
+/* MOBILE / TABLET */
+@media screen and (max-width: 1439px) {
+    .section__about {
+        padding: 0;
+    }
+
+    .section__about_header {
+        font-size: 24px;
+        line-height: 30.17px;
+        max-width: 100%;
+        margin: 0 0 20px 0;
+        padding: 50px 20px 0;
+    }
+
+    .section__about_block,
+    .section__about_block.reversed {
+        flex-direction: column; /* на мобилке все в столбик */
+    }
+
+    .section__about_block img {
+        width: 100%;
+        height: auto;
+        margin: 0 0 20px 0;
+    }
+
+    .section__about_textBlock {
+        width: 100%;
+        padding: 0 20px 50px;
+        box-sizing: border-box;
+        min-height: 0;
+    }
+
+    .section__about_text {
+        font-size: 16px;
+        line-height: 20.11px;
+        max-width: 100%;
+    }
+
+    .section__about_textBlock h3 {
+        font-size: 20px;
+        line-height: 25.14px;
+        max-width: 100%;
+        margin: 0 0 8px 0;
+    }
+}

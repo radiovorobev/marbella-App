@@ -24,10 +24,65 @@
     margin: 0 0 40px 0;
 }
 
+.joinButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.joinButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+    margin: 20px 0 0 0;
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    background-color: #c8e51f;
+    height: 80px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.joinButton:hover {
+    color: #e51b22;
+}
+
+.joinButton img {
+    width: 40px;
+    margin-right: 5px;
+}
+
 @media screen and (max-width: 1439px) {
     .page__container {
         padding: 0 20px;
         font-size: 16px;
         line-height: 20.11px;
+    }
+
+    .joinButtons {
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .joinButton {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .joinButton img {
+        width: 30px;
+        margin-right: 5px;
     }
 }

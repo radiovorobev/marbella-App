@@ -7,6 +7,8 @@ import styles from "./camps.module.css";
 import SectionImage from "../../components/sectionImage/sectionImage";
 import ArticleText from "../../components/articleText/articleText";
 import SectionOffers from "../../components/campsOffers/sectionOffers";
+import mailIcon from "../../images/buttons/mail.svg";
+import whatsAppIcon from "../../images/buttons/whatsapp.svg";
 
 interface CampsPage {
   intro_en: string;
@@ -19,6 +21,11 @@ interface CampsPage {
 const CampsPage = () => {
   const [camps, setCamps] = useState<CampsPage[] | null>(null);
   const { currentLanguage } = useLanguage();
+
+  // Обработчик клика на кнопку
+  const handleRegisterClick = () => {
+    window.open("https://wa.me/message/474IL7PF6E25O1", "_blank");
+  };
 
   useEffect(() => {
     const getCampsPage = async () => {
@@ -212,6 +219,21 @@ const CampsPage = () => {
                 currentLanguage,
               )}
             />
+            <div className={styles.joinButtons}>
+              <button
+                className={styles.joinButton}
+                onClick={handleRegisterClick}
+              >
+                <img src={mailIcon} alt="sport@academymarbella.com" /> Email
+              </button>
+              <button
+                className={styles.joinButton}
+                onClick={handleRegisterClick}
+              >
+                <img src={whatsAppIcon} alt="WhatsApp" />
+                WhatsApp
+              </button>
+            </div>
           </section>
         </>
       )}

@@ -23,8 +23,12 @@ const CampsPage = () => {
   const { currentLanguage } = useLanguage();
 
   // Обработчик клика на кнопку
-  const handleRegisterClick = () => {
+  const handleWhatsAppClick = () => {
     window.open("https://wa.me/message/474IL7PF6E25O1", "_blank");
+  };
+
+  const handleEmailClick = () => {
+    window.open("mailto:sport@academymarbella.com", "_blank");
   };
 
   useEffect(() => {
@@ -220,15 +224,12 @@ const CampsPage = () => {
               )}
             />
             <div className={styles.joinButtons}>
-              <button
-                className={styles.joinButton}
-                onClick={handleRegisterClick}
-              >
+              <button className={styles.joinButton} onClick={handleEmailClick}>
                 <img src={mailIcon} alt="sport@academymarbella.com" /> Email
               </button>
               <button
                 className={styles.joinButton}
-                onClick={handleRegisterClick}
+                onClick={handleWhatsAppClick}
               >
                 <img src={whatsAppIcon} alt="WhatsApp" />
                 WhatsApp

@@ -1,13 +1,13 @@
-import { useRef, useEffect } from 'react';
-import styles from './partners.module.css';
+import { useRef, useEffect } from "react";
+import styles from "./partners.module.css";
 
-import Gallery_2 from '../../images/partners/Barcelo.svg';
-import Gallery_3 from '../../images/partners/Obal.svg';
-import Gallery_4 from '../../images/partners/Occidental.svg';
-import Gallery_5 from '../../images/partners/Ona.svg';
-import Gallery_6 from '../../images/partners/Puma.svg';
+import Gallery_2 from "../../images/partners/Barcelo.svg";
+import Gallery_3 from "../../images/partners/Obal.svg";
+import Gallery_4 from "../../images/partners/Occidental.svg";
+import Gallery_5 from "../../images/partners/Ona.svg";
+import Gallery_6 from "../../images/partners/Puma.svg";
 
-import { useLanguage } from '../../context/languageContext';
+import { useLanguage } from "../../context/languageContext";
 
 const Partners = () => {
   const { currentLanguage } = useLanguage();
@@ -29,7 +29,7 @@ const Partners = () => {
     if (!el) return;
 
     const scrollSpeed = 1; // px/frame
-    const interval = 16;   // ~60fps
+    const interval = 16; // ~60fps
 
     const scroll = () => {
       if (!el) return;
@@ -48,14 +48,14 @@ const Partners = () => {
 
   const getLang = (lang: string) => {
     switch (lang) {
-      case 'en':
-        return 'Partners';
-      case 'es':
-        return 'Collaborators';
-      case 'ru':
-        return 'Партнеры';
+      case "en":
+        return "Collaborators";
+      case "es":
+        return "Colaboradores";
+      case "ru":
+        return "Партнеры";
       default:
-        return 'Partners';
+        return "Partners";
     }
   };
 
@@ -70,12 +70,12 @@ const Partners = () => {
           className={styles.section__instagram_block}
           ref={galleryRef}
           style={{
-            overflowX: 'auto',
-            overflowY: 'hidden',
-            whiteSpace: 'nowrap',
-            cursor: 'default',
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none'
+            overflowX: "auto",
+            overflowY: "hidden",
+            whiteSpace: "nowrap",
+            cursor: "default",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           {allImages.map((image, index) => (

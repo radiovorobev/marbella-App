@@ -6,6 +6,7 @@ import Gallery_3 from "../../images/partners/Obal.svg";
 import Gallery_4 from "../../images/partners/Occidental.svg";
 import Gallery_5 from "../../images/partners/Ona.svg";
 import Gallery_6 from "../../images/partners/Puma.svg";
+import Gallery_7 from "../../images/partners/ACScholarshipsAgency.svg";
 
 import { useLanguage } from "../../context/languageContext";
 
@@ -19,6 +20,7 @@ const Partners = () => {
     { src: Gallery_4, alt: "Occidental Hotels & Resorts" },
     { src: Gallery_5, alt: "Ona Valle Romano Golf & Resort" },
     { src: Gallery_6, alt: "Puma" },
+    { src: Gallery_7, alt: "AC Scholarships Agency" },
   ];
 
   // 🔁 Клонируем изображения для бесконечного скролла

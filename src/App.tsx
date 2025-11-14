@@ -8,28 +8,18 @@ import ProtectedRoute from './admin/components/protectedRoute';
 import LoginPage from './admin/pages/loginPage';
 import UnauthorizedPage from './admin/pages/unauthorizedPage';
 
-// Common components
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
-import { LanguageProvider } from './context/languageContext';
+// Dynamic menu
+import ClientRoutes from './clientRoutes';
 
 // HOC
 import withLoader from './hoc/withLoader';
 
 // Main pages
-import IndexPage from './pages';
-import ArticlePage from './pages/article/article';
-import AboutPage from './pages/about/about';
-import CoachesPage from './pages/coaches/coaches';
-import VenuesPage from './pages/venues/venues';
-import ProgrammesPage from './pages/programmes/programmes';
-import NewsPage from './pages/news/news';
-import ContactsPage from './pages/contacts/contacts';
-import CampsPage from './pages/camps/camps';
-import CookiesPage from './pages/cookies/cookies';
-import PrivacyPolicy from './pages/privacyPolicy/privacyPolicy';
 import CoachesList from './admin/components/coachesList';
 import CoachForm from './admin/components/coachForm';
+
+
+import NewCampsPage from './pages/new/CampsPage';
 
 // Ленивая загрузка компонентов административной панели
 const AdminLayout = lazy(() => import('./admin/components/adminLayout'));
@@ -66,21 +56,6 @@ const ContactsPageEditor = lazy(() => import('./admin/components/contactsPageEdi
 
 const SiteSettingsEditor = lazy(() => import('./admin/components/siteSettingsEditor'));
 
-
-
-// Применяем HOC к страницам основного сайта
-const IndexPageWithLoader = withLoader(IndexPage);
-const NewsPageWithLoader = withLoader(NewsPage);
-const ArticlePageWithLoader = withLoader(ArticlePage);
-const AboutPageWithLoader = withLoader(AboutPage);
-const CoachesPageWithLoader = withLoader(CoachesPage);
-const VenuesPageWithLoader = withLoader(VenuesPage);
-const ProgrammesPageWithLoader = withLoader(ProgrammesPage);
-const CampsPageWithLoader = withLoader(CampsPage);
-const ContactsPageWithLoader = withLoader(ContactsPage);
-const CookiesPageWithLoader = withLoader(CookiesPage);
-const PrivacyPolicyWithLoader = withLoader(PrivacyPolicy);
-
 // Простой компонент для загрузки административной части
 const AdminLoader = () => (
   <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -92,6 +67,7 @@ const AdminLoader = () => (
 );
 
 function App() {
+
   return (
     <AuthProvider>
       <Router>
@@ -154,31 +130,10 @@ function App() {
 
           </Route>
         
-
-          
           {/* Маршруты основного сайта */}
-          <Route 
-            path="/*" 
-            element={
-              <LanguageProvider>
-                <Header />
-                <Routes>
-                  <Route path="/" element={<IndexPageWithLoader />} />
-                  <Route path="/news" element={<NewsPageWithLoader />} />
-                  <Route path="/news/:id" element={<ArticlePageWithLoader />} />
-                  <Route path="/about" element={<AboutPageWithLoader />} />
-                  <Route path="/coaches" element={<CoachesPageWithLoader />} />
-                  <Route path="/venues" element={<VenuesPageWithLoader />} />
-                  <Route path="/subscpriptions" element={<ProgrammesPageWithLoader />} />
-                  <Route path="/camps" element={<CampsPageWithLoader />} />
-                  <Route path="/contacts" element={<ContactsPageWithLoader />} />
-                  <Route path="/cookies" element={<CookiesPageWithLoader />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicyWithLoader />} />
-                </Routes>
-                <Footer />
-              </LanguageProvider>
-            } 
-          />
+          <Route path="/*" element={<ClientRoutes />} />
+
+
         </Routes>
       </Router>
     </AuthProvider>

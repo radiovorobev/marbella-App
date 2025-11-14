@@ -1,0 +1,340 @@
+.glide {
+  padding-left: 240px;
+}
+
+/* Добавьте эти стили к вашему CSS */
+.glide__slide {
+  transform: none !important; /* Предотвращает нежелательные трансформации */
+}
+
+.section__instagram_block {
+  margin-left: 0 !important; /* Убедитесь, что нет дополнительных отступов */
+}
+
+/* Исправление для правильного отображения изображений */
+.section__instagram_image {
+  display: block;
+  width: 100%; /* Меняем на 100%, чтобы изображение занимало весь слайд */
+  max-width: 290px; /* Но ограничиваем максимальную ширину */
+  height: 290px;
+  object-fit: cover;
+  margin: 0 auto; /* Центрируем изображение в слайде */
+}
+
+.section__instagram {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 120px 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.section__instagram_container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.section__instagram_block {
+  max-width: 1192px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 100px 0 0 0;
+  z-index: 1;
+}
+
+.section__instagram_more_button {
+  width: 56px;
+  height: 56px;
+  background-color: #c8e51f;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 4;
+  position: absolute;
+  top: 70%;
+  right: 68px;
+  transform: translateY(-50%);
+}
+
+.section__instagram_more_button:hover {
+  color: #fff;
+}
+
+.section__instagram::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  background-image: url("../images/pattern_waves.svg");
+  background-size: initial;
+  background-repeat:repeat-x;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* 🔹 Gradient fade-out effect */
+.section__instagram_container::after {
+  content: "";
+  position: absolute;
+  top: 300px;
+  right: 0;
+  width: 100px; /* Adjust width for smoother fade */
+  height: 290px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 100%);
+  pointer-events: none; /* Allows interactions with images */
+  z-index: 2;
+}
+
+/* 🔹 Apply effect only on large screens */
+@media (max-width: 1190px) {
+  .section__instagram_container::after {
+    display: none; /* Hide gradient on smaller screens */
+  }
+}
+
+.section__instagram_image {
+  width: 290px;
+  height: 290px;
+}
+
+/* Additional styles for carousel functionality */
+.section__instagram_block {
+
+  overflow: visible; /* Allow overflow for infinite scrolling */
+  transition: transform 0.3s ease-out;
+  user-select: none; /* Prevent text selection during drag */
+  -webkit-user-select: none;
+}
+
+.section__instagram_more_button.left {
+  left: 68px;
+  right: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Ensure images don't shrink */
+.section__instagram_image {
+  flex-shrink: 0;
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+}
+
+/* Make sure the container allows for full-width scrolling */
+.section__instagram_container {
+  padding: 0;
+  max-width: 1440px;
+  overflow: hidden; /* Hide overflow at container level */
+}
+
+@media screen and (max-width: 1439px) {
+  .section__instagram_more_button.left,
+  .section__instagram_more_button {
+    display: flex; /* Keep buttons visible on all screen sizes */
+  }
+  
+  .section__instagram_more_button.left {
+    left: 20px;
+  }
+  
+  .section__instagram_more_button:not(.left) {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section__instagram_image {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 1439px) {
+
+  .glide {
+    padding-left: 0;
+  }
+
+  .section__instagram {
+    padding: 0 0 90px 0;
+  }
+
+  .section__instagram_block {
+    margin: 50px 0 0 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  .section__instagram_more_button {
+    display: none;
+  } 
+  
+  .section__instagram_more_button.left {
+    display: none;
+  }
+
+  .section__instagram::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    background-image: url("../images/pattern_waves.svg");
+    background-size: initial;
+    background-repeat:repeat-x;
+    opacity: 1;
+    z-index: 0;
+  }
+}
+
+.section__header {
+  background-color: #e51b22;
+  color: #fff;
+  width: 100%;
+  position: relative;
+  min-height: 200px;
+  max-width: 1192px;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 70px 27px 0;
+  box-sizing: border-box;
+}
+
+.section__header h2 {
+  font-family: Jomhuria;
+  font-size: 250px;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  bottom: -120px;
+  left: -6px;
+}
+
+.section__header_social_icon {
+  width: 56px;
+  height: 56px;
+}
+
+.section__header_social_icon:hover {
+  filter: brightness(0) saturate(100%) invert(12%) sepia(82%) saturate(4400%) hue-rotate(351deg) brightness(91%) contrast(96%);
+}
+
+@media screen and (max-width: 1439px) {
+  .section__header {
+    min-height: 0;
+    height: 80px;
+    padding: 0 20px 0 0;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .section__header h2 {
+    font-size: 96px;
+    line-height: 96px;
+    bottom: -39px;
+    left: -4px;
+  }
+
+  .section__header_social_icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Добавьте эти стили в ваш gallery.module.css */
+
+/* Обеспечиваем горизонтальную прокрутку галереи */
+.section__instagram_block {
+  overflow-x: auto !important; /* Принудительно включаем горизонтальную прокрутку */
+  overflow-y: hidden; /* Отключаем вертикальную прокрутку */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE и Edge */
+
+  -webkit-overflow-scrolling: touch; /* Для плавной прокрутки на iOS */
+  padding-bottom: 20px; /* Для скрытой полосы прокрутки */
+}
+
+/* Скрываем полосу прокрутки в Chrome, Safari и Opera */
+.section__instagram_block::-webkit-scrollbar {
+  display: none;
+}
+
+/* Стили для эффекта свайпа */
+.section__instagram_block img {
+  scroll-snap-align: start; /* Изображения будут "прилипать" к началу */
+  user-select: none; /* Запрещаем выделение текста */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/* Стили для кнопок прокрутки на маленьких экранах */
+@media screen and (max-width: 1439px) {
+  /* Переопределяем стили для кнопок, чтобы они были видны */
+  .section__instagram_more_button,
+  .section__instagram_more_button.left {
+    display: flex !important; /* Принудительно отображаем кнопки */
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+  }
+  
+  .section__instagram_more_button.hidden {
+    display: none !important;
+  }
+}
+
+/* Стили для обеспечения прокрутки всего блока галереи */
+.gallery_wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1192px;
+}
+
+/* Добавьте эти стили в ваш CSS файл */
+
+.section__instagram_more_button {
+  border: none;           /* Убираем границу */
+  outline: none;          /* Убираем контур при фокусе */
+  box-shadow: none;       /* Убираем тень */
+  padding: 0;             /* Убираем внутренние отступы */
+  background-color: #c8e51f; /* Ваш существующий цвет фона */
+  color: inherit;         /* Наследуем цвет текста */
+}
+
+.section__instagram_more_button:focus {
+  outline: none;          /* Убираем контур при фокусе */
+  border: none;           /* Убираем границу при фокусе */
+  box-shadow: none;       /* Убираем тень при фокусе */
+}
+
+/* Стиль для состояния hover может оставаться прежним */
+.section__instagram_more_button:hover {
+  color: #fff;
+}

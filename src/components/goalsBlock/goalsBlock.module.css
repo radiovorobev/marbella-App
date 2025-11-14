@@ -1,0 +1,104 @@
+.goalsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: rgba(242, 242, 247, 1);
+  padding: 0 0 90px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1192px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 90px auto 24px;
+}
+
+
+.goalsTitle {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 100%;
+  text-transform: uppercase;
+  max-width: 60%;
+  margin: 0 0 24px;
+}
+
+.goalsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1192px;
+  margin: 0 auto;
+}
+
+.goalBox {
+  flex: 1 1 calc(50% - 1rem);
+  padding: 1.5rem;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.goalBox:nth-child(3),
+.goalBox:nth-child(4) {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+.sectionTitle {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  text-transform: uppercase;
+  margin: 0 0 14px 0;
+}
+
+.subsectionTitle {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 21px;
+}
+
+.goalList {
+  list-style: disc;
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 130%;
+  text-align: left;
+}
+
+.goalList li {
+  break-inside: avoid;
+}
+
+.multiColumn:has(li:nth-child(3)) {
+  column-count: 2;
+}
+
+@media screen and (max-width: 1439px) {
+  .goalsTitle {
+    font-size: 24px;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .goalList,
+  .subsectionTitle {
+    font-size: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+  }
+}
+

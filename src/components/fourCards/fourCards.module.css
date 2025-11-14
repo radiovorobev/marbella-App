@@ -55,6 +55,22 @@
   max-width: 280px;;  
 }
 
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 280px;
+  width: 100%;
+  height: 160px;
+  box-sizing: border-box;
+  background-color: #E51B22;
+  font-family: Cera Pro;
+  font-weight: 700;
+  color: #fff;
+  font-size: 36px;
+}
+
 .text {
   font-family: Cera Pro;
   font-weight: 400;

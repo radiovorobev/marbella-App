@@ -1,5 +1,3 @@
-/* src/components/headerMenuMobile/headerMenuMobile.module.css */
-
 .header__menu_mobile_list {
   list-style: none;
   padding: 0;
@@ -27,6 +25,51 @@
   color: #c8e51f;
 }
 
+/* Кнопка родительского пункта (с плюсиком/минусом) */
+.header__menu_mobile_parent_btn {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20.11px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header__menu_mobile_parent_btn:hover {
+  color: #c8e51f;
+}
+
+.header__menu_mobile_parent_icon {
+  font-size: 20px;
+}
+
+/* Подменю */
+.header__submenu_mobile {
+  list-style: none;
+  padding-left: 16px;
+  margin: 12px 0 0;
+}
+
+.header__submenu_mobile li {
+  margin-bottom: 14px;
+}
+
+.header__submenu_mobile a {
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+/* CTA-кнопка оставляем как у тебя */
 .header__cta_button_mobile_list {
   width: 100%;
   height: 40px;

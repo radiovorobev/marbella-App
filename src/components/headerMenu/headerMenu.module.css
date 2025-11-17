@@ -1,3 +1,4 @@
+/* Контейнер меню в шапке */
 .header__menu_container {
   margin: 0;
   padding: 0;
@@ -8,28 +9,23 @@
   max-width: 700px;
 }
 
+/* Основной список меню (верхний уровень) */
 .header__menu {
   display: flex;
   flex-flow: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0 30px;
+  gap: 30px;
 }
 
-.header__menu_primary {
-  justify-content: flex-start;
+/* Каждый пункт верхнего уровня */
+.header__menu > li {
+  position: relative;
 }
 
-.header__menu_secondary {
-  justify-content: flex-start;
-}
-
-.header__menu.header__menu_primary a {
-  font-weight: 400;
-}
-
+/* Ссылки верхнего уровня */
 .header__menu a {
   color: #fff;
   font-family: 'Cera Pro', sans-serif;
@@ -46,6 +42,93 @@
   color: #a00d18;
 }
 
+/* li, у которого есть подменю */
+.header__menu_item_with_sub {
+  position: relative;
+  padding-bottom: 8px; /* расширяем зону hover вниз */
+}
+
+/* Кнопка-родитель (открывает dropdown, сама не ссылка) */
+.header__menu_parent_btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20.11px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  padding-right: 14px; /* место под стрелочку */
+}
+
+/* Стрелочка вниз */
+.header__menu_parent_btn::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 40%;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: translateY(-50%) rotate(45deg); /* вниз */
+  transition: transform 0.2s ease;
+}
+
+/* При hover по пункту с подменю — стрелка разворачивается вверх */
+.header__menu_item_with_sub:hover .header__menu_parent_btn::after {
+  transform: translateY(-50%) rotate(225deg); /* вверх */
+  top: 50%;
+}
+
+/* Подменю (dropdown) */
+.header__submenu {
+  position: absolute;
+  top: 100%;      /* сразу под пунктом меню, без зазора */
+  left: 0;
+  display: none;
+  list-style: none;
+  margin: 0;      /* без margin, чтобы не создавать "дыру" */
+  padding: 12px 16px;
+  background: #a10202;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+/* Показываем подменю при наведении на li с подменю */
+.header__menu_item_with_sub:hover .header__submenu {
+  display: block;
+}
+
+/* Элементы внутри подменю */
+.header__submenu li {
+  margin: 0;
+  padding: 0;
+}
+
+.header__submenu li + li {
+  margin-top: 8px;
+}
+
+.header__submenu a {
+  color: #fff;
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.header__submenu a:hover {
+  color: #c8e51f;
+}
+
+/* Прячем десктопное меню на мобильных */
 @media screen and (max-width: 1439px) {
   .header__menu_container {
     display: none;

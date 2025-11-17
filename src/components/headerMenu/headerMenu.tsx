@@ -1,13 +1,9 @@
-// src/components/headerMenu/headerMenu.tsx
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import fetchMenu from "../../api/fetchMenu";
 
 import styles from "./headerMenu.module.css";
 import { useLanguage } from "../../context/languageContext";
-
-export type MenuType = "HeaderMain" | "HeaderServices" | "Footer";
 
 export type MenuItem = {
   id: number;
@@ -17,7 +13,9 @@ export type MenuItem = {
   url: string;
   sort_order: number;
   is_active: boolean;
-  type: MenuType;         // 👈 НОВОЕ поле
+  parent_id: number | null;
+  // если в БД есть поле type (Header/Footer) – можно добавить:
+  // type?: string;
 };
 
 const HeaderMenu = () => {
@@ -40,37 +38,70 @@ const HeaderMenu = () => {
     return (item[titleField] as string) || item.title_en;
   };
 
-  const mainItems = menuItems
-    .filter((item) => item.is_active && item.type === "HeaderMain")
+  // верхний уровень – без parent_id
+  const topLevelItems = menuItems
+    .filter((item) => item.is_active && item.parent_id === null)
     .sort((a, b) => a.sort_order - b.sort_order);
 
-  const serviceItems = menuItems
-    .filter((item) => item.is_active && item.type === "HeaderServices")
-    .sort((a, b) => a.sort_order - b.sort_order);
+  // сгруппированные дети по parent_id
+  const childrenByParent: Record<number, MenuItem[]> = {};
+  menuItems
+    .filter((item) => item.is_active && item.parent_id !== null)
+    .forEach((item) => {
+      const parentId = item.parent_id as number;
+      if (!childrenByParent[parentId]) {
+        childrenByParent[parentId] = [];
+      }
+      childrenByParent[parentId].push(item);
+    });
+
+  Object.keys(childrenByParent).forEach((key) => {
+    const id = Number(key);
+    childrenByParent[id].sort((a, b) => a.sort_order - b.sort_order);
+  });
 
   return (
     <nav className={styles.header__menu_container}>
-      {/* Первая строка – HeaderMain */}
-      <ul className={`${styles.header__menu} ${styles.header__menu_primary}`}>
-        {mainItems.map((item) => (
-          <li key={item.id}>
-            <Link to={`/${item.url}`}>{getMenuItemTitle(item)}</Link>
-          </li>
-        ))}
-      </ul>
+      <ul className={styles.header__menu}>
+        {topLevelItems.map((item) => {
+          const children = childrenByParent[item.id] || [];
+          const hasChildren = children.length > 0;
 
-      {/* Вторая строка – HeaderServices */}
-      {serviceItems.length > 0 && (
-        <ul
-          className={`${styles.header__menu} ${styles.header__menu_secondary}`}
-        >
-          {serviceItems.map((item) => (
-            <li key={item.id}>
-              <Link to={`/${item.url}`}>{getMenuItemTitle(item)}</Link>
+          return (
+            <li
+              key={item.id}
+              className={hasChildren ? styles.header__menu_item_with_sub : undefined}
+            >
+              {/* 
+                Если у пункта есть дети – это "служебная" кнопка с дропдауном 
+                (стрелочка вниз), сам по себе он не ведёт на URL
+              */}
+              {hasChildren ? (
+                <button
+                  type="button"
+                  className={styles.header__menu_parent_btn}
+                >
+                  {getMenuItemTitle(item)}
+                </button>
+              ) : (
+                <Link to={`/${item.url}`}>{getMenuItemTitle(item)}</Link>
+              )}
+
+              {hasChildren && (
+                <ul className={styles.header__submenu}>
+                  {children.map((child) => (
+                    <li key={child.id}>
+                      <Link to={`/${child.url}`}>
+                        {getMenuItemTitle(child)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
-          ))}
-        </ul>
-      )}
+          );
+        })}
+      </ul>
     </nav>
   );
 };

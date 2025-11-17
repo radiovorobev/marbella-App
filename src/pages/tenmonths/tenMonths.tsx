@@ -43,19 +43,15 @@ const TenMonthsProgrammPage = () => {
   }, []);
 
   const offersImg_1 =
-    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/camps/natural_pitch_594x400.png";
+    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/train_549x400.jpg";
   const offersImg_2 =
-    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/camps/Full_Board_594x400.png";
+    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/competition_549x400.jpg";
   const offersImg_3 =
-    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/camps/Private_transport_594x400.png";
+    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/developement_549x400.jpg";
   const offersImg_4 =
-    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/camps/Friendly_matches_594x400.png";
+    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/hotel_549x400.jpg";
   const offersImg_5 =
-    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/camps/Facilities_594x400.png";
-  const offersImg_6 =
-    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/camps/Video__594x400.png";
-  const offersImg_7 =
-    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/camps/Neuro_594x400.jpg";
+    "https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/scholarship_549x400.jpg";
 
   const prepareOffersData = () => {
     if (!camps || camps.length === 0) return null;

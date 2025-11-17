@@ -1,12 +1,8 @@
-// src/components/headerMenuMobile/headerMenuMobile.tsx
-
 import { useState, useEffect } from "react";
 import fetchMenu from "../../api/fetchMenu";
 
 import styles from "./headerMenuMobile.module.css";
 import { useLanguage } from "../../context/languageContext";
-
-type MenuType = "HeaderMain" | "HeaderServices" | "Footer";
 
 type MenuItem = {
   id: number;
@@ -16,12 +12,13 @@ type MenuItem = {
   url: string;
   sort_order: number;
   is_active: boolean;
-  type: MenuType;
+  parent_id: number | null;
 };
 
 const HeaderMenuMobile = () => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const { currentLanguage } = useLanguage();
+  const [openParentId, setOpenParentId] = useState<number | null>(null);
   
   useEffect(() => {
     const getMenu = async () => {
@@ -39,25 +36,71 @@ const HeaderMenuMobile = () => {
     return (item[titleField] as string) || item.title_en;
   };
 
-  // Мобильное: всё одним столбцом по sort_order
-  // Если хочешь исключить Footer — просто поменяй фильтр.
-  const visibleItems = menuItems
-    .filter((item) => item.is_active && item.type !== "Footer")
+  const topLevelItems = menuItems
+    .filter((item) => item.is_active && item.parent_id === null)
     .sort((a, b) => a.sort_order - b.sort_order);
+
+  const childrenByParent: Record<number, MenuItem[]> = {};
+  menuItems
+    .filter((item) => item.is_active && item.parent_id !== null)
+    .forEach((item) => {
+      const parentId = item.parent_id as number;
+      if (!childrenByParent[parentId]) {
+        childrenByParent[parentId] = [];
+      }
+      childrenByParent[parentId].push(item);
+    });
+
+  Object.keys(childrenByParent).forEach((key) => {
+    childrenByParent[Number(key)].sort((a, b) => a.sort_order - b.sort_order);
+  });
+
+  const toggleParent = (id: number) => {
+    setOpenParentId((current) => (current === id ? null : id));
+  };
 
   return (
     <ul className={styles.header__menu_mobile_list}>
-      {visibleItems.map((item) => (
-        <li key={item.id}>
-          <a href={`/${item.url}`}>{getMenuItemTitle(item)}</a>
-        </li>
-      ))}
+      {topLevelItems.map((item) => {
+        const children = childrenByParent[item.id] || [];
+        const hasChildren = children.length > 0;
+        const isOpen = openParentId === item.id;
+
+        if (!hasChildren) {
+          return (
+            <li key={item.id}>
+              <a href={`/${item.url}`}>{getMenuItemTitle(item)}</a>
+            </li>
+          );
+        }
+
+        return (
+          <li key={item.id}>
+            <button
+              type="button"
+              className={styles.header__menu_mobile_parent_btn}
+              onClick={() => toggleParent(item.id)}
+            >
+              <span>{getMenuItemTitle(item)}</span>
+              <span className={styles.header__menu_mobile_parent_icon}>
+                {isOpen ? "−" : "+"}
+              </span>
+            </button>
+            {isOpen && (
+              <ul className={styles.header__submenu_mobile}>
+                {children.map((child) => (
+                  <li key={child.id}>
+                    <a href={`/${child.url}`}>{getMenuItemTitle(child)}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        );
+      })}
+
       <li>
-        <a
-          href="https://wa.me/message/474IL7PF6E25O1"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://wa.me/message/474IL7PF6E25O1" target="_blank" rel="noreferrer">
           <div className={styles.header__cta_button_mobile_list}>Join Us</div>
         </a>
       </li>

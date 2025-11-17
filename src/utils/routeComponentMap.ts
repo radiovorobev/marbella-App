@@ -9,6 +9,7 @@ import CampsPage from '../pages/camps/camps';
 import CampusPage from '../pages/campus/campus';
 import CookiesPage from '../pages/cookies/cookies';
 import PrivacyPolicy from '../pages/privacyPolicy/privacyPolicy';
+import TenMonthsProgrammPage from '../pages/tenmonths/tenMonths';
 
 export const routeComponentMap: Record<string, React.ComponentType<any>> = {
   index: IndexPage,
@@ -20,6 +21,7 @@ export const routeComponentMap: Record<string, React.ComponentType<any>> = {
   contacts: ContactsPage,
   camps: CampsPage,
   campus: CampusPage,
+  tenMonthsProgramm: TenMonthsProgrammPage,
   cookies: CookiesPage,
   privacy: PrivacyPolicy,
 };

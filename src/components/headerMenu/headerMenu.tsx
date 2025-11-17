@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+// src/components/headerMenu/headerMenu.tsx
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import fetchMenu from "../../api/fetchMenu";
 
 import styles from "./headerMenu.module.css";
-
 import { useLanguage } from "../../context/languageContext";
 
-type MenuItem = {
+export type MenuType = "HeaderMain" | "HeaderServices" | "Footer";
+
+export type MenuItem = {
   id: number;
   title_en: string;
   title_es: string | null;
@@ -14,12 +17,13 @@ type MenuItem = {
   url: string;
   sort_order: number;
   is_active: boolean;
+  type: MenuType;         // 👈 НОВОЕ поле
 };
 
 const HeaderMenu = () => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const { currentLanguage } = useLanguage();
-  
+
   useEffect(() => {
     const getMenu = async () => {
       const result = await fetchMenu();
@@ -27,29 +31,46 @@ const HeaderMenu = () => {
         setMenuItems(result);
       }
     };
-    
+
     getMenu();
   }, []);
 
-  // Функция для получения заголовка на текущем языке
   const getMenuItemTitle = (item: MenuItem) => {
-    // Используем индексированный доступ для получения поля `title_${currentLanguage}`
     const titleField = `title_${currentLanguage}` as keyof MenuItem;
-    // Возвращаем перевод или английскую версию, если перевод отсутствует
     return (item[titleField] as string) || item.title_en;
   };
 
+  const mainItems = menuItems
+    .filter((item) => item.is_active && item.type === "HeaderMain")
+    .sort((a, b) => a.sort_order - b.sort_order);
+
+  const serviceItems = menuItems
+    .filter((item) => item.is_active && item.type === "HeaderServices")
+    .sort((a, b) => a.sort_order - b.sort_order);
+
   return (
     <nav className={styles.header__menu_container}>
-      <ul className={styles.header__menu}>
-        {menuItems.map((item) => (
-          item.is_active && (
+      {/* Первая строка – HeaderMain */}
+      <ul className={`${styles.header__menu} ${styles.header__menu_primary}`}>
+        {mainItems.map((item) => (
+          <li key={item.id}>
+            <Link to={`/${item.url}`}>{getMenuItemTitle(item)}</Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Вторая строка – HeaderServices */}
+      {serviceItems.length > 0 && (
+        <ul
+          className={`${styles.header__menu} ${styles.header__menu_secondary}`}
+        >
+          {serviceItems.map((item) => (
             <li key={item.id}>
               <Link to={`/${item.url}`}>{getMenuItemTitle(item)}</Link>
             </li>
-          )
-        ))}
-      </ul>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 };

@@ -1,15 +1,33 @@
 .header__menu_container {
   margin: 0;
   padding: 0;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 700px;
 }
 
 .header__menu {
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 30px;
+  gap: 0 30px;
+}
+
+.header__menu_primary {
+  justify-content: flex-start;
+}
+
+.header__menu_secondary {
+  justify-content: flex-start;
+}
+
+.header__menu.header__menu_primary a {
+  font-weight: 400;
 }
 
 .header__menu a {

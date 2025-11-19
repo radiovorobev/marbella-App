@@ -24,6 +24,25 @@
     margin: 0 0 40px 0;
 }
 
+.section__header_center {
+    text-align: center;
+     max-width: 100%;
+}
+
+.section__subheader {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40.22px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 100%;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    color: #e51b22;
+}
+
 .joinButtons {
     display: flex;
     flex-direction: row;

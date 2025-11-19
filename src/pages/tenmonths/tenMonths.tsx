@@ -182,6 +182,11 @@ const TenMonthsProgrammPage = () => {
     section_header_es: "¡Tu temporada empieza aquí!",
   };
 
+    const headers_three = {
+    section_subheader_en: "Program Start",
+    section_subheader_es: "Inicio del programa",
+  };
+
   return (
     <main>
       {camps && camps.length > 0 && (
@@ -205,19 +210,27 @@ const TenMonthsProgrammPage = () => {
             />
             <SectionOffers aboutData={offersData} />
             {/* <SectionOffers aboutData={servicesData} /> */}
-            <h2 className={styles.section__header}>
+            <h2 className={`${styles.section__header} ${styles.section__header_center}`}>
               {getLocalizedContent(
                 headers_two,
                 "section_header",
                 currentLanguage,
               )}
             </h2>
+            <h3 className={styles.section__subheader}>
+               {getLocalizedContent(
+                headers_three,
+                "section_subheader",
+                currentLanguage,
+              )}
+            </h3>
             <ArticleText
               articleText={getLocalizedContent(
                 camps[0],
                 "text_contacts",
                 currentLanguage,
               )}
+              backgroundColor="#f2f2f7"
             />
             <div className={styles.joinButtons}>
               <button className={styles.joinButton} onClick={handleEmailClick}>

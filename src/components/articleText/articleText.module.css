@@ -1,0 +1,25 @@
+.articleText {
+  width: 100%;
+}
+
+.articleText h3 {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40.22px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 100%;
+    text-transform: none;
+    margin: 0 0 10px 0;
+    color: #000;
+}
+
+.articleText h3:first-of-type {
+  padding-top: 30px;
+}
+
+.articleText h3:last-of-type {
+  padding-bottom: 30px;
+}

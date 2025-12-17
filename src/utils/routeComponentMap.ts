@@ -10,6 +10,8 @@ import CampusPage from '../pages/campus/campus';
 import CookiesPage from '../pages/cookies/cookies';
 import PrivacyPolicy from '../pages/privacyPolicy/privacyPolicy';
 import TenMonthsProgrammPage from '../pages/tenmonths/tenMonths';
+import UiLibraryDemoPage from '../pages/uiLibraryDemo/uiLibraryDemo';
+import OpportunitiesPage from '../pages/opportunities/opportunities';
 
 export const routeComponentMap: Record<string, React.ComponentType<any>> = {
   index: IndexPage,
@@ -24,4 +26,6 @@ export const routeComponentMap: Record<string, React.ComponentType<any>> = {
   tenMonthsProgramm: TenMonthsProgrammPage,
   cookies: CookiesPage,
   privacy: PrivacyPolicy,
+  opportunities: OpportunitiesPage,
+  uiLibraryDemo: UiLibraryDemoPage,
 };

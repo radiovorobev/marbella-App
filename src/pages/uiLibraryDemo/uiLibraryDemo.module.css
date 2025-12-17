@@ -1,0 +1,50 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-bottom: 96px;
+}
+
+.section {
+  padding: 0 125px;
+}
+
+.cardsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cardWrapper {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 0 125px;
+}
+
+.roleSection {
+  padding: 0 125px;
+}
+
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .section,
+  .twoColumn,
+  .roleSection {
+    padding: 0 20px;
+  }
+
+  .page {
+    gap: 32px;
+  }
+}

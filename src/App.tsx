@@ -20,6 +20,7 @@ import CoachForm from './admin/components/coachForm';
 
 
 import NewCampsPage from './pages/new/CampsPage';
+import UiLibraryDemoPage from './pages/uiLibraryDemo/uiLibraryDemo';
 
 // Ленивая загрузка компонентов административной панели
 const AdminLayout = lazy(() => import('./admin/components/adminLayout'));
@@ -131,6 +132,7 @@ function App() {
           </Route>
         
           {/* Маршруты основного сайта */}
+          <Route path="/uiLibraryDemo" element={<UiLibraryDemoPage />} />
           <Route path="/*" element={<ClientRoutes />} />
 
 

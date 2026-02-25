@@ -47,7 +47,7 @@ const Header = () => {
             <h1 className={styles.header__logo_text}>Marbella International Football Academy</h1>
           </a>
           <HeaderMenu />
-           <a href="https://academymarbella.com/ten-months-programm" className={`${styles.header__cta_button} ${styles.header__cta_button_visible}`}>
+           <a href="https://academymarbella.com/ten-months-program" className={`${styles.header__cta_button} ${styles.header__cta_button_visible}`}>
             10 Months Program
           </a>
           <a href="https://wa.me/message/474IL7PF6E25O1" className={styles.header__cta_button} target="_blank">

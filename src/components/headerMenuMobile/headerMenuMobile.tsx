@@ -99,7 +99,7 @@ const HeaderMenuMobile = () => {
         );
       })}
       <li>
-        <a href="https://academymarbella.com/ten-months-programm" rel="noreferrer" >
+        <a href="https://academymarbella.com/ten-months-program" rel="noreferrer" >
           <div className={`${styles.header__cta_button_mobile_list} ${styles.header__cta_button_mobile_list_container}`}>
             10 Months Program
             </div>

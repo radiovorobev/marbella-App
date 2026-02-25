@@ -23,7 +23,7 @@ export const routeComponentMap: Record<string, React.ComponentType<any>> = {
   contacts: ContactsPage,
   camps: CampsPage,
   campus: CampusPage,
-  tenMonthsProgramm: TenMonthsProgrammPage,
+  tenMonthsProgram: TenMonthsProgrammPage,
   cookies: CookiesPage,
   privacy: PrivacyPolicy,
   opportunities: OpportunitiesPage,

@@ -56,6 +56,16 @@ const OpportunitiesPage = () => {
     section_header_es: "Nuestros jugadores dan el paso",
   };
 
+  const secondHeaders = {
+    secondSection_header_en: "Start your season",
+    secondSection_header_es: "Empieza tu temporada",
+  };
+
+  const buttonText = {
+    text_en: "View subscription plans",
+    text_es: "Ver planes de inscriptión",
+  };
+
   return (
     <main>
       {content && content.length > 0 && (
@@ -77,14 +87,6 @@ const OpportunitiesPage = () => {
                 currentLanguage,
               )}
             />
-            <ArticleText
-              articleText={getLocalizedContent(
-                content[0],
-                "text_contacts",
-                currentLanguage,
-              )}
-            />
-
           </section>
         </>
       )}
@@ -106,7 +108,26 @@ const OpportunitiesPage = () => {
           </ul>
         </section>
       )}
-    </main>
+      {content && content.length > 0 && (
+      <section className={styles.page__container}>
+        <h2 className={styles.section__header}>
+          {getLocalizedContent(secondHeaders, "secondSection_header", currentLanguage)}
+        </h2>       
+        <ArticleText
+          articleText={getLocalizedContent(
+          content[0],
+          "ctaText",
+          currentLanguage,
+          )}
+        /> 
+        <div className={styles.joinButtons}>
+          <a className={styles.joinButton} href="https://academymarbella.com/subscriptions">
+            {getLocalizedContent(buttonText, "text", currentLanguage)}
+          </a>
+        </div>
+      </section>
+              )}
+    </main> 
   );
 };
 

@@ -52,10 +52,13 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: #000;
+    text-decoration: none;
 }
 
 .joinButton:hover {
     color: #e51b22;
+    text-decoration: none;
 }
 
 .joinButton img {

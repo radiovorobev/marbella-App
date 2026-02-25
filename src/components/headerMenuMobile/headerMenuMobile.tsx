@@ -98,10 +98,16 @@ const HeaderMenuMobile = () => {
           </li>
         );
       })}
-
       <li>
+        <a href="https://academymarbella.com/ten-months-programm" rel="noreferrer" >
+          <div className={`${styles.header__cta_button_mobile_list} ${styles.header__cta_button_mobile_list_container}`}>
+            10 Months Programm
+            </div>
+            </a>
+            
         <a href="https://wa.me/message/474IL7PF6E25O1" target="_blank" rel="noreferrer">
-          <div className={styles.header__cta_button_mobile_list}>Join Us</div>
+          <div className={`${styles.header__cta_button_mobile_list} ${styles.header__cta_button_mobile_list_container}`}>
+          Join Us</div>
         </a>
       </li>
     </ul>

@@ -64,7 +64,7 @@
 }
 
 .header__cta_button {
-  max-width: 200px;
+  max-width: 250px;
   height: 40px;
   background-color: #c8e51f;
   color: #000;
@@ -80,6 +80,12 @@
   border-radius: 8px;
   cursor: pointer;
   padding: 0 18px;
+}
+
+.header__cta_button_visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -180,6 +186,10 @@
   }
   
   .header__lang {
+    display: none;
+  }
+
+  .header__cta_button_visible {
     display: none;
   }
   

@@ -22,6 +22,17 @@
     max-width: 80%;
     text-transform: uppercase;
     margin: 0 0 40px 0;
+    text-decoration: none;
+}
+
+.section__header a {
+    text-decoration: none;
+    color: #e51b22;
+}
+
+.section__header a:hover {
+    text-decoration: underline;
+    color: #000;
 }
 
 .section__header_center {

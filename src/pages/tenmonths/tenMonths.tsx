@@ -178,8 +178,8 @@ const TenMonthsProgrammPage = () => {
   };
 
   const headers_two = {
-    section_header_en: "Your season starts here!",
-    section_header_es: "¡Tu temporada empieza aquí!",
+    section_header_en: "Download our program here",
+    section_header_es: "Descarga el programa aquí",
   };
 
     const headers_three = {
@@ -211,19 +211,24 @@ const TenMonthsProgrammPage = () => {
             <SectionOffers aboutData={offersData} />
             {/* <SectionOffers aboutData={servicesData} /> */}
             <h2 className={`${styles.section__header} ${styles.section__header_center}`}>
+              <a href="https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/10-month-program-Academy-Marbella.pdf
+" target="_blank" rel="noopener noreferrer">
               {getLocalizedContent(
                 headers_two,
                 "section_header",
                 currentLanguage,
               )}
+                </a>
             </h2>
-            <h3 className={styles.section__subheader}>
-               {getLocalizedContent(
-                headers_three,
-                "section_subheader",
-                currentLanguage,
-              )}
-            </h3>
+          
+              <h3 className={styles.section__subheader}>
+                {getLocalizedContent(
+                  headers_three,
+                  "section_subheader",
+                  currentLanguage,
+                )}
+              </h3>
+            
             <ArticleText
               articleText={getLocalizedContent(
                 camps[0],

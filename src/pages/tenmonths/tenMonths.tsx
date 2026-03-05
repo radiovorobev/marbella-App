@@ -211,7 +211,7 @@ const TenMonthsProgrammPage = () => {
             <SectionOffers aboutData={offersData} />
             {/* <SectionOffers aboutData={servicesData} /> */}
             <h2 className={`${styles.section__header} ${styles.section__header_center}`}>
-              <a href="https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/10-month-program-Academy-Marbella.pdf
+              <a href="https://ffpddldovvrukcxduqgn.supabase.co/storage/v1/object/public/10months/10-months-progam-Academy-Marbella.pdf
 " target="_blank" rel="noopener noreferrer">
               {getLocalizedContent(
                 headers_two,

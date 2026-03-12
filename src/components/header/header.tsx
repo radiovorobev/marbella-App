@@ -48,7 +48,7 @@ const Header = () => {
           </a>
           <HeaderMenu />
            <a href="https://academymarbella.com/ten-months-program" className={`${styles.header__cta_button} ${styles.header__cta_button_visible}`}>
-            10 Months Program
+            10 Month Program
           </a>
           <a href="https://wa.me/message/474IL7PF6E25O1" className={styles.header__cta_button} target="_blank">
             Join Us

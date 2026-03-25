@@ -1,0 +1,2793 @@
+.page__container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 124px 100px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-family: Cera Pro;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 26.4px;
+}
+
+.section__header {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60.34px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 80%;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    text-decoration: none;
+}
+
+.section__header a {
+    text-decoration: none;
+    color: #e51b22;
+}
+
+.section__header a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+.section__header_center {
+    text-align: center;
+     max-width: 100%;
+}
+
+.section__header_center_red {
+    color: #e51b22;
+}
+
+
+.section__subheader {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40.22px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 100%;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    color: #e51b22;
+}
+
+.section__subheader_black {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 40.22px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-width: 100%;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    color: #000;
+}
+
+.collaborationSection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 64px 0 110px;
+    background: #fff;
+    color: #111;
+}
+
+.collaborationInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.collaborationTitle {
+    margin: 0 0 34px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: center;
+    text-transform: uppercase;
+    color: #b10e1a;
+}
+
+.collaborationSubtitle {
+    margin: 0 0 24px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+    color: #050505;
+}
+
+.collaborationText {
+    max-width: 980px;
+    margin: 0 auto 48px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+    color: #111;
+}
+
+.collaborationPanel {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    align-items: center;
+    padding: 38px 44px;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+}
+
+.collaborationPartner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 232px;
+}
+
+.collaborationPartnerImage {
+    width: 100%;
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+.methodologySection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 0 110px;
+    background: #fff;
+    color: #111;
+}
+
+.methodologyInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.methodologyTitle {
+    margin: 0 0 48px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.08;
+    text-align: center;
+    text-transform: uppercase;
+    color: #b10e1a;
+}
+
+.methodologyPeopleGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 64px;
+}
+
+.methodologyPerson {
+    overflow: hidden;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+}
+
+.methodologyPersonImage {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    display: block;
+    object-position: center top;
+}
+
+.methodologyPersonName {
+    padding: 22px 18px 28px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    text-transform: uppercase;
+    color: #111;
+}
+
+.methodologyPattern {
+    width: 480px;
+    height: 66px;
+    margin: 0 auto 44px;
+    opacity: 0.6;
+    background-image: url(../../images/pattern_waves-3-rows.svg);
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 65px;
+    background-repeat: no-repeat;
+}
+
+.methodologyCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.methodologyCard {
+    padding: 30px 28px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+}
+
+.methodologyCardTitle {
+    margin: 0 0 10px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #101010;
+}
+
+.methodologyCardSubtitle {
+    margin: 0 0 18px;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #7a7a7a;
+}
+
+.methodologyCardText {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #111;
+}
+
+.methodologyPatternBottom {
+    margin: 44px auto 0;
+}
+
+.philosophySection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 84px 0 100px;
+    background: #f5f5fb;
+    color: #111;
+}
+
+.philosophyInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.philosophyMission {
+    max-width: 1120px;
+    margin: 0 auto 46px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+    color: #111;
+}
+
+.philosophyMission strong {
+    font-weight: 700;
+}
+
+.philosophyTitle {
+    margin: 0 0 42px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.08;
+    text-align: center;
+    text-transform: uppercase;
+    color: #b10e1a;
+}
+
+.philosophyGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 44px;
+}
+
+.philosophyCard {
+    padding: 32px 30px 28px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.06);
+}
+
+.philosophyCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.philosophyIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #b80c1a;
+    color: #fff;
+}
+
+.philosophyIcon img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    object-fit: contain;
+}
+
+.philosophyCardTitle {
+    margin: 0;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #101010;
+}
+
+.philosophyCardText {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #111;
+}
+
+.philosophyFooter {
+    max-width: 980px;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+    color: #111;
+}
+
+.philosophyFooter span {
+    color: #b10e1a;
+    font-weight: 700;
+}
+
+.joinButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.joinButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+    margin: 20px 0 0 0;
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    background-color: #c8e51f;
+    height: 80px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.joinButton:hover {
+    color: #e51b22;
+}
+
+.joinButton img {
+    width: 40px;
+    margin-right: 5px;
+}
+
+
+
+@media screen and (max-width: 1439px) {
+    .page__container {
+        padding: 0 20px;
+        font-size: 16px;
+        line-height: 20.11px;
+    }
+
+    .joinButtons {
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .joinButton {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .joinButton img {
+        width: 30px;
+        margin-right: 5px;
+    }
+}
+
+/* New styles */
+
+.exposureSection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 0 110px;
+    background: #fff;
+    color: #111;
+}
+
+.exposureInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.exposureOverview {
+    margin-bottom: 88px;
+}
+
+.exposureTitle {
+    max-width: 980px;
+    margin: 0 auto 42px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.18;
+    text-align: center;
+    text-transform: uppercase;
+    color: #b10e1a;
+}
+
+.exposureOverviewCards {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: -70px;
+}
+
+.exposureOverviewCard {
+    padding: 34px 30px 28px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+}
+
+.exposureOverviewHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.exposureOverviewAccent {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    margin-top: 7px;
+    background: #b80c1a;
+}
+
+.exposureOverviewTitle {
+    margin: 0;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #111;
+}
+
+.exposureOverviewText {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.48;
+    color: #111;
+}
+
+.exposureOverviewImageWrap {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+}
+
+.exposureOverviewImage {
+    width: 100%;
+    height: 760px;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+}
+
+.exposureLead {
+    max-width: 1180px;
+    margin: 0 auto 48px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    text-transform: uppercase;
+    color: #b10e1a;
+}
+
+.exposureGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 44px 52px;
+    margin-bottom: 48px;
+}
+
+.exposureClub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.exposureLogoWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    margin-bottom: 22px;
+}
+
+.exposureLogo {
+    display: block;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.exposureNameCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 112px;
+    width: 100%;
+    padding: 20px 24px;
+    box-sizing: border-box;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+    font-family: "Cera Pro", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.exposureActions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.exposureAction {
+    text-align: center;
+}
+
+.exposureActionTitle {
+    margin: 0 0 20px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.exposureActionButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    max-width: 100%;
+    height: 86px;
+    padding: 0 36px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 999px;
+    background: #b80c1a;
+    color: #fff;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.12s ease;
+}
+
+.exposureActionButton:active {
+    background: #f31b22;
+    transform: translateY(1px);
+    box-shadow: inset 0 3px 10px rgba(109, 0, 9, 0.24);
+}
+
+.schoolSection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 0 110px;
+    background: #fff;
+    color: #111;
+}
+
+.schoolInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.schoolHero {
+    position: relative;
+    min-height: 840px;
+    margin-bottom: 32px;
+}
+
+.schoolHeroContent {
+    position: relative;
+    z-index: 3;
+    max-width: 760px;
+    padding-top: 18px;
+}
+
+.schoolTitle {
+    margin: 0 0 26px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.08;
+    text-transform: uppercase;
+    color: #050505;
+}
+
+.schoolBadgeRow {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.schoolBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    height: 66px;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: #d4f318;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.schoolAge {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.schoolHeroImages {
+    position: relative;
+    height: 610px;
+    margin-top: 44px;
+}
+
+.schoolWideImage,
+.schoolTallImage {
+    position: absolute;
+    overflow: hidden;
+}
+
+.schoolWideImage img,
+.schoolTallImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.schoolWideImage {
+    left: 0;
+    bottom: 0;
+    width: 68%;
+    height: 470px;
+    z-index: 1;
+}
+
+.schoolTallImage {
+    top: -180px;
+    right: 0;
+    width: 40%;
+    height: 620px;
+    z-index: 2;
+}
+
+.schoolDivider {
+    height: 1px;
+    margin-bottom: 32px;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.schoolCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.schoolCard {
+    padding: 30px 28px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+}
+
+.schoolCardHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.schoolCardAccent {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    margin-top: 6px;
+    background: #b80c1a;
+}
+
+.schoolCardTitle {
+    margin: 0;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #101010;
+}
+
+.schoolCardText {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #111;
+}
+
+.schoolCardList {
+    margin: 0;
+    padding-left: 24px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #111;
+}
+
+.schoolCardList li + li {
+    margin-top: 4px;
+}
+
+.schoolPrices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.schoolPriceCard {
+    position: relative;
+    min-height: 188px;
+    padding: 34px 26px 28px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.schoolPriceCardHighlighted {
+    box-shadow:
+        0 0 0 2px #d4f318,
+        0 0 0 8px rgba(212, 243, 24, 0.1);
+}
+
+.schoolPriceBadge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #d4f318;
+    color: #101010;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.schoolPriceValue {
+    margin: 0 0 16px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 74px;
+    font-weight: 500;
+    line-height: 1;
+    color: #101010;
+}
+
+.schoolPriceDescription {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #707070;
+}
+
+.gapSection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 0 110px;
+    background: #fff;
+    color: #111;
+}
+
+.gapInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.gapHero {
+    position: relative;
+    min-height: 880px;
+    margin-bottom: 40px;
+}
+
+.gapHeroContent {
+    position: relative;
+    z-index: 3;
+    max-width: 760px;
+    padding-top: 18px;
+}
+
+.gapTitle {
+    margin: 0 0 28px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #050505;
+}
+
+.gapBadgeRow {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.gapBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    height: 66px;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: #d4f318;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.gapAge {
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.gapHeroImages {
+    position: relative;
+    height: 620px;
+    margin-top: 44px;
+}
+
+.gapWideImage,
+.gapTallImage {
+    position: absolute;
+    overflow: hidden;
+}
+
+.gapWideImage img,
+.gapTallImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gapWideImage {
+    left: 0;
+    bottom: 0;
+    width: 70%;
+    height: 470px;
+    z-index: 1;
+}
+
+.gapTallImage {
+    top: -220px;
+    right: 0;
+    width: 39%;
+    height: 620px;
+    z-index: 2;
+}
+
+.gapDivider {
+    height: 1px;
+    margin-bottom: 32px;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.gapCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.gapCard {
+    padding: 30px 28px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+}
+
+.gapCardFull {
+    grid-column: 1 / -1;
+}
+
+.gapCardHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.gapCardAccent {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    margin-top: 6px;
+    background: #b80c1a;
+}
+
+.gapCardTitle {
+    margin: 0;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #101010;
+}
+
+.gapCardText {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #111;
+}
+
+.gapCardList {
+    margin: 0;
+    padding-left: 24px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #111;
+}
+
+.gapCardList li + li {
+    margin-top: 4px;
+}
+
+.gapPrices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.gapPriceCard {
+    position: relative;
+    min-height: 188px;
+    padding: 34px 26px 28px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.gapPriceCardHighlighted {
+    box-shadow:
+        0 0 0 2px #d4f318,
+        0 0 0 8px rgba(212, 243, 24, 0.1);
+}
+
+.gapPriceBadge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #d4f318;
+    color: #101010;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.gapPriceValue {
+    margin: 0 0 16px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 74px;
+    font-weight: 500;
+    line-height: 1;
+    color: #101010;
+}
+
+.gapPriceDescription {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #707070;
+}
+
+.residenceSection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 0 120px;
+    background: #fff;
+}
+
+.residenceHero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    aspect-ratio: 1440 / 888;
+    min-height: 720px;
+    padding: 148px 72px 56px;
+    box-sizing: border-box;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.residenceHeroOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.98) 0%,
+            rgba(228, 244, 255, 0.72) 12%,
+            rgba(106, 189, 241, 0.34) 34%,
+            rgba(19, 138, 212, 0.16) 52%,
+            rgba(6, 55, 98, 0.08) 72%,
+            rgba(6, 55, 98, 0.16) 100%
+        );
+}
+
+.residenceCopy {
+    position: relative;
+    z-index: 1;
+}
+
+.residenceCopy {
+    max-width: 1040px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.residenceTitle {
+font-family: Cera Pro;
+font-weight: 700;
+font-style: Bold;
+font-size: 44px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+text-transform: uppercase;
+
+}
+
+.residenceText {
+    max-width: 980px;
+    margin: 0 auto;
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+
+}
+
+.residenceText strong {
+    font-weight: 700;
+}
+
+.packageSection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 0 120px;
+    background-color: #fff;
+    color: #000;
+}
+
+.packageInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.packageTitle {
+    position: absolute;
+    top: 72px;
+    left: 58px;
+    z-index: 4;
+    max-width: 540px;
+    margin: 0;
+    color: #000;
+    text-align: left;
+}
+
+.packageGallery {
+    position: relative;
+    height: 980px;
+    padding: 0 58px;
+    box-sizing: border-box;
+    background: #fff;
+    margin-bottom: 72px;
+}
+
+.packageGalleryWide,
+.packageGalleryTall,
+.packageGalleryRoom {
+    position: absolute;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+}
+
+.packageGalleryWide img,
+.packageGalleryTall img,
+.packageGalleryRoom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.packageGalleryWide {
+    top: 330px;
+    left: 0;
+    width: 66.5%;
+    height: 420px;
+    z-index: 1;
+}
+
+.packageGalleryTall {
+    top: 48px;
+    right: 0;
+    width: 39%;
+    height: 560px;
+    z-index: 2;
+}
+
+.packageGalleryRoom {
+    right: 16%;
+    bottom: 0;
+    width: 58%;
+    height: 400px;
+    z-index: 3;
+}
+
+.packageDivider {
+    height: 1px;
+    margin-bottom: 36px;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.packageCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.packageCard,
+.packagePriceCard {
+    position: relative;
+    padding: 34px 28px 30px;
+    border-radius: 30px;
+    background: #fff;
+    color: #101010;
+    box-shadow: 2px 2px 32.7px 0px rgba(0, 0, 0, 0.06);
+}
+
+.packageCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.packageCardAccent {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    background: #b80c1a;
+}
+
+.packageCardTitle {
+    margin: 0;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.packageCardList {
+    margin: 0;
+    padding-left: 26px;
+    font-size: 24px;
+    line-height: 1.45;
+}
+
+.packageCardList li + li {
+    margin-top: 4px;
+}
+
+.packagePrices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.packagePriceCard {
+    min-height: 188px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.packagePriceCardHighlighted {
+    box-shadow:
+        0 0 0 2px #d4f318,
+        0 0 0 8px rgba(212, 243, 24, 0.1);
+}
+
+.packagePriceBadge {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #d4f318;
+    color: #101010;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.packagePriceValue {
+    margin: 0 0 18px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 74px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.packagePriceDescription {
+    margin: 0;
+    color: #707070;
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+.durationSection {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.durationBackgroundSticky {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.durationBackground {
+    position: absolute;
+    inset: 0;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.durationBackground::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.985) 9%,
+        rgba(255, 255, 255, 0.9) 18%,
+        rgba(255, 255, 255, 0.7) 27%,
+        rgba(255, 255, 255, 0.42) 34%,
+        rgba(255, 255, 255, 0.14) 40%,
+        rgba(255, 255, 255, 0) 46%
+    );
+}
+
+.durationContent {
+    position: relative;
+    z-index: 1;
+    min-height: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.durationInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 150px 30px 64px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.durationTitle {
+    max-width: 100%;
+    margin-bottom: 48px;
+}
+
+.durationGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+}
+
+.durationCard {
+    display: flex;
+    flex-direction: column;
+    min-height: 430px;
+    padding: 0 16px 24px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 26px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.durationCardTop {
+    margin: 0 -16px 18px;
+    padding: 16px 24px;
+    background-color: rgba(184, 12, 26, 1);
+    border-radius: 18px 18px 16px 16px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.durationCardTitle {
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 28px;
+    line-height: 150%;
+    letter-spacing: -1%;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.durationCardSubtitle {
+    margin: 0;
+    font-family: Cera Pro;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.durationPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 92px;
+    margin-bottom: 18px;
+    padding: 14px 12px 12px;
+    background-color: rgba(184, 12, 26, 1);
+    border-radius: 18px;
+    color: #fff;
+}
+
+.durationPricePrefix {
+    font-family: Cera Pro;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.durationPriceValue {
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 56px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.durationPriceSuffix {
+    font-family: Cera Pro;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.durationBadge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 8px 24px;
+    border: 2px solid rgba(184, 12, 26, 1);
+    border-radius: 16px;
+    color: #111;
+}
+
+.durationBadgeTitle {
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+.durationBadgeText {
+    font-size: 17px;
+    line-height: 1.15;
+}
+
+.durationSummary {
+    margin: 0 0 14px;
+    font-family: Cera Pro;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 112.00000000000001%;
+    letter-spacing: 0%;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.durationDetails {
+    margin: auto 0 0;
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.redLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 10px 24px;
+    box-sizing: border-box;
+    font-family: "Cera Pro", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+    text-align: center;
+    background-color: rgba(160, 13, 24, 1);
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.trainVideoSection {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 92px 0 48px;
+    background: #fff;
+}
+
+.trainVideoInner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+.trainVideoTitle {
+    margin: 0 0 40px;
+    font-family: "Cera Pro", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.06;
+    text-align: center;
+    text-transform: uppercase;
+    color: #050505;
+}
+
+.trainVideoTitleRed {
+    color: #b10e1a;
+}
+
+.trainVideoCard {
+    position: relative;
+    max-width: 820px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 38px;
+    overflow: hidden;
+    box-shadow: 2px 2px 32.7px 0 rgba(0, 0, 0, 0.08);
+    background: #000;
+}
+
+.trainVideoFrame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #000;
+}
+
+.text_container {
+    max-width: 514px;
+    margin: 0 auto;
+    padding: 32px 48px;
+    box-sizing: border-box;
+    font-family: Cera Pro;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 2px 2px 32.7px 0px rgba(0, 0, 0, 0.06);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 514px;
+    margin: 64px auto 24px;
+    gap: 20px;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 32px;
+    font-family: Cera Pro;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 135%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    background-color: #fff;
+    height: 72px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.12s ease;
+    border-radius: 95px;
+    color: #000;
+    box-shadow: 2px 2px 32.7px 0px rgba(0, 0, 0, 0.06);
+}
+
+.button_red {
+    background-color: rgba(160, 13, 24, 1);
+    color: #fff;
+}
+
+.button:not(.button_red):active {
+    background-color: #eff0f6;
+    transform: translateY(1px);
+    box-shadow:
+        inset 0 3px 10px rgba(24, 28, 39, 0.05),
+        2px 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.button_red:active {
+    background-color: #f31b22;
+    transform: translateY(1px);
+    box-shadow: inset 0 3px 10px rgba(109, 0, 9, 0.24);
+}
+
+.button img {
+    width: 32px;
+    margin-right: 5px;
+}
+
+@media (hover: hover) {
+    .exposureActionButton:hover,
+    .button_red:hover {
+        background-color: #f31b22;
+    }
+
+    .button:not(.button_red):hover {
+        background-color: #f2f2f7;
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .methodologySection {
+        padding-bottom: 72px;
+    }
+
+    .methodologyInner {
+        padding: 0 20px;
+    }
+
+    .methodologyTitle {
+        font-size: 42px;
+        margin-bottom: 32px;
+    }
+
+    .methodologyPeopleGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-bottom: 40px;
+    }
+
+    .methodologyPersonImage {
+        height: 320px;
+    }
+
+    .methodologyPersonName {
+        font-size: 22px;
+    }
+
+    .methodologyCards {
+        gap: 18px;
+    }
+
+    .methodologyCard {
+        padding: 24px 20px;
+    }
+
+    .methodologyCardTitle {
+        font-size: 22px;
+    }
+
+    .methodologyCardSubtitle {
+        font-size: 18px;
+    }
+
+    .methodologyCardText {
+        font-size: 18px;
+    }
+
+    .philosophySection {
+        padding: 64px 0 72px;
+    }
+
+    .philosophyInner {
+        padding: 0 20px;
+    }
+
+    .philosophyMission {
+        margin-bottom: 28px;
+        font-size: 18px;
+    }
+
+    .philosophyTitle {
+        font-size: 42px;
+        margin-bottom: 28px;
+    }
+
+    .philosophyCard {
+        padding: 24px 20px;
+    }
+
+    .philosophyCardTitle {
+        font-size: 22px;
+    }
+
+    .philosophyCardText,
+    .philosophyFooter {
+        font-size: 18px;
+    }
+
+    .collaborationSection {
+        padding: 48px 0 72px;
+    }
+
+    .collaborationInner {
+        padding: 0 20px;
+    }
+
+    .collaborationTitle {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .collaborationSubtitle {
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+
+    .collaborationText {
+        margin-bottom: 32px;
+        font-size: 18px;
+    }
+
+    .collaborationPanel {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 28px 20px;
+    }
+
+    .collaborationPartner {
+        min-height: 0;
+    }
+
+    .collaborationPartnerImage {
+        max-height: 140px;
+    }
+
+    .schoolSection {
+        padding-bottom: 72px;
+    }
+
+    .schoolInner {
+        padding: 0 20px;
+    }
+
+    .schoolHero {
+        min-height: auto;
+        margin-bottom: 32px;
+    }
+
+    .schoolHeroContent {
+        max-width: 100%;
+        padding-top: 0;
+        margin-bottom: 24px;
+    }
+
+    .schoolTitle {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .schoolBadgeRow {
+        gap: 18px;
+    }
+
+    .schoolBadge,
+    .schoolAge {
+        font-size: 22px;
+    }
+
+    .schoolHeroImages {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1.3fr 0.9fr;
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .schoolWideImage,
+    .schoolTallImage {
+        position: static;
+        width: 100%;
+        height: 360px;
+    }
+
+    .schoolCard {
+        padding: 24px 20px;
+    }
+
+    .schoolCardTitle {
+        font-size: 22px;
+    }
+
+    .schoolCardText,
+    .schoolCardList {
+        font-size: 18px;
+    }
+
+    .schoolPriceValue {
+        font-size: 56px;
+    }
+
+    .schoolPriceDescription {
+        font-size: 18px;
+    }
+
+    .gapSection {
+        padding-bottom: 72px;
+    }
+
+    .gapInner {
+        padding: 0 20px;
+    }
+
+    .gapHero {
+        min-height: auto;
+        margin-bottom: 32px;
+    }
+
+    .gapHeroContent {
+        max-width: 100%;
+        padding-top: 0;
+        margin-bottom: 24px;
+    }
+
+    .gapTitle {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .gapBadgeRow {
+        gap: 18px;
+    }
+
+    .gapBadge,
+    .gapAge {
+        font-size: 22px;
+    }
+
+    .gapHeroImages {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1.3fr 0.9fr;
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .gapWideImage,
+    .gapTallImage {
+        position: static;
+        width: 100%;
+        height: 360px;
+    }
+
+    .gapCard {
+        padding: 24px 20px;
+    }
+
+    .gapCardTitle {
+        font-size: 22px;
+    }
+
+    .gapCardText,
+    .gapCardList {
+        font-size: 18px;
+    }
+
+    .gapPriceValue {
+        font-size: 56px;
+    }
+
+    .gapPriceDescription {
+        font-size: 18px;
+    }
+
+    .exposureOverview {
+        margin-bottom: 56px;
+    }
+
+    .exposureTitle {
+        font-size: 42px;
+        margin-bottom: 28px;
+    }
+
+    .exposureOverviewCards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .exposureOverviewCard {
+        padding: 24px 20px;
+        border-radius: 22px;
+    }
+
+    .exposureOverviewTitle {
+        font-size: 22px;
+    }
+
+    .exposureOverviewText {
+        font-size: 18px;
+    }
+
+    .exposureOverviewImage {
+        height: 460px;
+    }
+
+    .exposureSection {
+        padding-bottom: 72px;
+    }
+
+    .exposureInner {
+        padding: 0 20px;
+    }
+
+    .exposureLead {
+        font-size: 26px;
+        margin-bottom: 36px;
+    }
+
+    .exposureGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 18px;
+    }
+
+    .exposureLogoWrap {
+        height: 180px;
+        margin-bottom: 18px;
+    }
+
+    .exposureLogo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .exposureNameCard {
+        min-height: 96px;
+        font-size: 20px;
+    }
+
+    .exposureActions {
+        max-width: 100%;
+    }
+
+    .exposureActionTitle {
+        font-size: 20px;
+    }
+
+    .exposureActionButton {
+        min-width: 0;
+        width: 100%;
+        max-width: 320px;
+        height: 72px;
+        font-size: 20px;
+    }
+
+    .packageSection {
+        padding-bottom: 72px;
+    }
+
+    .residenceSection {
+        padding-bottom: 72px;
+    }
+
+    .residenceHero {
+        min-height: 620px;
+        height: auto;
+        padding: 96px 36px 40px;
+    }
+
+    .residenceTitle {
+        margin-bottom: 24px;
+        font-size: 48px;
+    }
+
+    .residenceText {
+        max-width: 860px;
+        font-size: 19px;
+    }
+
+    .packageInner {
+        padding: 0 20px;
+    }
+
+    .packageGallery {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        padding: 32px 20px 20px;
+        margin-bottom: 48px;
+    }
+
+    .packageGalleryWide,
+    .packageGalleryTall,
+    .packageGalleryRoom {
+        position: static;
+        width: 100%;
+        height: 280px;
+    }
+
+    .packageGalleryWide {
+        grid-column: 1 / -1;
+    }
+
+    .packageTitle {
+        position: static;
+        max-width: 100%;
+        margin: 0 0 16px;
+    }
+
+    .packageCard,
+    .packagePriceCard {
+        border-radius: 24px;
+    }
+
+    .packageCardTitle {
+        font-size: 22px;
+    }
+
+    .packageCardList {
+        font-size: 18px;
+    }
+
+    .packagePriceValue {
+        font-size: 56px;
+    }
+
+    .packagePriceDescription {
+        font-size: 18px;
+    }
+
+    .durationContent {
+        min-height: auto;
+    }
+
+    .durationInner {
+        padding: 110px 20px 32px;
+    }
+
+    .durationGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .durationCard {
+        min-height: 0;
+    }
+
+    .trainVideoSection {
+        padding: 72px 0 36px;
+    }
+
+    .trainVideoInner {
+        padding: 0 20px;
+    }
+
+    .trainVideoTitle {
+        margin-bottom: 32px;
+        font-size: 56px;
+    }
+
+    .trainVideoCard {
+        max-width: 760px;
+        border-radius: 30px;
+    }
+
+    .section__header {
+     font-size: 28px;
+     line-height: 36.34px;
+     text-align: center;
+     max-width: 100%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        justify-content: center;
+        margin: 48px auto 24px;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .methodologySection {
+        padding-bottom: 56px;
+    }
+
+    .methodologyTitle {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .methodologyPeopleGrid,
+    .methodologyCards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .methodologyPeopleGrid {
+        margin-bottom: 28px;
+    }
+
+    .methodologyPerson {
+        border-radius: 18px;
+    }
+
+    .methodologyPersonImage {
+        height: 240px;
+    }
+
+    .methodologyPersonName {
+        padding: 16px 14px 20px;
+        font-size: 18px;
+    }
+
+    .methodologyCard {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .methodologyCardTitle {
+        font-size: 18px;
+    }
+
+    .methodologyCardSubtitle {
+        margin-bottom: 12px;
+        font-size: 16px;
+    }
+
+    .methodologyCardText {
+        font-size: 16px;
+        line-height: 1.42;
+    }
+
+    .methodologyPatternBottom {
+        margin-top: 24px;
+    }
+
+    .philosophySection {
+        padding: 48px 0 56px;
+    }
+
+    .philosophyMission {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.42;
+    }
+
+    .philosophyTitle {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .philosophyGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+
+    .philosophyCard {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .philosophyCardHeader {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .philosophyIcon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .philosophyIcon img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .philosophyCardTitle {
+        font-size: 18px;
+    }
+
+    .philosophyCardText,
+    .philosophyFooter {
+        font-size: 16px;
+        line-height: 1.42;
+    }
+
+    .collaborationSection {
+        padding: 40px 0 56px;
+    }
+
+    .collaborationTitle {
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+
+    .collaborationSubtitle {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .collaborationText {
+        margin-bottom: 24px;
+        font-size: 16px;
+        line-height: 1.42;
+    }
+
+    .collaborationPanel {
+        gap: 16px;
+        padding: 20px 16px;
+        border-radius: 20px;
+    }
+
+    .collaborationPartnerImage {
+        max-height: 110px;
+    }
+
+    .schoolSection {
+        padding-bottom: 56px;
+    }
+
+    .schoolTitle {
+        font-size: 28px;
+        line-height: 1.12;
+    }
+
+    .schoolBadgeRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .schoolBadge {
+        min-width: 0;
+        width: auto;
+        height: 54px;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    .schoolAge {
+        font-size: 16px;
+    }
+
+    .schoolHeroImages {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .schoolWideImage,
+    .schoolTallImage {
+        height: 240px;
+    }
+
+    .schoolCards,
+    .schoolPrices {
+        grid-template-columns: 1fr;
+    }
+
+    .schoolCard {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .schoolCardHeader {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .schoolCardAccent {
+        width: 12px;
+        height: 12px;
+        margin-top: 4px;
+    }
+
+    .schoolCardTitle {
+        font-size: 18px;
+    }
+
+    .schoolCardText,
+    .schoolCardList {
+        font-size: 16px;
+        line-height: 1.42;
+    }
+
+    .schoolCardList {
+        padding-left: 18px;
+    }
+
+    .schoolPriceCard {
+        min-height: 0;
+        padding: 24px 16px 20px;
+        border-radius: 18px;
+    }
+
+    .schoolPriceBadge {
+        top: 14px;
+        right: 14px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .schoolPriceValue {
+        font-size: 44px;
+        margin-bottom: 10px;
+    }
+
+    .schoolPriceDescription {
+        font-size: 16px;
+    }
+
+    .gapSection {
+        padding-bottom: 56px;
+    }
+
+    .gapTitle {
+        font-size: 28px;
+        line-height: 1.12;
+    }
+
+    .gapBadgeRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .gapBadge {
+        min-width: 0;
+        width: auto;
+        height: 54px;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    .gapAge {
+        font-size: 16px;
+    }
+
+    .gapHeroImages {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .gapWideImage,
+    .gapTallImage {
+        height: 240px;
+    }
+
+    .gapCards,
+    .gapPrices {
+        grid-template-columns: 1fr;
+    }
+
+    .gapCard {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .gapCardHeader {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .gapCardAccent {
+        width: 12px;
+        height: 12px;
+        margin-top: 4px;
+    }
+
+    .gapCardTitle {
+        font-size: 18px;
+    }
+
+    .gapCardText,
+    .gapCardList {
+        font-size: 16px;
+        line-height: 1.42;
+    }
+
+    .gapCardList {
+        padding-left: 18px;
+    }
+
+    .gapPriceCard {
+        min-height: 0;
+        padding: 24px 16px 20px;
+        border-radius: 18px;
+    }
+
+    .gapPriceBadge {
+        top: 14px;
+        right: 14px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .gapPriceValue {
+        font-size: 44px;
+        margin-bottom: 10px;
+    }
+
+    .gapPriceDescription {
+        font-size: 16px;
+    }
+
+    .exposureOverview {
+        margin-bottom: 36px;
+    }
+
+    .exposureTitle {
+        font-size: 28px;
+        line-height: 1.18;
+        margin-bottom: 20px;
+    }
+
+    .exposureOverviewCards {
+        margin-bottom: 16px;
+    }
+
+    .exposureOverviewCard {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .exposureOverviewHeader {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .exposureOverviewAccent {
+        width: 12px;
+        height: 12px;
+        margin-top: 5px;
+    }
+
+    .exposureOverviewTitle {
+        font-size: 18px;
+    }
+
+    .exposureOverviewText {
+        font-size: 16px;
+        line-height: 1.42;
+    }
+
+    .exposureOverviewImageWrap {
+        border-radius: 0 0 18px 18px;
+    }
+
+    .exposureOverviewImage {
+        height: 280px;
+    }
+
+    .exposureSection {
+        padding-bottom: 56px;
+    }
+
+    .exposureLead {
+        font-size: 18px;
+        line-height: 1.4;
+        margin-bottom: 28px;
+    }
+
+    .exposureGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 36px;
+    }
+
+    .exposureLogoWrap {
+        height: 140px;
+        margin-bottom: 14px;
+    }
+
+    .exposureLogo {
+        width: 112px;
+        height: 112px;
+    }
+
+    .exposureNameCard {
+        min-height: 84px;
+        padding: 18px 16px;
+        border-radius: 18px;
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .exposureActions {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .exposureActionTitle {
+        margin-bottom: 14px;
+        font-size: 16px;
+    }
+
+    .exposureActionButton {
+        min-width: 0;
+        width: 100%;
+        height: 64px;
+        max-width: none;
+        font-size: 18px;
+    }
+
+    .packageSection {
+        padding-bottom: 56px;
+    }
+
+    .residenceSection {
+        padding-bottom: 56px;
+    }
+
+    .residenceHero {
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 560px;
+        padding: 72px 20px 28px;
+        background-color: #1397e3;
+        background-position: center bottom;
+        background-size: 130% auto;
+    }
+
+    .residenceHeroOverlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(231, 238, 246, 1) 0%,
+                rgba(231, 238, 246, 0.98) 10%,
+                rgba(220, 235, 247, 0.94) 18%,
+                rgba(197, 227, 246, 0.82) 30%,
+                rgba(132, 198, 239, 0.56) 46%,
+                rgba(48, 156, 224, 0.38) 66%,
+                rgba(0, 127, 214, 0.34) 82%,
+                rgba(0, 92, 176, 0.28) 100%
+            );
+    }
+
+    .residenceTitle {
+        margin-bottom: 18px;
+        font-size: 24px;
+    }
+
+    .residenceText {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .packageTitle {
+        margin-bottom: 8px;
+    }
+
+    .packageGallery {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 24px 16px 16px;
+        margin-bottom: 32px;
+    }
+
+    .packageGalleryWide,
+    .packageGalleryTall,
+    .packageGalleryRoom {
+        height: 220px;
+    }
+
+    .packageCards,
+    .packagePrices {
+        grid-template-columns: 1fr;
+    }
+
+    .packageCard,
+    .packagePriceCard {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .packageCardHeader {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .packageCardAccent {
+        width: 12px;
+        height: 12px;
+    }
+
+    .packageCardTitle {
+        font-size: 18px;
+    }
+
+    .packageCardList {
+        padding-left: 18px;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .packagePriceBadge {
+        top: 14px;
+        right: 14px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .packagePriceValue {
+        font-size: 44px;
+        margin-bottom: 10px;
+    }
+
+    .packagePriceDescription {
+        font-size: 16px;
+    }
+
+    .durationSection {
+        overflow: clip;
+    }
+
+    .durationBackgroundSticky {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        z-index: 0;
+    }
+
+    .durationBackground {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100svh;
+        background-position: center;
+    }
+
+    .durationContent {
+        min-height: 0;
+    }
+
+    .durationInner {
+        padding-top: 90px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .redLine {
+        position: relative;
+        z-index: 1;
+    }
+
+    .durationTitle {
+        margin-bottom: 32px;
+    }
+
+    .durationGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .durationCardTitle {
+        font-size: 22px;
+    }
+
+    .durationPriceValue {
+        font-size: 40px;
+    }
+
+    .redLine {
+        display: none;
+    }
+
+    .trainVideoSection {
+        padding: 56px 0 20px;
+    }
+
+    .trainVideoInner {
+        padding: 0 16px;
+    }
+
+    .trainVideoTitle {
+        margin-bottom: 24px;
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+    .trainVideoCard {
+        border-radius: 24px;
+    }
+}

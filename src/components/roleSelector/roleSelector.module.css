@@ -1,5 +1,5 @@
 .title {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 48px;
   line-height: 100%;
@@ -26,7 +26,7 @@
 }
 
 .label {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
@@ -48,7 +48,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 100%;
@@ -74,7 +74,7 @@
   width: 100%;
   max-width: 538px;
   margin: 20px 0 0 0;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 100%;

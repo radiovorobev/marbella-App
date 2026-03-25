@@ -37,7 +37,7 @@
 }
 
 .section__text p {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 32px;
   line-height: 40.22px;
@@ -59,7 +59,7 @@
   break-inside: avoid-column; /* Предотвращает разрыв абзацев */
   page-break-inside: avoid; /* Safari-фикс */
   margin: 0 0 20px 0;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 26.4px;

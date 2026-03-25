@@ -22,7 +22,7 @@
 
 
 .goalsTitle {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 48px;
   line-height: 100%;
@@ -54,7 +54,7 @@
 
 
 .sectionTitle {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
@@ -63,14 +63,14 @@
 }
 
 .subsectionTitle {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 21px;
 }
 
 .goalList {
   list-style: disc;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 130%;

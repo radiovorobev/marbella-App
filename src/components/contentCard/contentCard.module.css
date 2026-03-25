@@ -20,7 +20,7 @@
 }
 
 .card h3 {
-    font-family: Cera Pro;
+    font-family: "Cera Pro", sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 100%;
@@ -42,7 +42,7 @@
 .tag {
     align-items: center;
     margin: 0;
-    font-family: Cera Pro;
+    font-family: "Cera Pro", sans-serif;
     font-weight: 400;
     font-size: 21px;
     line-height: 100%;
@@ -70,7 +70,7 @@
     justify-content: center;
     width: 100%;
     margin: 0;
-    font-family: Cera Pro;
+    font-family: "Cera Pro", sans-serif;
     font-weight: 700;
     font-size: 36px;
     line-height: 100%;
@@ -86,7 +86,7 @@
     margin: 32px 0;
     padding: 0 24px;
     list-style: disc;
-    font-family: Cera Pro;
+    font-family: "Cera Pro", sans-serif;
     font-weight: 400;
     font-size: 21px;
     line-height: 130%;
@@ -95,7 +95,7 @@
 
 .note {
     margin: 32px 0 0 0;
-    font-family: Cera Pro;
+    font-family: "Cera Pro", sans-serif;
     font-weight: 400;
     font-size: 21px;
     line-height: 100%;
@@ -108,7 +108,7 @@
     justify-content: center;
     width: 100%;
     margin: 20px 0 0 0;
-    font-family: Cera Pro;
+    font-family: "Cera Pro", sans-serif;
     font-weight: 700;
     font-size: 36px;
     line-height: 100%;

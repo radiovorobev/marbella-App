@@ -29,7 +29,7 @@
 }
 
 .section h2 {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 48px;
   line-height: 100%;
@@ -65,14 +65,14 @@
   height: 160px;
   box-sizing: border-box;
   background-color: #E51B22;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   color: #fff;
   font-size: 36px;
 }
 
 .text {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 100%;

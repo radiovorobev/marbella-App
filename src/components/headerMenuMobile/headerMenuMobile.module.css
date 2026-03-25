@@ -11,7 +11,7 @@
 }
 
 .header__menu_mobile_list a {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20.11px;
@@ -35,7 +35,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20.11px;
@@ -75,7 +75,7 @@
   height: 40px;
   background-color: #c8e51f;
   color: #000;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 22.63px;

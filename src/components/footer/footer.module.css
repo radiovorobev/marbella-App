@@ -46,7 +46,7 @@
 
 .footer__phone {
   display: block;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 60.34px;
@@ -64,7 +64,7 @@
 }
 
 .footer__mail {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20.11px;
@@ -104,7 +104,7 @@
 
 .footer__copyright, .footer__address {
   margin: 0;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 24px;

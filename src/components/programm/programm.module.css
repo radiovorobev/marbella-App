@@ -26,7 +26,7 @@
 }
 
 .section__programms_programm_title {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 48px;
   line-height: 60.34px;
@@ -45,7 +45,7 @@
 }
 
 .section__programms_programm_specs_level {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 48px;
   line-height: 60.34px;
@@ -55,7 +55,7 @@
 }
 
 .section__programms_programm_specs_age {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 32px;
   line-height: 40.22px;
@@ -65,7 +65,7 @@
 }
 
 .section__programms_programm_text {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 26.4px;
@@ -76,7 +76,7 @@
 }
 
 .section__programms_programm ul {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 26.4px;

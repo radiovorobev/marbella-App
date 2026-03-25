@@ -5,14 +5,14 @@
   padding: 0 124px 100px;
   box-sizing: border-box;
   background-color: #fff;
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 26.4px;
 }
 
 .title {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 700;
   font-size: 32px;
   line-height: 40.22px;
@@ -40,7 +40,7 @@
 }
 
 .backButton {
-  font-family: Cera Pro;
+  font-family: "Cera Pro", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 20.11px;
@@ -69,7 +69,7 @@
 
   .titleMobile {
     display: block;
-    font-family: Cera Pro;
+    font-family: "Cera Pro", sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 30.17px;
